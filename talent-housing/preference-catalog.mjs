@@ -1,0 +1,29 @@
+// Public evidence identifies survey dimensions, not individual preference weights.
+export const preferenceCatalog={version:'shenzhen-faculty-preferences-20261112',checkedOn:'2026-11-12',scope:'深圳高校高层次教师人才住房需求调查',sources:[
+  {id:'S1',title:'哈工大深圳教师岗位招聘',date:'2024-02-20',kind:'recruitment_example',url:'https://geni.hitsz.edu.cn/info/1093/1168.htm'},
+  {id:'S2',title:'南方科技大学住房管理',date:null,kind:'service_guide',url:'https://gao.sustech.edu.cn/space/housing.html?lang=zh-cn'},
+  {id:'S3',title:'南方科技大学周转住房管理办法试行',date:null,kind:'historical_rule_current_status_pending',url:'https://gao.sustech.edu.cn/uploads/202011/09165733_76333.pdf'},
+  {id:'S4',title:'深圳大学教职工住房指南',date:'2023-11-06',kind:'service_guide',url:'https://hqb.szu.edu.cn/info/1071/2081.htm'},
+  {id:'S5',title:'香港中文大学深圳特聘岗位申报指南',date:null,kind:'historical_recruitment_example',url:'https://www.cuhk.edu.cn/zh-hans/article/6620'},
+  {id:'S6',title:'深圳混合居住区环境与主观幸福感研究',date:'2022-11-28',kind:'mixed_population_study',doi:'10.18306/dlkxjz.2022.11.009',url:'https://www.progressingeography.com/CN/10.18306/dlkxjz.2022.11.009'},
+  {id:'S7',title:'深圳市教育局义务教育优待政策问答',date:'2025-02-21',kind:'guide_referring_to_2023_admissions',url:'https://szeb.sz.gov.cn/home/gzcy/zcwdpt/fwxs/content/post_12073902.html'},
+  {id:'S8',title:'深圳市住房保障署关于面向高层次人才配租保障性租赁住房有关事项的通告',date:'2026-08-19',kind:'closed_batch_notice',applicationClosedOn:'2026-08-31',url:'https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12942744.html'},
+  {id:'S9',title:'深圳市住房保障署面向人才配售住房通告（住保售〔2026〕027号）',date:'2026-04-08',kind:'talent_sale_batch_notice',applicationClosedOn:'2026-04-14',url:'https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12725439.html'}
+],dimensions:[
+  ['cost','实际住房支出','月租金与固定费用上限、价差参照对象、改善是否值得',['S1','S3'],'公开服务与访谈线索'],
+  ['move_in','首次入住投入','家具家电配置、搬迁支出、拎包入住要求',['S2','S3'],'公开服务与访谈线索'],
+  ['commute','教学科研通勤','实际校区和楼宇、出行方式、时段与最长可接受时间',[],'访谈线索及待调查扩展'],
+  ['family','家庭共同生活','两地分居、配偶工作地点及共同入住时间',['S5'],'公开服务与待调查扩展'],
+  ['education','子女教育衔接','学段、入学年份、接送时间及实际入读条件',['S1','S5','S7'],'公开服务与访谈线索'],
+  ['care','育幼及老人照护','照护人口、托育、电梯及连续无障碍路径',['S6'],'研究维度与待调查扩展'],
+  ['medical','医疗服务','所需服务类型、可接受到达时间和出行条件',['S5','S6'],'公开服务与研究维度'],
+  ['space','室内空间与居家工作','卧室、有效空间、独立书桌及储物需求',['S4','S6'],'公开服务与待调查扩展'],
+  ['environment','安静与住房健康','噪声、采光、通风、潮湿及整洁要求',['S6'],'访谈及待调查扩展'],
+  ['amenities','日常生活及出行','购物、运动、夜间交通、停车与充电',['S6'],'研究维度与待调查扩展'],
+  ['stability','租住稳定性','最短租期、续租条件及搬迁顾虑',['S3'],'历史规则与待调查扩展'],
+  ['transition','到岗过渡及手续','到岗、最迟入住、补件次数及过渡住宿',['S2','S8','S9'],'公开流程与访谈线索'],
+  ['maintenance','报修与物业服务','设备故障、清洁和实际报修处理体验',['S2','S4'],'公开服务与待调查扩展'],
+  ['community','邻里交往及社区归属','邻里互助、公共活动与隐私需要',['S6'],'混合住区实证研究'],
+  ['choice','选择权及分配感受','看房信息、拒选原因及家庭变化后的调换需要',['S2','S3','S9'],'公开流程与待调查扩展'],
+  ['expectation','预期与实际体验','申请前预期、入住后体验、已发生投入及参照对象',[],'访谈提出的待验证假设']
+].map(([id,title,question,sourceIds,evidence])=>({id,title,question,sourceIds,evidence,personalWeight:null,required:false})),notes:['各维度由本人确认是否适用及重要程度。','公开服务内容不代表教师偏好排序。','一至两公里及约一年等待为访谈线索。','S8为配租批次，S9为配售批次，二者申请条件、支付方式和退出机制不能混用。','本目录不改变现有匹配分与分配优先序。']};

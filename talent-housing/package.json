@@ -1,0 +1,1 @@
+{"name":"anke-talent-housing","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test test.mjs","mcp":"node mcp.mjs"}}

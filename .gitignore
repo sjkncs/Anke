@@ -1,0 +1,87 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+out/
+build/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+!apps/desktop/build/
+apps/desktop/build/icon.iconset/
+target/
+*.tsbuildinfo
+apps/desktop/out/
+apps/desktop/dist-electron/
+apps/desktop/release/
+packages/*/dist/
+packages/*/dist-bundle/
+apps/*/dist-bundle/
+
+# Local design-source exports
+docs/image/pi_logo.png
+docs/image/pi_logo.webp
+*.tgz
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.local
+*.p12
+*.cer
+*.p8
+*.mobileprovision
+*.pem
+*.key
+!scripts/e2e/fixtures/certificates/localhost-cert.pem
+!scripts/e2e/fixtures/certificates/localhost-key.pem
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.log
+coverage/
+.cache/
+.turbo/
+
+# Local runtime data
+.pi-desktop/
+.pi-desktop-test/
+.pi/
+.cc-connect/
+
+.playwright-mcp/
+.claude/
+.workbuddy
+electron.vite.config.*.mjs
+
+.playwright-cli
+worktrees
+
+# Anke private state and generated artifacts
+__pycache__/
+*.pyc
+*.sqlite*
+*.db
+apps/desktop/.*-ui-*/
+apps/desktop/resources/plugins/local.pi-bot/output/
+apps/desktop/resources/plugins/anke.rents/data/*.json
+!apps/desktop/resources/plugins/anke.rents/data/records.json
+event-monitor/data/
+event-monitor/verification/
+talent-housing/data/
+talent-housing/verification/
+rent-knowledge/data/
+rent-knowledge/artifacts/
+rent-knowledge/geo-runtime/*.json
+rent-knowledge/geo-runtime/*.csv
+rent-knowledge/environment_research/models/
+rent-knowledge/environment_research/runtime-settings/
+rent-knowledge/environment_research/source-evidence/
+rent-knowledge/environment_research/vision-results/
+rent-knowledge/environment_research/*.csv
+rent-knowledge/environment_research/*.json

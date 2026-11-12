@@ -1,0 +1,60 @@
+.anke-rent-entry .btn {
+  color: var(--ds-accent);
+  background: var(--ds-bg-active);
+}
+:root[data-theme="light"] {
+  --ds-bg-primary: #ffffff;
+  --ds-settings-rail-bg: #f5f5f5;
+  --ds-bg-sidebar: #f5f5f5;
+  --ds-bg-secondary: #f5f5f5;
+  --ds-bg-tertiary: #eeeeee;
+  --ds-bg-under: #f5f5f5;
+  --ds-bg-dock: #f5f5f5;
+  --ds-bg-dock-raised: #ffffff;
+  --ds-bg-hover: #eeeeee;
+  --ds-bg-active: #e8e8e8;
+  --ds-bg-composer: #ffffff;
+  --ds-bg-chip: #f2f2f2;
+  --ds-text-primary: #242424;
+  --ds-text-secondary: #666666;
+  --ds-text-muted: #666666;
+  --ds-text-faint: #777777;
+  --ds-border-default: #e5e5e5;
+  --ds-border-subtle: #eeeeee;
+  --ds-border-strong: #bcbcbc;
+  --ds-accent: #454545;
+  --ds-accent-hover: #292929;
+  --ds-accent-soft: #eeeeee;
+  --ds-focus: #666666;
+  --ds-settings-nav-active: #e8e8e8;
+  --ds-field-inset-bg: #f5f5f5;
+  --ds-send-disabled-bg: #e5e5e5;
+  --ds-send-disabled-fg: #999999;
+  --ds-info: #555555;
+}
+:root[data-theme="light"] .brand,
+:root[data-theme="light"] .nav-item.active {
+  color: var(--ds-accent);
+}
+.anke-rent-entry {
+  display: grid;
+  gap: 6px;
+  margin: 0 8px 12px;
+  font-size: var(--text-sm);
+}
+.anke-rent-entry .btn {
+  justify-content: flex-start;
+  width: 100%;
+}
+.anke-rent-entry [role="alert"] {
+  color: var(--ds-text-secondary);
+}
+.anke-home-mark {
+  display: grid;
+  place-items: center;
+}
+.home-mascot-logo.anke-home-mark img {
+  display: block;
+  width: 64px;
+  height: 64px;
+}

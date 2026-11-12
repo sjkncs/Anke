@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "intervalSeconds": 600,
+  "sources": [
+    {"id":"sz-notices","name":"深圳政府在线 · 通知公告","url":"https://www.sz.gov.cn/cn/xxgk/zfxxgj/tzgg/"},
+    {"id":"sz-news","name":"深圳政府在线 · 政务动态","url":"https://www.sz.gov.cn/cn/xxgk/zfxxgj/zwdt/"},
+    {"id":"sz-traffic","name":"深圳交警 · 交通管制","url":"https://szjj.sz.gov.cn/ZWGK/TZGG/GGJG/index.html"}
+  ],
+  "seedArticles": [
+    "https://www.sz.gov.cn/gkmlpt/content/13/13051/post_13051787.html",
+    "https://szjj.sz.gov.cn/m/YD_ZWGK/YD_TZGG/YD_GGJG/content/post_13009354.html",
+    "https://www.sz.gov.cn/cn/xxgk/zfxxgj/tzgg/content/post_12846563.html"
+  ]
+}

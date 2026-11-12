@@ -1,0 +1,73 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>安客 人才住房</title>
+<style>body{margin:0;color:#242424;background:#fff;font:14px/1.6 'Segoe UI','Microsoft YaHei',sans-serif}header{padding:18px 28px;background:#f5f5f5;border-bottom:1px solid #e5e5e5}main{max-width:1120px;margin:auto;padding:24px}h1{font-size:18px;font-weight:500;margin:0}h2{font-size:16px;font-weight:500}button,input,select,textarea{font:inherit;color:inherit;border:1px solid #ddd;border-radius:6px;padding:8px;background:white}button{cursor:pointer;margin:4px}button:hover{background:#eee}textarea{width:100%;min-height:280px;box-sizing:border-box}table{border-collapse:collapse;width:100%}th,td{text-align:left;border-bottom:1px solid #e5e5e5;padding:10px}nav{margin-bottom:20px}label{display:inline-block;margin:5px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}pre{white-space:pre-wrap;overflow-wrap:anywhere}#message{min-height:24px}section{margin-bottom:25px}[hidden]{display:none!important}@media(max-width:750px){.grid{grid-template-columns:1fr}}</style>
+<header><h1>Anke Agent · 人才住房</h1></header><main>
+<nav><button data-page="recommend">住房匹配</button><button data-page="records">需求与房源</button><button data-page="workflow">资格进度</button><button data-page="allocation">配租模拟</button><button data-page="preferences">教师需求参考</button><button data-page="survey">问卷模板</button></nav>
+<p id="message" role="status"></p>
+<section id="recommend"><h2>按家庭需求查找住房</h2><label>申请编号 <select id="app"></select></label><button id="find">查看推荐</button><div id="recommendResult"></div></section>
+<section id="records" hidden><h2>需求与房源登记</h2><p>使用脱敏编号登记。</p><div class="grid"><div><label>记录类型 <select id="kind"><option value="application">家庭需求</option><option value="unit">可供房源</option></select></label><button id="template">新增记录</button><form id="recordForm"><div id="fields"></div><button type="submit">保存记录</button></form></div><div><h2>已登记记录</h2><div id="recordList"></div></div></div></section>
+<section id="workflow" hidden><h2>资格办理进度</h2><button id="progress">查看当前进度</button><div id="progressResult"></div></section>
+<section id="allocation" hidden><h2>按已登记优先序模拟选房</h2><p>模拟不锁定房源，不生成正式配租结果。</p><button id="simulate">运行模拟</button><div id="allocationResult"></div></section>
+<section id="preferences" hidden><h2>深圳高校教师住房需求参考</h2><p>结合公开资料和访谈整理，供填写需求和开展调查时参考。</p><div id="preferenceResult"></div></section>
+<section id="survey" hidden><h2>深圳高校高层次教师住房需求调查</h2><p id="surveyIntro"></p><button id="downloadSurvey">下载问卷模板</button><div id="surveyResult"></div></section>
+</main><script>
+const token='__TOKEN__';const $=id=>document.getElementById(id);let state,editing;
+const labels={matched:'符合条件',needs_verification:'信息待核实',excluded:'不符合必要条件',unit_not_available:'房源暂不可供',housing_type:'不在可申请类型内',cost_limit:'超过费用上限',commute_limit:'超过通勤上限',bedroom_limit:'卧室数量不足',move_in_limit:'无法按时交付',elevator_required:'无电梯',total_cost:'全部固定费用',commute:'通勤',bedrooms:'卧室数量',available_date:'交付日期',elevator:'电梯',quality:'品质',eligibility_not_verified:'资格尚未确认',preferred_units_taken:'可接受房源已由前序家庭选取',no_verified_match:'暂无已核实且适配的房源',pending:'待审核',verified:'已核验',ineligible:'不符合资格'};
+const display=v=>labels[v]??v??'—';
+async function api(data){const r=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json','X-Anke-Token':token},body:JSON.stringify(data)});const v=await r.json();if(!r.ok)throw Error(v.error);return v;}
+function table(id,headers,rows){const t=document.createElement('table');for(const values of [headers,...rows]){const tr=document.createElement('tr');for(const value of values){const td=document.createElement(t.rows.length?'td':'th');if(value instanceof Node)td.append(value);else td.textContent=value??'—';tr.append(td);}t.append(tr);}$(id).replaceChildren(t);}
+async function reload(){const selected=$('app').value;state=await api({action:'list'});$('app').replaceChildren(...state.applications.map(a=>{const o=document.createElement('option');o.value=a.id;o.textContent=a.label+' · '+a.id;return o;}));if(state.applications.some(a=>a.id===selected))$('app').value=selected;
+table('recordList',['类型','编号','编辑'],['application','unit'].flatMap(kind=>(kind==='application'?state.applications:state.units).map(r=>{const b=document.createElement('button');b.textContent='编辑';b.onclick=()=>{$('kind').value=kind;edit(r);};return[kind==='application'?'需求':'房源',r.id,b];})));}
+function task(fn){return async()=>{try{$('message').textContent='';await fn();}catch(e){$('message').textContent=e.message;}};}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('section').forEach(s=>s.hidden=s.id!==b.dataset.page);});
+function field(key,title,value,type='text',options){
+  const label=document.createElement('label');label.style.display='block';label.textContent=title+' ';
+  const input=document.createElement(options?'select':'input');input.id='f-'+key;input.name=key;
+  if(options)for(const [v,t]of options){const o=document.createElement('option');o.value=v;o.textContent=t;input.append(o);}else{input.type=type;if(type==='number'){input.min='0';input.step='any';}}
+  input.value=value??'';if(key==='id'&&editing?.revision)input.readOnly=true;label.append(input);$('fields').append(label);return input;
+}
+function edit(record){
+  editing=record?structuredClone(record):null;$('fields').replaceChildren();const a=$('kind').value==='application',r=editing??{};
+  field('id',a?'申请编号':'房源编号',r.id);
+  if(a){
+    field('label','家庭代称',r.label);field('ruleVersion','采用的配租规则版本',r.ruleVersion);
+    field('eligibility','资格核验状态',r.eligibility??'pending','text',[['pending','待审核'],['verified','已核验'],['ineligible','不符合资格']]);
+    field('priority','已确定的优先顺序（数字越小越靠前）',r.priority,'number');
+    field('submittedOn','申请日期',r.submittedOn,'date');
+    field('allowedTypes','可申请住房类型（多项用逗号分隔）',r.allowedTypes?.join('，'));
+    field('maxCost','每月租金及固定费用上限（元）',r.maxCost,'number');field('maxCommute','最长可接受通勤时间（分钟）',r.maxCommute,'number');
+    field('minBedrooms','最少卧室数量',r.minBedrooms,'number');field('needsElevator','是否必须有电梯',String(r.needsElevator??false),'text',[['false','否'],['true','是']]);field('latestMoveIn','最迟可接受入住日期',r.latestMoveIn,'date');
+    const h=document.createElement('h2');h.textContent='需求偏重（各项填写0—100，按比例计算）';$('fields').append(h);
+    for(const [k,t]of [['commute','通勤'],['cost','费用'],['space','空间'],['quality','品质']])field('weight-'+k,t,r.weights?.[k]??0,'number');
+    const p=document.createElement('p');p.textContent='新增办理记录';$('fields').append(p);field('stage','办理环节',null);field('stageOn','环节开始日期',null,'date');
+    if(r.workflow?.events.length){const history=document.createElement('p');history.textContent=r.workflow.events.map(e=>e.on+' '+e.stage).join('；');$('fields').append(history);}
+  }else{
+    field('project','小区或项目名称',r.project);field('type','住房类型',r.type);
+    field('status','供应状态',r.status??'available','text',[['available','可供'],['repair','维修中'],['reserved','已预留'],['occupied','已入住']]);
+    field('source','房源信息来源与核实日期',r.source);
+    for(const [k,t]of [['rent','月租金（元）'],['fees','每月物业等固定费用（元）'],['bedrooms','卧室数量'],['quality','品质评估分（0—100）']])field(k,t+'，未知留空',r[k],'number');
+    field('elevator','电梯',r.elevator===null||r.elevator===undefined?'':String(r.elevator),'text',[['','待核实'],['true','有'],['false','无']]);field('availableOn','可入住日期（未知留空）',r.availableOn,'date');
+    const h=document.createElement('h2');h.textContent='各家庭通勤时间（分钟，未知留空）';$('fields').append(h);
+    for(const app of state?.applications??[])field('commute-'+app.id,app.label+' · '+app.id,r.commute?.[app.id],'number');
+  }
+}
+const value=k=>$('f-'+k).value.trim();const numeric=k=>value(k)===''?null:Number(value(k));
+$('template').onclick=()=>edit();$('kind').onchange=()=>edit();
+$('recordForm').onsubmit=event=>{event.preventDefault();task(async()=>{
+  const kind=$('kind').value,a=kind==='application',r={...editing,id:value('id')};
+  if(a){
+    Object.assign(r,{label:value('label'),ruleVersion:value('ruleVersion'),eligibility:value('eligibility'),priority:numeric('priority'),submittedOn:value('submittedOn'),allowedTypes:value('allowedTypes').split(/[,，]/).map(s=>s.trim()).filter(Boolean),maxCost:numeric('maxCost'),maxCommute:numeric('maxCommute'),minBedrooms:numeric('minBedrooms'),needsElevator:value('needsElevator')==='true',latestMoveIn:value('latestMoveIn'),weights:Object.fromEntries(['commute','cost','space','quality'].map(k=>[k,numeric('weight-'+k)])),workflow:structuredClone(editing?.workflow??{events:[]})});
+    if(value('stage')||value('stageOn'))r.workflow.events.push({stage:value('stage'),on:value('stageOn')});
+  }else{
+    Object.assign(r,{project:value('project'),type:value('type'),status:value('status'),source:value('source'),rent:numeric('rent'),fees:numeric('fees'),bedrooms:numeric('bedrooms'),quality:numeric('quality'),elevator:value('elevator')===''?null:value('elevator')==='true',availableOn:value('availableOn')||null,commute:{...editing?.commute},education:editing?.education??'unverified'});
+    for(const app of state.applications)r.commute[app.id]=numeric('commute-'+app.id);
+  }
+  const saved=await api({action:'save',kind,record:r});await reload();edit(saved);$('message').textContent='已保存';
+})();};
+$('find').onclick=task(async()=>{const r=await api({action:'recommend',applicationId:$('app').value});$('message').textContent='资格状态：'+display(r.eligibility);table('recommendResult',['项目','状态','匹配分','月固定支出','通勤分钟','待核实或不符合项'],r.results.map(x=>[x.project,display(x.state),x.score,x.totalCost,x.commute,[...x.blocked,...x.unknown].map(display).join('、')]));});
+$('progress').onclick=task(async()=>{const rows=await Promise.all(state.applications.map(a=>api({action:'progress',applicationId:a.id})));table('progressResult',['编号','资格','当前环节','累计天数','本环节天数','规则版本'],rows.map(r=>[r.applicationId,display(r.eligibility),r.stage,r.totalElapsedDays,r.stageElapsedDays,r.ruleVersion]));});
+$('simulate').onclick=task(async()=>{const r=await api({action:'simulate'});table('allocationResult',['申请编号','房源编号','匹配分','结果'],r.assignments.map(a=>[a.applicationId,a.unitId,a.score,display(a.reason)]));});
+function surveyMarkdown(s){let out='# '+s.title+'\n\n'+s.intro+'\n\n';for(const section of s.sections){out+='## '+section.title+'\n\n';for(const item of section.items){out+='- **'+item.question+'**（'+item.type+'）';if(item.options)out+='\n  选项：'+item.options.join('；');out+='\n';}out+='\n';}out+='## 情景题（仅用于调查设定）\n\n';for(const task of s.choiceTasks)out+='- **'+task.title+'**：'+task.prompt+'\n';out+='\n## 编码提示\n\n'+s.codingNotes.map(x=>'- '+x).join('\n')+'\n';return out;}
+function renderSurvey(s){$('surveyIntro').textContent=s.intro;const rows=[];for(const section of s.sections)for(const item of section.items)rows.push([section.title,item.question,item.type,item.options?.join('；')??'']);table('surveyResult',['模块','问题','回答方式','选项或填写说明'],rows);const h=document.createElement('h2');h.textContent='情景题（仅用于调查设定）';$('surveyResult').append(h);const p=document.createElement('p');p.textContent=s.choiceTasks.map(x=>x.title+'：'+x.prompt).join('；');$('surveyResult').append(p);}
+$('downloadSurvey').onclick=task(async()=>{const s=await api({action:'survey_template'});const blob=new Blob([surveyMarkdown(s)],{type:'text/markdown;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='深圳高校高层次教师住房需求调查-试行稿.md';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);$('message').textContent='已生成问卷模板';});
+task(async()=>{await reload();edit();const catalog=await api({action:'preference_catalog'});table('preferenceResult',['需求维度','调查内容','依据类型','公开出处'],catalog.dimensions.map(d=>{const links=document.createElement('span');for(const id of d.sourceIds){const source=catalog.sources.find(s=>s.id===id),a=document.createElement('a');a.textContent=id+' ';a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';a.title=source.title;links.append(a);}return[d.title,d.question,d.evidence,links];}));renderSurvey(await api({action:'survey_template'}));})();
+</script></html>

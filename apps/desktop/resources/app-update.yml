@@ -1,0 +1,4 @@
+provider: github
+owner: sjkncs
+repo: Anke
+updaterCacheDirName: anke-agent-updater

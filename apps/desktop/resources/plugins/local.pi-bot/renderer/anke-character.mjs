@@ -1,0 +1,27 @@
+// ANKE's house mark becomes a small pen-and-paper companion.
+export function ankeCharacterMarkup() {
+  return `<g class="bt-b anke-bot" stroke="#494b4d" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="50" cy="91" rx="25" ry="3" fill="#aeb1b5" opacity=".16" stroke="none"/>
+    <g class="anke-wings" fill="#efefeb" stroke-width="2.2">
+    <path d="M28 58Q7 58 4 37Q3 30 7 26Q12 36 22 37Q12 26 14 21Q16 18 19 24Q25 33 34 35Z"/>
+    <path d="M72 58Q93 58 96 37Q97 30 93 26Q88 36 78 37Q88 26 86 21Q84 18 81 24Q75 33 66 35Z"/>
+    <path d="M10 38Q16 47 27 48M90 38Q84 47 73 48" fill="none" stroke="#a7aaa7" stroke-width="1.2"/>
+    </g><g fill="#faf9f6">
+    <path d="M38 76L36 87Q27 86 26 91Q31 94 40 91L44 77M59 77L61 90Q69 95 75 91Q76 87 66 86L65 76"/>
+    <path d="M24 36L49 13Q51 11 53 14L77 36L76 77L25 78Z"/>
+    <path d="M19 39Q33 25 50 12Q65 25 81 40" fill="none" stroke-width="3.5"/>
+    <path d="M48 19L48 27M21 79L80 78" fill="none" stroke="#929492" stroke-width="1.5"/>
+    <path d="M41 77L41 59Q50 58 60 59L60 77" fill="#e8e9e5"/>
+    <g class="anke-arms" stroke-width="2.3">
+    <path d="M24 49Q18 55 18 66L19 70M77 49Q83 55 83 66L82 70" fill="none"/>
+    <path d="M15 67Q12 69 14 75Q17 79 22 76Q25 74 23 70Q22 67 19 68Q17 65 15 67Z"/>
+    <path d="M86 67Q89 69 87 75Q84 79 79 76Q76 74 78 70Q79 67 82 68Q84 65 86 67Z"/>
+    <path d="M17 71L18 74M21 71L21 73M84 71L83 74M80 71L80 73" fill="none" stroke-width="1"/>
+    </g>
+    </g>
+    <g class="bt-gaze"><g class="bt-eyes" fill="#494b4d" stroke="none"><ellipse class="bt-eye" cx="39" cy="43" rx="2.5" ry="3.4"/><ellipse class="bt-eye" cx="63" cy="43" rx="2.5" ry="3.4"/></g></g>
+    <path d="M46 49Q51 54 56 49" fill="none" stroke-width="2"/>
+    <path d="M31 49L35 50M67 50L71 48" stroke="#b7a89c" stroke-width="2" opacity=".6"/>
+    <path d="M28 37L28 71M31 34L31 39" stroke="#c6c5bf" stroke-width=".8" fill="none"/>
+  </g>`;
+}

@@ -1,0 +1,77 @@
+import { describe, expect, it } from "vitest";
+import {
+  composeModeSystemPrompt,
+  DEFAULT_RUNTIME_SYSTEM_PROMPT,
+  CONTRACT_MODE_POLICY_PROMPT,
+  GOAL_MODE_SYSTEM_PROMPT,
+  PLAN_MODE_SYSTEM_PROMPT,
+} from "./mode-prompts.js";
+
+describe("mode-specific system prompts", () => {
+  it("uses the Anke service identity, complete housing lifecycle and honest capability boundaries",()=>{
+    expect(DEFAULT_RUNTIME_SYSTEM_PROMPT).toContain("我是安客 Anke");
+    for (const stage of ["申报", "推进", "看房", "选房", "交租", "入住", "退出"]) expect(DEFAULT_RUNTIME_SYSTEM_PROMPT).toContain(stage);
+    expect(DEFAULT_RUNTIME_SYSTEM_PROMPT).toContain("underlying model/provider is separate");
+    expect(DEFAULT_RUNTIME_SYSTEM_PROMPT).toContain("does not mean a connected external account");
+    expect(DEFAULT_RUNTIME_SYSTEM_PROMPT).toContain("Distinguish imported observations from demo data");
+    expect(DEFAULT_RUNTIME_SYSTEM_PROMPT).not.toContain("PI-Desktop");
+  });
+  it("composes Plan instructions over the shared runtime prompt", () => {
+    const prompt = composeModeSystemPrompt("plan", "base instructions");
+
+    expect(prompt).toContain("base instructions");
+    expect(prompt).toContain(PLAN_MODE_SYSTEM_PROMPT);
+    expect(prompt).toContain("Inspect the workspace");
+    expect(prompt).toContain("SubmitPlan");
+    expect(prompt).toContain("When any initial or revised plan is ready");
+    expect(prompt).toContain("immediately exactly once in the current turn");
+    expect(prompt).toContain("one complete Markdown snapshot");
+    expect(prompt).toContain("Do not write or edit a plan file yourself");
+    expect(prompt).toContain("host writes a new .pi/plan artifact");
+    expect(prompt).toContain("An accepted new Plan prompt means no prior approval is pending");
+    expect(prompt).toContain("historical immutable checkpoints");
+    expect(prompt).toContain("After reject, expiry, or interruption");
+    expect(prompt).toContain("follow the same one-SubmitPlan rule");
+    expect(prompt).toContain("Do not wait for chat confirmation");
+    expect(prompt).toContain("Do not use Write, Edit");
+    expect(prompt).toContain("Do not create, overwrite, delete, or otherwise mutate workspace files in Plan mode");
+    expect(prompt).toContain("including through Bash");
+    expect(prompt).toContain("ask them to switch to Agent mode");
+    expect(prompt).toContain("Plugin tools that declare plan-safe actions are available for inspection");
+    expect(prompt).toContain("Bash is available under the active permission policy");
+  });
+
+  it("keeps a Goal session without its definition read-only and free of the retired negotiation", () => {
+    // ADR mode-definitions: the run engine drives Goal; without a definition
+    // the builtin mapping is the contract level.
+    const prompt = composeModeSystemPrompt("goal", "base instructions");
+
+    expect(prompt).toContain("base instructions");
+    expect(prompt).toContain(GOAL_MODE_SYSTEM_PROMPT);
+    expect(prompt).toContain(CONTRACT_MODE_POLICY_PROMPT);
+    expect(prompt).toContain("When no Mode run section is present");
+    expect(prompt).not.toContain("SubmitGoal");
+    expect(prompt).not.toContain("SubmitPlan");
+    expect(prompt).not.toContain(PLAN_MODE_SYSTEM_PROMPT);
+  });
+
+  it("fails closed for a mode whose definition is not available", () => {
+    const prompt = composeModeSystemPrompt("reviewer", "base instructions");
+
+    expect(prompt).toContain('operating in the "reviewer" mode');
+    expect(prompt).toContain(CONTRACT_MODE_POLICY_PROMPT);
+    expect(prompt).not.toContain("operating in Agent mode");
+  });
+
+  it("uses explicit mode instructions instead of the builtin text", () => {
+    expect(composeModeSystemPrompt("reviewer", "base", "Review carefully.")).toBe("base\n\nReview carefully.");
+  });
+
+  it("keeps Agent composition separate from Plan composition", () => {
+    const prompt = composeModeSystemPrompt("agent", "base instructions");
+
+    expect(prompt).toContain("operating in Agent mode");
+    expect(prompt).not.toContain("Do not use Write, Edit");
+    expect(prompt).not.toContain("SubmitGoal");
+  });
+});

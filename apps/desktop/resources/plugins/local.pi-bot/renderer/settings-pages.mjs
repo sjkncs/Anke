@@ -1,0 +1,134 @@
+import {UPDATE_PREF,UPDATE_EVENT,UPDATE_RESULT,updatesEnabled} from './update-notice.mjs';
+import {morphHeight} from './interaction-motion.mjs';
+import {el,icon} from './dom.mjs';
+import {soft,row,section,choose,segments,href,textInput} from './settings-ui.mjs';
+import {THEMES} from './upstream/themes.mjs';
+import {ACCENT_INKS,INKS} from './upstream/inks.mjs';
+import {createUsagePage} from './settings-usage.mjs';
+import {avatarImage} from './avatar-editor.mjs';
+import {profileLook} from './profile-avatar.mjs';
+// Anke Bot project links; upstream attribution is kept separately.
+const REPO='https://github.com/vsd269/PI-Bot';
+const UPSTREAM='https://github.com/Fei2411/DeepSeek-Bot';
+export function createSettingsPages({body,show,call,getState,update,savePreferences,notice,onNative,download,editEntity,avatar,cluster,isCurrent,legacy}){
+  const safe=fn=>async(...args)=>{try{return await fn(...args);}catch(e){notice(e.message||'操作失败。');}};
+  const savePrefs=safe(async patch=>savePreferences?savePreferences(patch):update(await call('team.prefs',patch)));
+  const usage=createUsagePage({body,show,call,getState,isCurrent,notice,avatar});
+  let feedbackDraft='';
+  function general(){
+    show('通用',{page:'general'});const prefs=getState().prefs||{};
+    const profile=el('div','','pi-profile-avatar'),picture=el('span','','pi-profile-picture'),actions=el('div','','bt-actions'),status=el('p','','pi-profile-status');
+    const file=el('input');file.type='file';file.accept='image/png,image/jpeg,image/webp,image/gif';file.hidden=true;file.setAttribute('aria-label','选择我的头像');
+    const upload=soft('更换头像',()=>file.click()),reset=soft('恢复默认');reset.onclick=()=>persistProfile(null);status.setAttribute('role','status');
+    function syncProfile(){const image=getState().prefs?.profileAvatar;picture.replaceChildren(avatar(profileLook(image),40,false,false));reset.disabled=!image;}
+    async function persistProfile(image){
+      upload.disabled=reset.disabled=true;status.textContent='正在保存头像…';
+      try{if(savePreferences)await savePreferences({profileAvatar:image});else update(await call('team.prefs',{profileAvatar:image}));status.textContent=image?'头像已更新。':'已恢复默认头像。';}
+      catch(error){status.textContent='头像没有保存，请重试。';}
+      finally{upload.disabled=false;syncProfile();}
+    }
+    file.onchange=async()=>{const selected=file.files?.[0];file.value='';if(!selected)return;upload.disabled=reset.disabled=true;status.textContent='正在处理图片…';try{await persistProfile(await avatarImage(selected));}catch(error){status.textContent=error.message||'图片无法读取，请换一张。';}finally{upload.disabled=false;syncProfile();}};
+    syncProfile();actions.append(upload,reset);profile.append(picture,actions,file);body.append(section('我的头像',row('侧栏头像','显示在左下角的设置入口。支持 PNG、JPEG、WebP、GIF。',profile)),status);
+    const appearance=choose('明暗模式',[['host','跟随 安客客户端'],['light','浅色'],['dark','深色']],prefs.appearanceMode==='independent'?prefs.appearance||'light':'host',safe(async value=>{
+      await savePrefs(value==='host'?{appearanceMode:'host'}:{appearanceMode:'independent',appearance:value});
+      const current=getState().prefs||{};appearance.value=current.appearanceMode==='independent'?current.appearance||'light':'host';
+    }));
+    const theme=choose('主题',Object.entries(THEMES).map(([id,t])=>[id,t.label]),prefs.theme||'deepseek',safe(async theme=>{await savePrefs({theme});}));
+    const swatches=el('div','','bt-swatches'),colors=[['主题强调色',null],...ACCENT_INKS.map(id=>[id==='charcoal'?'黑色':id,INKS[id][0]])];
+    for(const [name,color] of colors){const b=soft('',safe(async()=>{await savePrefs({accent:color});for(const n of swatches.querySelectorAll('button'))n.setAttribute('aria-pressed',String(n===b));customLabel.dataset.on='false';}));b.className='bt-swatch'+(color?'':' bt-swatch-default');b.title=name;b.setAttribute('aria-label',name);b.setAttribute('aria-pressed',String(color?(prefs.accent||'').toLowerCase()===color.toLowerCase():!prefs.accent));if(color)b.style.background=color;swatches.append(b);}
+    const customLabel=el('label','','bt-swatch bt-swatch-custom'),color=textInput('自定义强调色','','color');color.value=prefs.accent||'#4d6bfe';customLabel.title='自定义强调色';customLabel.append(color);customLabel.dataset.on=String(!!prefs.accent&&!ACCENT_INKS.some(id=>INKS[id][0].toLowerCase()===prefs.accent.toLowerCase()));color.onchange=safe(async()=>{await savePrefs({accent:color.value});for(const n of swatches.querySelectorAll('button'))n.setAttribute('aria-pressed','false');customLabel.dataset.on='true';});swatches.append(customLabel);
+    const layout=choose('消息布局',[['bubble','气泡'],['flat','平铺']],prefs.messageLayout||'bubble',v=>savePrefs({messageLayout:v}));
+    const widthControl=(label,key,fallback)=>{const box=el('label','','pi-width-control'),input=el('input'),output=el('output');input.type='range';input.min='50';input.max='100';input.step='5';input.value=String(prefs[key]||fallback);input.setAttribute('aria-label',label);output.textContent=input.value+'%';input.oninput=()=>{output.textContent=input.value+'%';savePrefs({[key]:Number(input.value)});};box.append(input,output);return box;};
+    const thinking=el('input');thinking.type='checkbox';thinking.setAttribute('aria-label','显示思考过程');thinking.checked=prefs.showThinking===true;thinking.onchange=()=>savePrefs({showThinking:thinking.checked});
+    body.append(section('外观',row('明暗模式','统一在此设置浅色、深色或跟随客户端。',appearance),row('主题','整个团队的配色。',theme),row('强调色','私聊气泡跟随 Bot 颜色；选择黑色可关闭。群聊使用主题气泡。',swatches),row('消息布局','平铺模式不显示 Bot 回复的气泡底色。',layout),row('气泡宽度','随聊天窗口宽度变化。',widthControl('气泡宽度','bubbleWidth',80)),row('平铺正文宽度','独立调节平铺模式正文的宽度。',widthControl('平铺正文宽度','textWidth',100)),row('显示思考过程','只改变显示，不关闭模型的思考能力。',thinking)),section('模式',row('经典 Agent 模式','',soft('切换',()=>onNative()))));
+    const learning=choose('空闲时复盘工作经验',[['false','关闭'],['true','开启']],String(prefs.learningReview===true),value=>savePrefs({learningReview:value==='true'}));body.append(section('工作经验',row('自动复盘','默认关闭。开启后，较长任务完成且空闲约 10 分钟才复盘，每位 Bot 最多约 12 小时一次；会产生额外模型用量。',learning),row('确认后保存','在 Bot 私聊底部点击“复盘经验”也可手动触发。Skill 和 AGENTS.md 建议都需要你查看并确认。')));
+    const shortcuts=el('details','','pi-shortcuts');shortcuts.append(el('summary','键盘快捷键'));
+    const officeStatus=el('p','','pi-learning-hint'),officeCheck=soft('检查 Office 环境',safe(async()=>{officeCheck.disabled=true;officeStatus.textContent='正在检查独立 Node.js…';try{const result=await call('team.office',{});officeStatus.textContent=result.available?'轻量 Office 工具可用 · Node.js '+result.version+'。可让 Bot 读取/检查 Word、PPT、Excel；Word 定点编辑与 PPT 页面操作通过原生命令确认。':result.reason;}finally{officeCheck.disabled=false;}}));
+    officeStatus.setAttribute('role','status');body.append(section('Office 文档',row('轻量文档工具','通过 客户端命令权限运行。需独立 Node.js 20+；不包含完整排版预览、PDF 导出或 Excel 公式重算。',officeCheck)),officeStatus);
+    for(const [name,key] of [['搜索 Bot、群聊、消息和附件','Ctrl+K'],['查找当前聊天','Ctrl+F'],['收起 / 展开左侧栏','Ctrl+B'],['新建聊天','Ctrl+N'],['打开设置','Ctrl+,'],['引用选中文字 / 聚焦输入框','Ctrl+L'],['聚焦输入框','Ctrl+I'],['切换上一 / 下一会话','Alt+↑ / ↓'],['打开第 1–9 个会话','Ctrl+1–9'],['发送 / 换行','Enter / Shift+Enter'],['语音输入','Alt+V']]){const entry=el('div','','pi-shortcut-row');entry.append(el('span',name),el('kbd',key));shortcuts.append(entry);}body.append(shortcuts);
+  }
+  function mainBots(){
+    const state=getState(),mains=state.bots.filter(b=>b.role==='Administrator'),first=mains[0],candidates=state.bots.filter(b=>b.role!=='Administrator');
+    const setMain=safe(async input=>{update(await call('team.bot.main',input));bots();});
+    const card=section('主 Bot',row('主 Bot',first?'排在侧栏最上面。选另一个 Bot 就会把主 Bot 交给它，'+first.name+' 随之不再是主 Bot。':'',choose('主 Bot',state.bots.map(b=>[b.id,b.name]),first?.id,id=>setMain({id,enabled:true,replace:first?.id,primary:true}))));
+    const list=card.querySelector('.bt-set-card');for(const bot of mains.slice(1))list.append(row(bot.name,'也是主 Bot。',soft('移到最前',()=>setMain({id:bot.id,enabled:true,primary:true})),soft('移除主 Bot 身份',()=>setMain({id:bot.id,enabled:false}))));
+    if(candidates.length)list.append(row('添加主 Bot','主 Bot 可以创建和修改 Bot，并管理所有群聊。',choose('添加主 Bot',[['','选择一个 Bot…'],...candidates.map(b=>[b.id,b.name])],'',id=>id&&setMain({id,enabled:true}))));return card;
+  }
+  function bots(){
+    show('Bot',{page:'bots'});const state=getState(),motion=state.prefs?.motion||'normal',actions=el('div','','bt-actions');actions.append(soft('新 Bot',()=>editEntity('bot'), 'PlusIcon'));
+    const list=section('Bot · '+state.bots.length);for(const bot of state.bots){const r=el('button','','bt-set-row');r.type='button';const who=el('span','','bt-set-bot');who.append(avatar(bot,28,false,false),el('span',bot.name,'bt-row-title'));if(bot.roleLabel)who.append(el('span',bot.roleLabel,'bt-tag'));if(bot.role==='Administrator')who.append(el('span','主 Bot','bt-tag'));if(bot.hidden)who.append(el('span','已隐藏','bt-tag'));const chevron=el('span','','bt-chevron');chevron.append(icon('ChevronRightIcon'));r.append(who,chevron);r.onclick=()=>editEntity('bot',bot);list.querySelector('.bt-set-card').append(r);}
+    body.append(mainBots(),section('动画',row('Bot 动画','',segments('Bot 动画',[['quiet','安静'],['normal','正常'],['lively','活泼']],motion,v=>savePrefs({motion:v})))),actions,list);
+  }
+  function groups(){
+    show('群聊',{page:'groups'});const state=getState(),actions=el('div','','bt-actions'),create=soft('新建群聊',()=>editEntity('room'),'PlusIcon');create.disabled=state.bots.length<2;actions.append(create);const list=section('群聊 · '+state.rooms.length),card=list.querySelector('.bt-set-card');
+    for(const room of state.rooms){const b=el('button','','bt-set-row');b.type='button';const who=el('span','','bt-set-bot'),admin=state.bots.find(b=>b.id===room.adminId);who.append(cluster(room,28,false),el('span',room.name,'bt-row-title'),el('span',room.members.length+' 位成员','bt-tag'));if(admin)who.append(el('span','✦ '+admin.name,'bt-tag bt-tag-admin'));const chevron=el('span','','bt-chevron');chevron.append(icon('ChevronRightIcon'));b.append(who,chevron);b.onclick=()=>editEntity('room',room);card.append(b);}
+    if(!state.rooms.length)card.append(row('还没有群聊','群聊让多位 Bot 和你一起完成一件事。'));body.append(actions,list);
+  }
+  async function connectors(){
+    const ticket=show('连接器',{page:'connectors'});body.append(section('应用',row('连接应用','用自己的 Composio 项目连接应用，再选择可使用的 Bot。',soft('打开应用',()=>legacy.apps()))));const view=await call('team.github',{action:'status'});if(!isCurrent(ticket))return;
+    const list=section(''),card=list.querySelector('.bt-set-card'),line=connector('GitHub',view.connected?'已连接 · '+view.login:'仓库、Issue 和 PR',safe(()=>view.connected?disconnect():login()),view.connected?'断开':'连接');
+    line.querySelector('.bt-connector-mark').replaceChildren(icon('GithubIcon'));card.append(line);body.append(list);
+    if(view.error){body.append(el('p',view.error,'bt-error'));if(view.connected)body.append(soft('重新连接',safe(async()=>{await call('team.github',{action:'retry'});await connectors();})));}
+    const permissions=el('details','','pi-github-permissions');permissions.append(el('summary','GitHub 令牌：仓库和权限怎么选？'),el('p','推荐使用 Fine-grained token，仓库选择“仅选定的仓库”，勾选需要 Bot 工作的项目。“所有仓库”也能使用，但会涵盖当前和未来的仓库，通常没必要。'),el('p','只查看代码：Contents → Read-only；查看问题和 PR 时，再加 Issues / Pull requests → Read-only。Metadata 为必需读取权限。'),el('p','需要改代码、创建 PR 或处理 Issue 时，再将对应的 Contents、Pull requests、Issues 调为 Read and write。无需开启仓库管理、删除或工作流权限，除非确实要让 Bot 做这些事。'),href('GitHub 官方令牌说明','https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens'));body.append(permissions);
+    async function disconnect(){await call('team.github',{action:'disconnect'});await connectors();}
+    function login(){
+      if(card.querySelector('form'))return;
+      const form=el('form','','pi-github-login'),token=textInput('GitHub Personal Access Token','github_pat_… / ghp_…','password');token.autocomplete='new-password';
+      const note=el('p','使用 Personal Access Token 连接。只授予所需仓库与权限；Bot 通过 GitHub MCP 调用工具，令牌不会传给模型。','feature-note');
+      const link=href('创建 GitHub 令牌','https://github.com/settings/personal-access-tokens/new'),actions=el('div','','bt-actions'),submit=soft('连接',safe(async()=>{submit.disabled=true;const value=token.value;token.value='';try{await call('team.github',{action:'connect',token:value});await connectors();}finally{submit.disabled=false;}}));submit.type='submit';
+      actions.append(soft('取消',()=>morphHeight(card,()=>form.remove())),submit);form.append(note,link,row('访问令牌','加密保存在当前 Windows 用户的密钥库。',token),actions);form.onsubmit=e=>e.preventDefault();morphHeight(card,()=>card.append(form));token.focus();
+    }
+    const guide=section('接入其他应用',row('Notion','可通过 Notion 官方远程 MCP 配置，再完成网页登录授权；配置与状态见下方其他连接器。',soft('配置 Notion',()=>legacy.mcp(undefined,{type:'http',name:'Notion',url:'https://mcp.notion.com/mcp',botIds:[],allowedTools:[],enabled:false})),href('官方接入说明','https://developers.notion.com/docs/get-started-with-mcp')),row('邮箱 · Gmail / Outlook / 其他邮箱','可配置对应的 MCP 服务；需要服务商账号授权，部分服务还需自己的 OAuth 应用。也可从上方“打开应用”使用自己的 Composio 项目连接。',soft('配置邮箱 MCP',()=>legacy.mcp())),row('其他应用','接入兼容的本地或远程 MCP 服务，分别选择授权的 Bot 和工具。',soft('配置 MCP',()=>legacy.mcp())));guide.classList.add('pi-connector-guide');body.append(guide);
+    const advanced=el('details','','pi-connector-advanced'),summary=el('summary','已配置的其他连接器 · 本地 / 远程 MCP');advanced.append(summary);body.append(advanced);
+    advanced.addEventListener('toggle',safe(async()=>{if(!advanced.open||advanced.dataset.loaded)return;advanced.dataset.loaded='';const native=await call('team.connectors');if(!isCurrent(ticket))return;
+      for(const server of native.servers||[])advanced.append(connector(server.name,'客户端 MCP',()=>onNative(),'管理'));
+      for(const server of native.bridge?.servers||[])advanced.append(connector(server.name,(server.enabled?'已启用':'已停用')+' · Bot 独立授权',()=>legacy.mcp(undefined,server),'管理'));
+      advanced.append(soft('添加本地 / 远程 MCP',()=>legacy.mcp()));}));
+  }
+  function connector(name,hint,run,text){const c=el('div','','bt-connector'),head=el('div','','bt-connector-head'),mark=el('span','','bt-connector-mark'),copy=el('span','','bt-connector-text');mark.append(icon('ConnectorIcon'));copy.append(el('span',name,'bt-connector-name'),el('span',hint,'bt-connector-status'));head.append(mark,copy,soft(text,run));c.append(head);return c;}
+  async function secrets(options={}){
+    const token=show('密钥',{page:'secrets'}),bots=getState().bots,view=await call('team.secrets',{});if(!isCurrent(token))return;
+    const entries=view.entries.map(e=>({...e,bot:bots.find(b=>b.id===e.botId)||{id:e.botId,name:e.botId==='@apps'?'应用连接配置':e.botId==='@speech'?'共享语音密钥':'已移除的 Bot'}})),text=el('p','Bot 请求过的密钥。模型不会收到密钥明文；密钥由 Windows 当前用户加密保存，供已授权的 MCP 与命令工具使用。','bt-secret-about'),list=section('密钥 · '+entries.length),card=list.querySelector('.bt-set-card');
+    if(!entries.length)card.append(row('还没有密钥。Bot 需要时，会在对话里弹出一张卡片。',''));
+    for(const item of entries){const purpose=textInput(item.name+' 用途备注','例如：用于读取项目资料');purpose.classList.add('pi-secret-purpose-input');purpose.value=item.purpose||'';purpose.maxLength=1000;const save=soft('保存用途',safe(async()=>{await call('team.secret.purpose',{botId:item.bot.id,name:item.name,purpose:purpose.value});notice('用途备注已保存。');}));save.classList.add('pi-secret-purpose-save');const line=row(item.name,item.bot.name+' · 已加密保存',soft('管理',()=>legacy.secrets(item.bot.id)));card.append(line,row('用途备注','可留空，不需要重新填写密钥。',purpose,save));}
+    const actions=el('div','','bt-actions');actions.append(soft('添加密钥',()=>{const form=el('form','','pi-secret-add'),name=textInput('密钥名称','NAME，例如 GITHUB_TOKEN'),value=textInput('密钥值','输入密钥','password'),target=choose('密钥所属 Bot',bots.map(b=>[b.id,b.name]),options.botId||bots[0]?.id);value.autocomplete='new-password';name.oninput=()=>name.value=name.value.toUpperCase();const save=soft('保存密钥',safe(async()=>{const secret=value.value;value.value='';await call('team.secret.set',{botId:target.value,name:name.value.trim(),value:secret});await secrets(options);}));save.type='submit';form.onsubmit=e=>{e.preventDefault();};form.append(row('Bot','',target),row('名称','',name),row('值','',value),row('','',soft('取消',()=>form.remove()),save));card.append(form);name.focus();}),soft('加密导入／导出',()=>legacy.secrets(options.botId)));body.append(text,list,actions);
+  }
+  async function feedback(){
+    const token=show('反馈',{page:'feedback'}),what=el('textarea','','bt-input bt-input-area');what.placeholder='例如：我在群聊里问 Writer，它显示出错了。';what.setAttribute('aria-label','发生了什么');what.value=feedbackDraft;what.maxLength=4000;what.oninput=()=>feedbackDraft=what.value;
+    const report=el('div','','bt-set-row bt-set-paste bt-fb-what'),copy=el('label','','bt-set-copy');copy.append(el('span','发生了什么？'),el('span','你做了什么、期望什么、实际发生了什么。','bt-set-hint'));report.append(copy,what);
+    const preview=el('div','','bt-set-row bt-fb-preview'),pre=el('pre');pre.tabIndex=0;preview.append(pre);preview.hidden=true;let diagnostic;
+    const load=async()=>{const data=await call('team.extensions',{action:'diagnostics'});diagnostic=JSON.stringify(data,null,2);pre.textContent=diagnostic;return data;};
+    const issue=href('在 GitHub 上报告',REPO+'/issues/new');issue.className='bt-fb-primary bt-about-link';issue.onclick=()=>{issue.href=REPO+'/issues/new?title='+encodeURIComponent('[Anke Bot] '+(what.value.slice(0,70)||'问题反馈'))+'&body='+encodeURIComponent('Anke Bot 0.3.107（安客客户端 适配版）\n\n'+what.value+'\n\n请在提交前检查内容；如有需要，将诊断信息复制到此处。');};
+    body.append(section('报告问题',report,row('诊断信息','版本、系统和最近的错误；不包含聊天正文或密钥。',soft('查看',()=>{preview.hidden=!preview.hidden;}),soft('复制',safe(async()=>{await load();try{await navigator.clipboard.writeText(diagnostic);notice('已复制诊断信息。');}catch{preview.hidden=false;notice('请在下方选中文字复制。');}}))),preview,row('GitHub issue','打开问题草稿，检查后由你提交。',issue)));
+    try{const data=await load();if(!isCurrent(token))return;const errors=[...(data.events||[]),...(data.errors||[])].slice(-8).reverse(),list=section('最近的错误 · '+errors.length);if(!errors.length)list.querySelector('.bt-set-card').append(row('暂无错误。',''));for(const entry of errors){const r=row(entry.message||entry.text||entry.error||entry.event||(entry.module&&entry.code?entry.module+' / '+entry.code:'诊断事件'),entry.at||entry.time||'');r.classList.add('bt-fb-entry');r.prepend(el('span','','bt-fb-dot'));list.querySelector('.bt-set-card').append(r);}body.append(list);const actions=el('div','','bt-actions');actions.append(soft('下载诊断',()=>download('Anke Bot-diagnostics.json',diagnostic,'application/json')));body.append(actions);}catch(e){if(isCurrent(token))notice(e.message);}
+  }
+  function about(){
+    const ticket=show('关于 Anke Bot',{page:'about'});const hero=el('div','','bt-about-hero'),copy=el('div','','bt-about-copy');copy.append(el('span','Anke Bot','bt-about-name'),el('span','版本 0.3.107','bt-about-version'));const star=href('☆ Star',REPO);star.classList.add('bt-star');hero.append(avatar({avatar:{shape:'anke-house'},color:'gray'},52,false,false),copy,star);
+    body.append(hero,el('p','服务安居，也照顾日常。','bt-about-ask'),updatePanel(ticket),section('客户端',row('安客','管理客户端外观、模型与更新。',soft('打开设置',()=>onNative()))),section('链接',row('开源来源','查看项目源码与许可证记录。',href('打开',REPO)),row('发布说明','查看所用开源组件的正式发布记录。',href('打开',REPO+'/releases')),row('报告问题','Anke Bot 的问题反馈',soft('打开',()=>feedback())),row('开源致谢','保留原作者署名和 Apache-2.0 许可证，详见源码中的 NOTICE 与 LICENSE。',href('查看',UPSTREAM))));
+    body.append(section('安客扩展',row('备份与恢复','Bot、群聊、记忆与 Skill 资源。',soft('打开',legacy.backups)),row('扩展功能','语音、浏览器、OCR、索引与 Bot API。',soft('打开',legacy.extensions)),row('任务恢复中心','核对、继续或重试未完成任务。',soft('打开',legacy.recovery)),row('外观同步与记忆','客户端外观跟随和自动记忆选项。',soft('打开',legacy.preferences)),row('聊天历史','搜索 Bot 和群聊记录。',soft('打开',()=>legacy.history()))));
+  }
+  function updatePanel(ticket){
+    const status=el('span','正在读取更新状态…','pi-update-status');status.setAttribute('role','status');
+    const links=el('div','','bt-actions'),check=soft('检查更新',()=>load(true));
+    const enabled=choose('自动检查 Anke Bot 更新',[['true','开启'],['false','关闭']],String(updatesEnabled()),value=>{
+      try{localStorage.setItem(UPDATE_PREF,value);}catch{notice('无法保存自动检查设置。');return;}
+      window.dispatchEvent(new Event(UPDATE_EVENT));
+    });
+    const versionRow=row('正在读取版本…','仅从安客发布仓库检查正式版本。',check),versionLabel=versionRow.querySelector('.bt-set-copy span');
+    const panel=section('安客更新',versionRow,row('更新状态','',status),row('自动检查','打开安客时在后台检查，之后每 6 小时检查一次。',enabled),row('安装新版','查看新版内容并下载安客安装包。',links));
+    async function load(force=false){
+      check.disabled=true;status.textContent='正在检查更新…';links.replaceChildren();
+      try{
+        const result=await call('team.updates',{force});window.dispatchEvent(new CustomEvent(UPDATE_RESULT,{detail:result}));if(!isCurrent(ticket))return;
+        versionLabel.textContent='当前客户端版本 '+(result.current||'未知');
+        status.textContent=result.status==='available'?'发现新版本 '+result.latest:result.status==='current'?'已是最新正式版本（仓库 '+result.latest+'）':result.message||'暂时无法检查更新。';
+        if(result.status==='available')links.append(href('下载 '+result.latest,result.downloadUrl),href('查看更新内容',result.releaseUrl));
+        links.append(soft('管理插件',()=>onNative()));
+      }catch(error){if(isCurrent(ticket))status.textContent=error.message||'暂时无法检查更新。';}
+      finally{if(isCurrent(ticket))check.disabled=false;}
+    }
+    void load();return panel;
+  }
+  const handlers={general,bots,groups,connectors,capabilities:()=>legacy.capabilities(),schedules:()=>legacy.schedules(),usage:usage.open,secrets,feedback,about};
+  return {open:async(page,options)=>{await(handlers[page]||general)(options);}};
+}
