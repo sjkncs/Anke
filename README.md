@@ -10,7 +10,7 @@
 
 Technology serves life. Life comes first. Understand your choices, keep sight of the evidence, and decide what happens next.
 
-ANKE's project home is [sjkncs/Anke](https://github.com/sjkncs/Anke). It adapts PI-Desktop with upstream attribution retained; it is not an official PI-Desktop or World Monitor distribution.
+ANKE's project home is [sjkncs/Anke](https://github.com/sjkncs/Anke).
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -149,7 +149,7 @@ Bundled rental records start empty. Raw databases, restricted imagery, model wei
 
 ## Supported By
 
-ANKE builds on PI-Desktop and its dependency ecosystem. Attribution is preserved in [source notes](ANJU_SOURCE_NOTES.md), [LICENSE](LICENSE) and plugin notices. No commercial sponsor, hosting sponsorship or third-party endorsement is claimed.
+ANKE benefits from the open-source community and its dependency ecosystem. Component credits are preserved in [source notes](ANJU_SOURCE_NOTES.md), [LICENSE](LICENSE) and plugin notices. No commercial sponsor, hosting sponsorship or third-party endorsement is claimed.
 
 ---
 
@@ -193,13 +193,11 @@ The desktop baseline is **LGPL-3.0-or-later**; see [LICENSE](LICENSE) and [sourc
 | Credentials, private records and third-party data | Separate authorization required; not granted by the code license |
 | ANKE or upstream branding | Code availability alone does not grant trademark or endorsement rights |
 
-README organization references [World Monitor](https://github.com/koala73/worldmonitor/blob/d3f85f8c9cfeece8f3b4f9adf351b6ad1f66b1b4/README.md), inspected 2026-11-15. ANKE's wording, features and licensing are independent; World Monitor's AGPL terms are not substituted for ANKE's license.
-
 ---
 
 ## Author
 
-**ANKE project maintainer** — [sjkncs](https://github.com/sjkncs). Upstream: [vastsa/PI-Desktop](https://github.com/vastsa/PI-Desktop), baseline `4ad0094e87b3c9ab75653a770f67f0d09abd63a4`. Upstream and plugin author credits remain intact.
+**ANKE project maintainer** — [sjkncs](https://github.com/sjkncs).
 
 ## Contributors
 

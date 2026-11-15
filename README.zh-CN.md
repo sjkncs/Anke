@@ -10,7 +10,7 @@
 
 科技服务生活，生活高于科技。在复杂中建立判断，在变化中安顿生活。我们希望 ANKE 帮助您看清选择、找到依据，再由您决定下一步。
 
-ANKE 的项目入口为 [sjkncs/Anke](https://github.com/sjkncs/Anke)。项目基于 PI-Desktop 改造，保留上游许可和署名，不代表 PI-Desktop 或 World Monitor 官方发行版。
+ANKE 的项目入口为 [sjkncs/Anke](https://github.com/sjkncs/Anke)。
 
 [![许可：LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -149,7 +149,7 @@ python event-monitor/monitor.py --serve
 
 ## 项目支持
 
-ANKE 基于 PI-Desktop 及其依赖生态构建。来源和署名见[改造说明](ANJU_SOURCE_NOTES.md)、[许可证](LICENSE)和插件声明。目前不宣称已获得商业赞助、托管赞助或第三方背书。
+ANKE 的建设受益于开源社区及其依赖生态。组件来源与署名见[改造说明](ANJU_SOURCE_NOTES.md)、[许可证](LICENSE)和插件声明。目前不宣称已获得商业赞助、托管赞助或第三方背书。
 
 ---
 
@@ -193,13 +193,11 @@ node --test apps/desktop/test/anke-release-config.test.mjs
 | 凭证、私人记录与第三方数据 | 不由代码许可授权，须另行取得权限 |
 | ANKE 与上游品牌 | 源码可用不自动授予商标或背书权利 |
 
-章节组织参考 [World Monitor README](https://github.com/koala73/worldmonitor/blob/d3f85f8c9cfeece8f3b4f9adf351b6ad1f66b1b4/README.md)，核对日期 2026-11-15。ANKE 介绍、功能及许可按自身情况重写，未将 World Monitor 的 AGPL 许可套用于 ANKE。
-
 ---
 
 ## 作者
 
-**ANKE 项目维护者**：[sjkncs](https://github.com/sjkncs)。上游为 [vastsa/PI-Desktop](https://github.com/vastsa/PI-Desktop)，基线 `4ad0094e87b3c9ab75653a770f67f0d09abd63a4`。保留上游作者及插件署名。
+**ANKE 项目维护者**：[sjkncs](https://github.com/sjkncs)。
 
 ## 贡献者
 
