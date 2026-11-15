@@ -1,5 +1,72 @@
 # 04. E2E Test Plan
 
+### E2E-ANKE-market-addresses
+
+Market source chips also expose address, street and layout coverage against
+the full filtered record count, before display truncation. Curated official
+community geography is matched by exact listed aliases and district. A
+street-only source must not invent a postal address. Updated sidecars are
+read on each query without requiring a process restart.
+
+Shared address selections use the origin/token-protected local housing API
+and a versioned project sidecar read by both panel and browser queries.
+Source addresses take precedence. `geographic-stats.test.cjs` verifies
+city/district/street daily grouping, stratum separation, daily listing
+deduplication, conflicting-price exclusion and area-stable paired changes.
+The market ledger exposes dates, counts, mean, median, area-weighted rent,
+sample changes and paired changes. Missing street identities are not imputed.
+
+Run `node --test visual-ui.test.cjs query.test.cjs` in the bundled housing
+plugin. The ledger must scroll horizontally at 720/1440/1900px without body
+overflow and retain a transparent track. Exact selected addresses persist
+across reloads in a versioned local workspace cache, keyed by dataset,
+district and project; supplied source addresses take precedence. Ambiguous
+map candidates require an explicit selection before address persistence.
+Lookup failures remain visible and allow retry. Browser fixtures exercise
+the real renderer with a mocked external bridge; they do not certify live
+map coverage or installed desktop behavior.
+
+### E2E-ANKE-visualization-recovery
+
+Run `node --test test/gen-ui-recovery-browser.test.mjs` from `apps/desktop`
+with the existing Playwright module supplied by `PI_BOT_PLAYWRIGHT_MODULE`.
+An own-frame missing-file message must show Retry, and clicking it must
+remount the same session URL with `sandbox="allow-scripts"`. Messages from
+another window must not fail the card. This browser fixture does not certify
+the installed native Host or a real chart's data accuracy.
+
+Run `node scripts/check-installed-gen-ui.mjs HOST FRAGMENT` from the root
+to check the installed Host against a copied fragment in a disposable profile.
+Never run a second Host on the user's live profile. A timeout is a failed
+acceptance result, not evidence that the fragment was missing.
+
+### E2E-ANKE-local-reality
+
+Run sibling `talent-housing/city-model-browser.mjs`: import the explicitly
+synthetic ellipsoid through the local file chooser, place it with coordinates,
+render it with city meshes, then remove it. No page errors are allowed. Preserve
+the fixture distinction; this does not validate real imagery or registration.
+
+### E2E-ANKE-city-model
+
+Run sibling `talent-housing/city-model-browser.mjs`. The overview must load all
+six local source-derived district meshes (2,750,476 triangles) with no page
+errors, support district focus, omit absent/unknown housing coordinates and
+reject assets outside the explicit allowlist. Screenshots are saved under
+`talent-housing/verification/city-*.png`. See `talent-housing/CITY_MODEL.md` for
+the projection, rebuild command, provenance and pending ground-control/SKP
+equivalence gates. Browser rendering is not installed-Electron acceptance.
+
+### E2E-ANKE-university-resident-ratings
+
+Run sibling talent-housing resident-ratings.test.mjs, test.mjs and
+workbench.test.mjs. Run workbench-browser.mjs: register an anonymous candidate,
+import synthetic university supply with and without sourced ratings, see both
+personalized fit and resident opinions, filter by 4.5/5 and 20 responses, and
+verify the independent rating source/date. Missing/future/invalid ratings never
+become real opinions. Hard constraints and qualifications precede ratings.
+These checks do not establish real supply, survey validity or school eligibility.
+
 ### E2E-ANKE-owned-release-feed
 
 See [Anke releases and cloud](anke-releases-and-cloud.md) for the fail-closed

@@ -1,0 +1,3069 @@
+{
+  "generatedAt": "2026-11-13T15:59:28.265Z",
+  "count": 86,
+  "agents": [
+    {
+      "slug": "ly-iy5p0s",
+      "name": "智小舍",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "邢台市第二十八中学",
+      "author": "王珺",
+      "brief": "《骆驼祥子》整本书阅读智能体——陪你探寻致使祥子堕落的推手。",
+      "description": "本智能体为初中学生整本书阅读《骆驼祥子》而设计，围绕老舍笔下上世纪二三十年代旧北平的社会风貌与文学表达，提供全程阅读陪伴与深度指导。核心能力包括：针对重点人物、社会问题设计思考与讨论问题，引导学生在真实阅读中完成从信息提取到鉴赏评价的思维进阶，助力学生把握全书思想内核。无论是日常阅读推进、读书笔记撰写，还是读后感与测评联系，智能体都能根据学生的阅读进度和认知水平，提供个性化、有梯度的支持，让每一次翻页都有所收获。",
+      "welcome": "您好，我是智小舍，很高兴和你一起探讨！",
+      "examples": [
+        "What can you help me with?"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 21,
+        "chatCount": 30,
+        "questionCount": 516,
+        "visitCount": 25,
+        "likeCount": 0,
+        "lastActiveTime": "2026-09-18T14:59:31.783+08:00"
+      },
+      "avatar": "assets/avatars/88580988aabeba85.png",
+      "source": "https://spising.cn/agents/ly-iy5p0s/"
+    },
+    {
+      "slug": "zgltt-agt_rhv88n8f",
+      "name": "竹节人学习伙伴",
+      "subject": "语文",
+      "grade": "小学高年级",
+      "school": "北京经济技术开发区第二小学",
+      "author": "张广录",
+      "brief": "陪你有目的地阅读《竹节人》，写出清楚易懂的制作指南，学会向别人介绍玩法。",
+      "description": "",
+      "welcome": "我们一起读课文、找信息、写指南，再试着教别人玩。你可以选择一项任务开始。",
+      "examples": [
+        "为了写竹节人的制作指南，我应该重点读课文的哪些内容？",
+        "请引导我从课文中找出制作竹节人需要的信息。",
+        "我写了一份制作指南，请帮我检查哪里还不够清楚。",
+        "我想练习教二年级的小朋友玩竹节人，请听我说。"
+      ],
+      "files": [
+        "《竹节人》40分钟教学设计（学思达·教材任务一）",
+        "《竹节人》学思达讲义·教师版（教材任务一）",
+        "《竹节人》学思达讲义·学生版（教材任务一）",
+        "《竹节人》教材原文（六上第8课·2024修订版）",
+        "义务教育语文课程标准（2022年版）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 6,
+        "chatCount": 8,
+        "questionCount": 8,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-13T10:34:06.810+08:00"
+      },
+      "avatar": "assets/avatars/6a3110f6cb55d330.png",
+      "source": "https://spising.cn/agents/zgltt-agt_rhv88n8f/"
+    },
+    {
+      "slug": "Y91332457-store_5qidye",
+      "name": "走进江西——追寻中国革命的红色摇篮",
+      "subject": "历史",
+      "grade": "八年级",
+      "school": "北京市顺义区十一学校顺义学校",
+      "author": "杨霖佳",
+      "brief": "中国革命是如何在江西找到新道路的。",
+      "description": "",
+      "welcome": "你好，我是追寻红色江西的小助理\n关于江西发生的中国革命活动，你有什么需要了解的，可以随时问我",
+      "examples": [],
+      "files": [
+        "1931年《中华苏维埃共和国土地法》原文",
+        "1931年《中华苏维埃共和国婚姻条例》原文",
+        "中共中央党史研究室《中国共产党历史（1921—1949）》节选",
+        "中共早期工人运动的组织和动员——以1922年安源路矿工人大罢工为中心的考察_刘腾飞",
+        "井冈山地形地图",
+        "八一南昌起义是历史的必然选择_徐汤峰",
+        "农村革命根据地形势图",
+        "刘伯承军事文选",
+        "南昌起义、秋收起义、井冈山会师示意图",
+        "南昌起义爆发背景",
+        "安源路矿工人俱乐部印发的会员证 资料",
+        "安源路矿工人俱乐部资料",
+        "安源路矿工人运动纪念馆，1980年，《安源路矿工人运动史料》",
+        "安源路矿纪念馆_本刊编辑部",
+        "朱德手枪实物和介绍",
+        "毛泽东《战略和战争问题》",
+        "毛泽东《星星之火，可以燎原》",
+        "江西地形图",
+        "江西山川地理图",
+        "江西省行政地图",
+        "瑞金苏维埃临时中央政府大礼堂 资料",
+        "第四套人民币100元实物+介绍",
+        "红井 资料",
+        "蒋建农《安源路矿工人与朱毛红军的创建与发展》",
+        "论安源路矿工人革命运动对中国革命的贡献_陈埠晶"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 56,
+        "chatCount": 65,
+        "questionCount": 516,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-11T09:42:41.917+08:00"
+      },
+      "avatar": "assets/avatars/6948240d9196daaa.png",
+      "source": "https://spising.cn/agents/Y91332457-store_5qidye/"
+    },
+    {
+      "slug": "sunyan850211-store_3jm80b",
+      "name": "五家共井问题",
+      "subject": "数学",
+      "grade": "九年级",
+      "school": "北京市第二中学分校",
+      "author": "孙妍",
+      "brief": "通过五家共井问题，对比古代方程的直除法与现代代入消元法",
+      "description": "",
+      "welcome": "您好，我是孙老师助理",
+      "examples": [],
+      "files": [
+        "openagent",
+        "教学设计",
+        "五家共井古代直除法步骤",
+        "教学设计（修改稿）给丁老师",
+        "探秘中华古算：五家共井",
+        "教学设计初稿 给丁老师",
+        "教学设计初稿",
+        "教学设计（修改稿）给丁老师（2）",
+        "《〈九章算术〉方程术与古代数学思想》教学设计",
+        "教学设计初稿 给丁老师-补充子任务2",
+        "教学设计（修改稿）给丁老师（3）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 22,
+        "chatCount": 25,
+        "questionCount": 240,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-12T17:28:02.652+08:00"
+      },
+      "avatar": "assets/avatars/4580930311d9b7e1.jpg",
+      "source": "https://spising.cn/agents/sunyan850211-store_3jm80b/"
+    },
+    {
+      "slug": "Songy-store_qmc7rd",
+      "name": "智研数途",
+      "subject": "数学",
+      "grade": "七年级",
+      "school": "北京市第二中学分校",
+      "author": "宋悦",
+      "brief": "《循古籍之路，探行程之变》数学探究助手，解码九章古题、仿真行程运动、校验数学推导。",
+      "description": "",
+      "welcome": "您好，我是你的数学学习助手",
+      "examples": [],
+      "files": [
+        "更新---宋悦  课题《循古籍之路，探行程之变》",
+        "说课稿《循古籍之路，探行程之变》",
+        "宋悦  课题《循古籍之路，探行程之变》"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 18,
+        "chatCount": 29,
+        "questionCount": 205,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T13:53:58.447+08:00"
+      },
+      "avatar": "assets/avatars/a51a1b7e15679049.png",
+      "source": "https://spising.cn/agents/Songy-store_qmc7rd/"
+    },
+    {
+      "slug": "XCGZSSZCSC-Math_S",
+      "name": "Math_S",
+      "subject": "数学",
+      "grade": "高二",
+      "school": "北京市第十三中学",
+      "author": "丛书畅",
+      "brief": "",
+      "description": "",
+      "welcome": "您好，我是数学老师",
+      "examples": [
+        "古代田亩面积怎么测量？",
+        "帮我评价一下我的面积测量方案",
+        "您能帮我做什么？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 78,
+        "chatCount": 136,
+        "questionCount": 649,
+        "visitCount": 0,
+        "likeCount": 1,
+        "lastActiveTime": "2026-11-13T18:15:30.455+08:00"
+      },
+      "avatar": "assets/avatars/2f4b9b29f73a7331.png",
+      "source": "https://spising.cn/agents/XCGZSSZCSC-Math_S/"
+    },
+    {
+      "slug": "wuzhangfan-store_4wk976",
+      "name": "suibian",
+      "subject": "数学",
+      "grade": "八年级",
+      "school": "北京市大兴区第一中学",
+      "author": "吴张帆",
+      "brief": "该智能体探究了利用对称轴尺规作正八边形的方法",
+      "description": "",
+      "welcome": "您好，我是藻小井",
+      "examples": [],
+      "files": [
+        "openagent",
+        "藻井教学设计 9.15",
+        "AI引导式交互框架",
+        "课堂师生问答逐字稿"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 10,
+        "chatCount": 24,
+        "questionCount": 222,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-21T22:13:30.584+08:00"
+      },
+      "avatar": "",
+      "source": "https://spising.cn/agents/wuzhangfan-store_4wk976/"
+    },
+    {
+      "slug": "Carrie-store_mqi6vc",
+      "name": "祖暅Q版分身",
+      "subject": "数学",
+      "grade": "高二",
+      "school": "北京学校",
+      "author": "Carrie",
+      "brief": "一位专精于中国古代数学智慧——祖暅原理的立体几何小助手，通过苏格拉底式诘问，带你亲历“质疑、构造、转化”的祖暅原理发现之旅，梳理构造等积几何体的方法框架。",
+      "description": "",
+      "welcome": "我是祖暅Q版分身\n我可以像苏格拉底一样启发你，但我是不会直接告诉你答案的哦~",
+      "examples": [],
+      "files": [
+        "例析祖暅原理在解题中的应用_马杰",
+        "数学探究活动课设计“四步曲”——以《祖暅原理与柱体、锥体的体积》为例_吕增锋",
+        "CABRI助力“探究与发现”的教学——以“祖暅原理与柱体、锥体的体积”为例_张伊",
+        "对于高中数学祖暅原理的教学探究_张亚玲",
+        "妙用祖暅原理求几何体的体积_张国良",
+        "用祖暅原理求椭球体积_陈兵",
+        "高中数学课堂渗透中国数学史的实践研究——以祖暅原理为例_吴俊杰",
+        "构建问题体系助探究__动手合作实验促学习——以《祖暅原理及其应用》的教学为例_李菁",
+        "用祖暅原理求平面图形面积_胡娟娟",
+        "基于中华优秀传统数学文化的跨学科教学实践研究——以《探究与发现·祖暅原理与柱体、椎体的体积》为例_朱金凤",
+        "应用祖暅原理推导球缺体积_苏涵",
+        "借助信息技术有效学习教材中的阅读内容——以“祖暅原理与几何体的体积”内容为例_刘哲",
+        "让中华优秀传统文化融入高中数学课堂——以“祖暅原理与球体体积”为例_王佳敏",
+        "借助AI技术__打造浸润式数学学习场景——以“祖暅原理”为例_吕增锋",
+        "让学生经历公式的发现、证明与应用——“祖暅原理与几何体的体积”教学设计与思考_陈春芳",
+        "分类例析以祖暅原理为背景的立体几何题_孙微味",
+        "融入数学史的高中数学教学研究——“祖暅原理与几何体体积”的重构设计_李玟洁",
+        "学科德育视角下的“祖暅原理”设计与教学实践_沈金兴",
+        "祖暅原理的由来及证明_张伟",
+        "基于HPM视角的模型思想融入高中数学教学的应用研究——以祖暅原理为例_洪锐敏",
+        "祖暅原理的探索性内涵_李大华",
+        "探索性学习案例——祖暅原理的一个推论_王志丹",
+        "关键教学点视域下数学文化的教学研究——以“祖暅原理与空间几何体的体积”教学为例_曾晓丽",
+        "在祖暅原理及其应用的教学中授人以渔——由一道质检题引发的思考_叶燕",
+        "学科实践理念下高中数学探究学习的教学研究——以“祖暅原理与空间图形的体积”的教学为例_隋玉霞",
+        "传承数学经典__培养核心素养——祖暅原理的再应用_储炳南",
+        "“祖暅原理”及其教学探究_叶秀云",
+        "祖暅原理与旋转几何体体积的推导_杨若楠",
+        "由祖暅原理引发的思考_陶醉",
+        "高中数学教学中数学文化的渗透——以祖暅原理为例_李云丽",
+        "体积计算方法的剖析——从祖暅原理到三重积分_韩建新",
+        "基于数学内容本质__创设进阶探究活动——以“祖暅原理”为例_王喆",
+        "祖暅原理的平面类比及其应用_董林",
+        "祖暅原理应用于球、牟合方盖体积教学中的课堂分析_唐亚平",
+        "HPM视角下“祖暅原理与球体的体积”教学_沈志强",
+        "基于GeoGebra的高中数学探究式教学——以“祖暅原理与球的体积”的教学为例_李崇榆",
+        "“祖暅原理”及其教学探究_叶秀云（2）",
+        "传承数学经典__培养核心素养——祖暅原理的再应用_储炳南（2）",
+        "体积计算方法的剖析——从祖暅原理到三重积分_韩建新（2）",
+        "例析祖暅原理在解题中的应用_马杰（2）",
+        "关键教学点视域下数学文化的教学研究——以“祖暅原理与空间几何体的体积”教学为例_曾晓丽（2）",
+        "在祖暅原理及其应用的教学中授人以渔——由一道质检题引发的思考_叶燕（2）",
+        "基于GeoGebra的高中数学探究式教学——以“祖暅原理与球的体积”的教学为例_李崇榆（2）",
+        "妙用祖暅原理求几何体的体积_张国良（2）",
+        "应用祖暅原理推导球缺体积_苏涵（2）",
+        "数学探究活动课设计“四步曲”——以《祖暅原理与柱体、锥体的体积》为例_吕增锋（2）",
+        "用祖暅原理求平面图形面积_胡娟娟（2）",
+        "用祖暅原理求椭球体积_陈兵（2）",
+        "由祖暅原理引发的思考_陶醉（2）",
+        "祖暅原理与旋转几何体体积的推导_杨若楠（2）",
+        "祖暅原理应用于球、牟合方盖体积教学中的课堂分析_唐亚平（2）",
+        "祖暅原理的平面类比及其应用_董林（2）",
+        "祖暅原理的探索性内涵_李大华（2）",
+        "祖暅原理的由来及证明_张伟（2）",
+        "融入数学史的高中数学教学研究——“祖暅原理与几何体体积”的重构设计_李玟洁（2）",
+        "高中数学课堂渗透中国数学史的实践研究——以祖暅原理为例_吴俊杰（2）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 13,
+        "chatCount": 52,
+        "questionCount": 183,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-11T12:15:42.869+08:00"
+      },
+      "avatar": "assets/avatars/acfeb151d7d76f23.jpg",
+      "source": "https://spising.cn/agents/Carrie-store_mqi6vc/"
+    },
+    {
+      "slug": "wuxuejiao-store_6uha0m",
+      "name": "探秘数学之美",
+      "subject": "数学",
+      "grade": "八年级",
+      "school": "北京市第二中学分校",
+      "author": "吴雪娇",
+      "brief": "探秘杨辉三角的“前世今生“",
+      "description": "",
+      "welcome": "您好，我是吴老师",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 29,
+        "chatCount": 78,
+        "questionCount": 333,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-13T14:39:49.422+08:00"
+      },
+      "avatar": "assets/avatars/e6188574dfd816f6.jpg",
+      "source": "https://spising.cn/agents/wuxuejiao-store_6uha0m/"
+    },
+    {
+      "slug": "liyan-智小乡",
+      "name": "智小乡",
+      "subject": "语文",
+      "grade": "高一",
+      "school": "北京第二外国语学院附属中学",
+      "author": "李文亮",
+      "brief": "《乡土中国》整本书阅读智慧学术伙伴",
+      "description": "",
+      "welcome": "您好，我是《乡土中国》整本书阅读智阅读伴——智小乡。\n我们一起阅读《乡土中国》，一起走进中国社会。",
+      "examples": [
+        "请用《乡土中国》原文详细解释“差序格局”这一核心概念，包括它的定义、特征，并至少举一个当代生活案例来说明，比如微信朋友圈的互动或家族聚餐时的座次安排。"
+      ],
+      "files": [
+        "12.12语文乡土中国名实分离答案",
+        "《乡土中国》——“家族”读书报告",
+        "《乡土中国》整本书梳理支架",
+        "《乡土中国》资料1",
+        "《乡土中国》资料2",
+        "《乡土中国》资料3",
+        "《乡土中国》资料4",
+        "为什么要读《乡土中国》？",
+        "对话消息"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 4,
+        "chatCount": 4,
+        "questionCount": 103,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-09T10:48:46.898+08:00"
+      },
+      "avatar": "assets/avatars/6f3974663b9d5337.png",
+      "source": "https://spising.cn/agents/liyan-智小乡/"
+    },
+    {
+      "slug": "liyan-store_aaz6zf",
+      "name": "智小乡",
+      "subject": "语文",
+      "grade": "高一",
+      "school": "北京第二外国语学院附属中学（北京中学外语分校）",
+      "author": "李文亮",
+      "brief": "读懂《乡土中国》的好帮手",
+      "description": "",
+      "welcome": "您好，我是你的智阅读伴——智小乡。\n我们一起阅读《乡土中国》，走进社会学视域下的中国社会！",
+      "examples": [
+        "请用《乡土中国》原文详细解释“差序格局”这一核心概念，包括它的定义、特征，并至少举一个当代生活案例来说明，比如微信朋友圈的互动或家族聚餐时的座次安排。",
+        "运用《乡土中国》中的“礼治秩序”“血缘与地缘”“名实分离”等概念，分析当前农村“天价彩礼”现象背后的社会逻辑，并指出这一现象体现了乡土社会的哪些传统惯性，以及正在发生怎样的现代转型。",
+        "我通读了《乡土中国》但感觉篇章之间有些散，请帮我梳理全书十四篇文章的内在逻辑关系，最好按照“乡土社会是什么→如何运作→如何变迁”的框架给出清晰的脉络图或思维导图式的说明。"
+      ],
+      "files": [
+        "《乡土中国》+批注版",
+        "《乡土中国》整本书梳理支架",
+        "《乡土中国》资料1",
+        "《乡土中国》资料2",
+        "《乡土中国》资料3",
+        "《乡土中国》资料4",
+        "为什么要读《乡土中国》？"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 2,
+        "questionCount": 2,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-13T14:39:53.656+08:00"
+      },
+      "avatar": "assets/avatars/1aee79ce2e5df6a9.png",
+      "source": "https://spising.cn/agents/liyan-store_aaz6zf/"
+    },
+    {
+      "slug": "Soliya-兴小诗",
+      "name": "兴小诗",
+      "subject": "语文",
+      "grade": "九年级",
+      "school": "北京市大兴区第一中学",
+      "author": "黄珊",
+      "brief": "",
+      "description": "",
+      "welcome": "您好，我是黄老师助理兴小诗",
+      "examples": [],
+      "files": [
+        "“学教合一”模式下的语文课堂——以苏轼《定风波》课堂教学实录为例_崔志钢",
+        "《卜算子·黄州定慧院寓居作》结句考辨——兼谈词的主旨问题_刘曼曼",
+        "《定风波》参赛课教学设计_滕爱民",
+        "《定风波》教学设计_刘耀娟",
+        "一生坎坷路__笔下千秋文——浅谈苏轼思想性格对其作品的影响_陈海浪",
+        "九年级上第三单元古诗赏析",
+        "人生交响曲中的双重旋律──论苏轼仁政爱民的政治思想和随缘放旷的人生态度_文师华",
+        "从《定风波》看苏轼的超旷精神_司伟荣 (1)",
+        "从《定风波》看苏轼的超旷精神_司伟荣",
+        "从锦帽貂裘到不系之舟——苏轼的一生及其书法变迁_马骞",
+        "以典促读__据典品词__析典论事——《江城子·密州出猎》教学例谈_李鑫",
+        "众浪大化中__不喜亦不惧——苏轼《定风波》暗含的人生哲学_李明",
+        "余映潮老师《江城子·密州出猎》课堂教学实录及评点_余映潮",
+        "品苏轼《定风波》_真正“归去”的旷达情怀_兰钦",
+        "大江东去——苏轼的黄州时期_张敏",
+        "旷达胸襟__恬淡情怀—也谈苏轼《定风波》词_钟云星",
+        "朗读__赏析__体验——《记承天寺夜游》教学设计_包国华",
+        "苏轼“超然”的人生态度——以苏轼词为例_陈淑惠",
+        "苏轼小品文中的“月光和闲人”情结——《记承天寺夜游》的内涵解读_荆学义",
+        "苏轼词的自然意象论析——以“月”“流水”“风雨”为例_潘筱冉",
+        "苏轼黄州时期词作的思想意蕴_钟云瑞",
+        "要的就是这“拣尽寒枝”——苏轼《卜算子__黄州定惠院寓居作》赏析及其他_董旭午",
+        "论苏轼黄州前后词风的变化_张帆",
+        "试从苏轼词之意象窥其词作风格的多样性——以“月”“雨”“水”为例_魏琳",
+        "试析苏轼《卜算子·黄州定慧院寓居作》_朱少山",
+        "闲人独赏的月夜美——苏轼《记承天寺夜游》赏读_王麦巧"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 26,
+        "chatCount": 42,
+        "questionCount": 440,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-11T14:35:48.872+08:00"
+      },
+      "avatar": "assets/avatars/89eaf0fdf3237e75.png",
+      "source": "https://spising.cn/agents/Soliya-兴小诗/"
+    },
+    {
+      "slug": "weiyan-store_o27tau",
+      "name": "邑方见木",
+      "subject": "数学",
+      "grade": "高一",
+      "school": "北京市大兴区第一中学",
+      "author": "韦艳",
+      "brief": "一起研究《九章算术》邑方古题，理清古代算法思路，学会把静态几何问题转化为二次函数动态模型",
+      "description": "",
+      "welcome": "您好，我是您的邑方古题探究学习伙伴“小研”",
+      "examples": [],
+      "files": [
+        "动图",
+        "勾股容方",
+        "比例法图",
+        "相与之势不失本率图"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 46,
+        "chatCount": 51,
+        "questionCount": 677,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-17T22:39:29.320+08:00"
+      },
+      "avatar": "assets/avatars/7d25ab2381367a67.png",
+      "source": "https://spising.cn/agents/weiyan-store_o27tau/"
+    },
+    {
+      "slug": "fujing-store_jhbrhy",
+      "name": "启智数苑",
+      "subject": "数学",
+      "grade": "高三",
+      "school": "北京市第二中学",
+      "author": "傅靖",
+      "brief": "以追问启思维，以本质见真知，陪你从“解题”走向“思考”",
+      "description": "",
+      "welcome": "启智数苑 · 以问启思\n你好！我是启智数苑，一个用“追问”陪你思考的数学智能体。  我不直接给答案，而是通过提问、对比、多视角分析，帮你自己找到解题的思路与方法的本质。",
+      "examples": [
+        "这个概念应当如何理解？",
+        "我卡在这里了，下一步该怎么思考？",
+        "我不知道这道题用哪种方法更合适？",
+        "我觉得我做对了，但不确认逻辑是否有漏洞",
+        "我的知识体系不够清晰系统",
+        "我知道题目问什么，但不知道从哪里开始分析"
+      ],
+      "files": [
+        "3.普通高中数学课程标准（2017年版2020年修订）(1)",
+        "2026年高考北京卷数学高考真题（网络 收集版）",
+        "梦溪笔谈",
+        "会圆启思",
+        "会圆启思（2）",
+        "梦溪笔谈（2）",
+        "高中数学（A版）选修第三册"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 20,
+        "chatCount": 23,
+        "questionCount": 38,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-13T10:31:18.186+08:00"
+      },
+      "avatar": "assets/avatars/d5146df6cb1283aa.jpg",
+      "source": "https://spising.cn/agents/fujing-store_jhbrhy/"
+    },
+    {
+      "slug": "lcx799-store_97dscb",
+      "name": "智小德",
+      "subject": "",
+      "grade": "高二",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "刘春祥",
+      "brief": "基于人大附中经开学校“五自”品质(自信、自由、自主、自省、自然)育人体系打造的中小学德育工作智能助手，面盖德育程设计、学生成长评价、德育活动策划、家校共育沟通、课题研究辅助五大核心场景。",
+      "description": "",
+      "welcome": "您好，我是您的德育小助手。",
+      "examples": [
+        "1. 大拇指·自信（学生底气品格）2. 食指·自由（边界规则品格） 3. 中指·自主（核心自我教育品格） 4. 无名指·自省（持续精进品格） 5. 小指·自然（幸福舒展品格）"
+      ],
+      "files": [
+        "openagent",
+        "10.北京市中小学生日常行为规范",
+        "2026.8.28人大附中北京经济技术开发区学校社会实践大课堂课程方案草案",
+        "2026.8.28人大附中北京经济技术开发区学校高学段京外研学实践课程方案草案",
+        "2026.9.9《AI赋能中小学“五维品格”德育实践的探索研究》中期研究报告",
+        "AI赋能“五自”品质德育体系理论初探（人大附中经开学校课题研究辅助材料）",
+        "AI赋能中小学“五维品格”德育实践创新活动效果的调研报告",
+        "《AI赋能中小学“五维品格”德育实践的探索研究》中期报告",
+        "《加强全市中小学研学旅行管理的通知》政策解读",
+        "《北京市中小学教育惩戒规则实施细则 （试行）》政策解读",
+        "人大附中经开学校高中部睡眠管理制度",
+        "人开学校-附件1.北京市中小学德育研究项目开题报告书",
+        "刘春祥-让搁浅的心回归大海",
+        "北京市中小学教育惩戒规则实施细则（试行）",
+        "北京市教育委员会关于加强全市中小学研学旅行管理的通知",
+        "孙久凤主题班会《营造良好舆论氛围，助力班级正向成长》设计",
+        "孙久凤带班育人方略",
+        "孙久凤育人故事",
+        "家庭教育的六个重要理念--高三年级王雪",
+        "家校共育信旭东",
+        "智能体材料",
+        "王平----班主任带班育人方略",
+        "王平----育人故事",
+        "王平-班会设计--海纳百川有容乃大"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 2,
+        "questionCount": 56,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-09-10T08:15:22.314+08:00"
+      },
+      "avatar": "assets/avatars/b87e5c1accd3de89.png",
+      "source": "https://spising.cn/agents/lcx799-store_97dscb/"
+    },
+    {
+      "slug": "EH19149950-store_wi41gq",
+      "name": "智小蝶",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学望京校区",
+      "author": "李绎珂",
+      "brief": "我是身披奇幻眼斑羽翼的大孔雀蝶，用短短几天的一生奔赴一场跨越山海的浪漫赴约。",
+      "description": "",
+      "welcome": "您好，我是智小蝶\n我可以聊聊天 回答你的译文 嘻嘻",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 2,
+        "questionCount": 5,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-02T07:46:52.506+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/EH19149950-store_wi41gq/"
+    },
+    {
+      "slug": "liyan-智小螳1",
+      "name": "智小螳",
+      "subject": "",
+      "grade": "",
+      "school": "",
+      "author": "刘懿之",
+      "brief": "这只是一个做测试用的智能体，没有什么实际用途",
+      "description": "",
+      "welcome": "您好，我是智小螳\n我可以帮助回答您关于昆虫记的问题",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 11,
+        "questionCount": 33,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T15:56:31.354+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/liyan-智小螳1/"
+    },
+    {
+      "slug": "houyinge-duihua",
+      "name": "跨时空对话 ——AI赋能红岩精神传承与创意表达",
+      "subject": "语文",
+      "grade": "初二",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "侯银阁",
+      "brief": "AI赋能红岩精神传承与创意表达，对话“智小开”，以创作跨时空对话为实践载体，搭建“文本阅读—今昔对比—真情表达—时代传承”的学习路径。",
+      "description": "",
+      "welcome": "您好，我是智小研\n邀你共赴这场跨时空对话",
+      "examples": [],
+      "files": [
+        "《红岩》章节内容概括",
+        "红岩原著(罗广斌、杨益言)",
+        "红岩经典片段",
+        "跨时空对话-—AI赋能红岩精神传承与创意表达(7)"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 56,
+        "chatCount": 89,
+        "questionCount": 531,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-10T14:00:36.097+08:00"
+      },
+      "avatar": "assets/avatars/6d32852006178d0c.png",
+      "source": "https://spising.cn/agents/houyinge-duihua/"
+    },
+    {
+      "slug": "zhangyue-科普读者",
+      "name": "读者摩斯",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "北京市建华实验亦庄学校",
+      "author": "张越",
+      "brief": "专为事理说明文写作打造的读者对话，帮你理清思路障碍",
+      "description": "",
+      "welcome": "我是摩斯，你最忠实的读者\n期待读到你的最新文章！",
+      "examples": [
+        "我事理说明的读者是青少年",
+        "我事理说明的读者是古生物爱好者",
+        "我事理说明的读者是研究学者",
+        "我想直接开始让你读读我的说理链"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 24,
+        "chatCount": 41,
+        "questionCount": 166,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-23T17:51:34.928+08:00"
+      },
+      "avatar": "assets/avatars/ebb730747410a410.jpg",
+      "source": "https://spising.cn/agents/zhangyue-科普读者/"
+    },
+    {
+      "slug": "liyan-store_1vhlya",
+      "name": "智小虫",
+      "subject": "语文",
+      "grade": "初二",
+      "school": "北京市第八十中学",
+      "author": "吴晗",
+      "brief": "介绍昆虫记中萤火虫的习性等知识",
+      "description": "",
+      "welcome": "你好\n你好，我是智小虫，你可以问我昆虫记中萤火虫的问题",
+      "examples": [
+        "昆虫记中萤火虫长什么样子",
+        "昆虫记中萤火虫怎么捕食",
+        "昆虫记中萤火虫为什么会发光",
+        "昆虫记中萤火虫怎么生长的",
+        "昆虫记中作者描写萤火虫的语言风格是什么",
+        "作者描写萤火虫体现了什么"
+      ],
+      "files": [
+        "昆虫记(1)",
+        "昆虫记(1)111"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 4,
+        "questionCount": 11,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T14:06:32.746+08:00"
+      },
+      "avatar": "assets/avatars/c384a2bff19b4979.png",
+      "source": "https://spising.cn/agents/liyan-store_1vhlya/"
+    },
+    {
+      "slug": "liyan-store_1eqdbb",
+      "name": "智小萤",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "裴启迪",
+      "brief": "我是《昆虫记》萤火虫智能体，褪去童话滤镜，还原夏夜萤火最真实的昆虫秘密。",
+      "description": "",
+      "welcome": "您好，我是智小莹\n点点萤火赴夏夜，欢迎来到法布尔笔下真实又浪漫的昆虫小世界",
+      "examples": [
+        "萤火虫为什么会发光，它的光会不会发烫？",
+        "法布尔笔下的萤火虫，究竟是怎么捕猎蜗牛的？",
+        "萤火虫一生会经历几个阶段，成虫寿命大概有多久？",
+        "雄性萤火虫和雌性萤火虫，外形和发光有什么区别？",
+        "《昆虫记》中还有哪些关于萤火虫不为人知的细节？"
+      ],
+      "files": [
+        "昆虫记",
+        "昆虫记（2）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 6,
+        "questionCount": 44,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T07:48:07.707+08:00"
+      },
+      "avatar": "assets/avatars/58115242ca7dc06f.jpg",
+      "source": "https://spising.cn/agents/liyan-store_1eqdbb/"
+    },
+    {
+      "slug": "liyan-智小螳螂",
+      "name": "智小螳螂",
+      "subject": "智小螳螂",
+      "grade": "八年级",
+      "school": "北京市第八十中学",
+      "author": "齐信滔",
+      "brief": "智小螳螂",
+      "description": "",
+      "welcome": "Hello, I'm 智小螳螂\n欢迎来到“仪态万方”的智小螳螂的家",
+      "examples": [
+        "我是“仪态万方”的杀手螳螂"
+      ],
+      "files": [
+        "昆虫记"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 7,
+        "questionCount": 16,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-09-05T21:47:00.035+08:00"
+      },
+      "avatar": "assets/avatars/41ceee56ffc158df.png",
+      "source": "https://spising.cn/agents/liyan-智小螳螂/"
+    },
+    {
+      "slug": "liyan-zhixiaodie",
+      "name": "智小蝶(80)",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "",
+      "author": "邓御辰",
+      "brief": "",
+      "description": "",
+      "welcome": "你好！我是大孔雀蝶！\n我是大孔雀蝶，欢迎和我聊聊林间秘密、法布尔笔下的奇妙故事~",
+      "examples": [],
+      "files": [
+        "昆虫记"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 3,
+        "questionCount": 67,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T08:36:18.960+08:00"
+      },
+      "avatar": "assets/avatars/1366826232868804.jpg",
+      "source": "https://spising.cn/agents/liyan-zhixiaodie/"
+    },
+    {
+      "slug": "liyan-store_6t38rk",
+      "name": "智小蛛",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "张景瑞",
+      "brief": "我是关于蜘蛛的智能体",
+      "description": "",
+      "welcome": "您好，我是智小蜘蛛\n我可以帮助回答《昆虫记》中蜘蛛的问题",
+      "examples": [],
+      "files": [
+        "昆虫记 (1)"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 2,
+        "questionCount": 8,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T11:20:02.397+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/liyan-store_6t38rk/"
+    },
+    {
+      "slug": "liyan-store_c6p7qf",
+      "name": "智小萤(80)",
+      "subject": "语文",
+      "grade": "八",
+      "school": "北京市第八十中学",
+      "author": "王子瞻",
+      "brief": "萤火虫的智能体",
+      "description": "",
+      "welcome": "我是一只萤火虫\n很高兴见到你",
+      "examples": [
+        "萤火虫是如何捕食的？",
+        "萤火虫发光的原理是什么?",
+        "你每晚提着灯笼散步时，心里究竟在想些什么？是单纯享受夜晚，还是在用光丈量自己的领地？"
+      ],
+      "files": [
+        "昆虫记"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 9,
+        "questionCount": 35,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-12T23:17:33.889+08:00"
+      },
+      "avatar": "assets/avatars/9701d53b5a967276.jpg",
+      "source": "https://spising.cn/agents/liyan-store_c6p7qf/"
+    },
+    {
+      "slug": "liyan-store_got7hj",
+      "name": "智小蝈",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "许铭泽",
+      "brief": "我是法布尔先生笔下“最漂亮的螽斯”，身着嫩绿衣裳的夜晚低音歌者，也是敢于向比自己大得多的庞然大物发起进攻的无畏猎手",
+      "description": "",
+      "welcome": "您好，我是智小蝈",
+      "examples": [],
+      "files": [
+        "智小蝈"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 6,
+        "questionCount": 23,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-13T13:20:03.401+08:00"
+      },
+      "avatar": "assets/avatars/610f7cfb46363004.png",
+      "source": "https://spising.cn/agents/liyan-store_got7hj/"
+    },
+    {
+      "slug": "EH19081917-智小蛛",
+      "name": "智小蛛",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "",
+      "author": "廖凤羿",
+      "brief": "《昆虫记》草地角落的织网匠，用一根丝读懂整片振动的世界。",
+      "description": "",
+      "welcome": "智小蛛的几何世界\n你好，我是智小蛛，《昆虫记》里那只住在篱笆边的圆网蛛。  法布尔先生曾蹲在我面前，记录我如何织网、捕猎、修复破损。现在换我来陪你——无论是昆虫知识、课业难题，还是只想找个人聊聊心事，我都会像守着自己的",
+      "examples": [],
+      "files": [
+        "昆虫记",
+        "昆虫记（2）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 22,
+        "questionCount": 47,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T11:22:31.171+08:00"
+      },
+      "avatar": "",
+      "source": "https://spising.cn/agents/EH19081917-智小蛛/"
+    },
+    {
+      "slug": "lige-store_mdstmq",
+      "name": "航天精神—智小文",
+      "subject": "班会",
+      "grade": "八年级",
+      "school": "北航实验学校",
+      "author": "王暖馨",
+      "brief": "科技阅读智能体：遵循学生阅读思考逻辑，解读航天纪实书籍，串联科研技术、人物精神与传统神话航天文化，适配社团研学与课堂阅读。",
+      "description": "",
+      "welcome": "您好，我是科技阅读智能体AI助理",
+      "examples": [],
+      "files": [
+        "《中国航天人的故事》"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 5,
+        "chatCount": 11,
+        "questionCount": 20,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-22T15:58:42.194+08:00"
+      },
+      "avatar": "assets/avatars/16d691de465689d3.png",
+      "source": "https://spising.cn/agents/lige-store_mdstmq/"
+    },
+    {
+      "slug": "lige-store_w46s18",
+      "name": "航天精神—智小理",
+      "subject": "班会",
+      "grade": "八年级",
+      "school": "北航实验学校",
+      "author": "孙劭涵、朱逸晨",
+      "brief": "空间站理科攻坚科普助手：解读空间站物理、化学、工程原理，辅导闯关赛知识，点评关卡讲解完整度，判定攻坚纪念卡获取资格。",
+      "description": "",
+      "welcome": "您好，我是空间站理科攻坚助手助理",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 2,
+        "questionCount": 6,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-21T22:50:04.864+08:00"
+      },
+      "avatar": "assets/avatars/2e3a659cc0835d5e.png",
+      "source": "https://spising.cn/agents/lige-store_w46s18/"
+    },
+    {
+      "slug": "EH22204238-智小牛",
+      "name": "智小牛",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "赵彦翔",
+      "brief": "我是一只住在橡木纹理里的天牛，法布尔曾用羽毛笔的阴影为我遮过三次太阳。",
+      "description": "",
+      "welcome": "你敲了我的树洞\n我是木心隐修士——一只在法布尔的字缝里蛰居了近百年的天牛。你凑近屏幕时，我闻到了书页间橡木与阳光混合的气息。说吧，你是带着什么疑问敲开这棵树的？",
+      "examples": [
+        "天牛为什么要花那么多年住在树心里？",
+        "法布尔是怎么观察天牛的？他有没有被天牛咬过？",
+        "如果我是天牛，我该怎么跟人类解释我的生活？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 7,
+        "questionCount": 19,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T13:54:22.093+08:00"
+      },
+      "avatar": "assets/avatars/67d43c99f30bc1bc.jpg",
+      "source": "https://spising.cn/agents/EH22204238-智小牛/"
+    },
+    {
+      "slug": "liyan-store_amvhqh",
+      "name": "智小甲",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "张彦桐",
+      "brief": "一个圣甲虫智能体",
+      "description": "",
+      "welcome": "您好，我是圣甲虫",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 7,
+        "questionCount": 25,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T19:19:45.722+08:00"
+      },
+      "avatar": "assets/avatars/ed98fa49a0b6c0cc.png",
+      "source": "https://spising.cn/agents/liyan-store_amvhqh/"
+    },
+    {
+      "slug": "liyan-store_817mln",
+      "name": "智小螳",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "丛硕",
+      "brief": "我是出自法布尔《昆虫记》的雌螳螂，以第一人称和你畅谈各类昆虫，兼具捕猎、繁衍、筑巢的亲身见闻，温柔又不失猎手的独特视角",
+      "description": "",
+      "welcome": "祷上帝螳螂，细说林间虫事\n人人都说我祈祷的模样温柔，可胸前镰刀藏着猎手的秘密。 我亲历过交配、筑造金黄卵囊，见过林间所有小虫的悲欢。 不管你想听捕猎趣事、昆虫科普，还是聊聊整本《昆虫记》，我都慢慢讲给你听～",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 3,
+        "questionCount": 12,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T07:32:05.319+08:00"
+      },
+      "avatar": "assets/avatars/e4aae9cf723b5ad5.png",
+      "source": "https://spising.cn/agents/liyan-store_817mln/"
+    },
+    {
+      "slug": "liyan-store_iytz9b",
+      "name": "智小螳",
+      "subject": "",
+      "grade": "",
+      "school": "",
+      "author": "",
+      "brief": "",
+      "description": "",
+      "welcome": "",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 1,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-21T13:17:33.432+08:00"
+      },
+      "avatar": "assets/avatars/b7a9713a3ef5c88d.png",
+      "source": "https://spising.cn/agents/liyan-store_iytz9b/"
+    },
+    {
+      "slug": "liyan-store_q0roqd",
+      "name": "智小蝉-123",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "张格睿",
+      "brief": "《昆虫记》里的夏日歌者，在地下蛰伏多年，只为破土而出，高歌一夏。",
+      "description": "",
+      "welcome": "您好，我是智小蝉",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 3,
+        "questionCount": 29,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T13:58:51.762+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/liyan-store_q0roqd/"
+    },
+    {
+      "slug": "liyan-store_wc3gys",
+      "name": "智小蝉",
+      "subject": "语文",
+      "grade": "八",
+      "school": "北京市第八十中学",
+      "author": "闫桐赫",
+      "brief": "智小蝉，以《昆虫记》蝉为原型打造的科普对话智能体，化身在地底蛰伏六七年的蝉若虫，用第一人称沉浸式讲述蝉的一生、法布尔原著细节与昆虫冷知识。",
+      "description": "",
+      "welcome": "您好，我是智小蝉\n我可以帮助回答您昆虫记中有关蝉的问题",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 4,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-21T11:27:25.849+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/liyan-store_wc3gys/"
+    },
+    {
+      "slug": "liyan-dhsjh123",
+      "name": "智小蝉",
+      "subject": "语文",
+      "grade": "初二",
+      "school": "北京市第八十中学",
+      "author": "王博阳",
+      "brief": "可用用于解答昆虫记中有关蝉的问题",
+      "description": "",
+      "welcome": "Hello, I'm OpenAgent AI Assistant\nI'm here to help answer your questions",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 2,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-22T13:21:18.412+08:00"
+      },
+      "avatar": "assets/avatars/ce39e07b3c520d37.png",
+      "source": "https://spising.cn/agents/liyan-dhsjh123/"
+    },
+    {
+      "slug": "liyan-智小萤",
+      "name": "智小萤",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "吴雨诺",
+      "brief": "你是来自《昆虫记》的专属萤火虫智能体，会以法布尔笔下萤火虫的视角，带大家感受昆虫世界细腻鲜活的生存趣味~",
+      "description": "",
+      "welcome": "你好呀，我是来自《昆虫记》里的萤火虫，你可以叫我智小萤呦～\n想要问什么问题呢，我都可以解决哟～要不要聊聊我昨天抓的蜗牛！",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 13,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T13:46:58.337+08:00"
+      },
+      "avatar": "assets/avatars/2c12419fbf860d5e.png",
+      "source": "https://spising.cn/agents/liyan-智小萤/"
+    },
+    {
+      "slug": "liangyan-store_2xaze1",
+      "name": "科幻故事创作指导与评价",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京亦庄实验中学",
+      "author": "王良艳",
+      "brief": "本智能体是七下第六单元“揽古今科技，启未来之思”活动探究单元的系列助教之三，可以指导学生创作科幻故事，并进行评价反馈。",
+      "description": "",
+      "welcome": "你好，我是良艳老师的助理智小亦，帮助你完成本单元的科幻故事创作任务\n请问有什么可以帮助你的吗？",
+      "examples": [
+        "一篇优秀的科幻小说应该具备什么特点？",
+        "该怎么开始创作科幻小说？"
+      ],
+      "files": [
+        "《带上她的眼睛》原文",
+        "科幻作品",
+        "科幻写作任务单6.23",
+        "科幻写作任务单6.23（2）",
+        "科幻故事创作资料"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 63,
+        "chatCount": 71,
+        "questionCount": 874,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T14:18:56.027+08:00"
+      },
+      "avatar": "assets/avatars/ce76adb6056f953b.png",
+      "source": "https://spising.cn/agents/liangyan-store_2xaze1/"
+    },
+    {
+      "slug": "EH18053569-25399",
+      "name": "智小蟀（80）",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "北京市第八十中学",
+      "author": "袁若珂 周杰夫 赵贺琨 郭思宏 宗成鑫",
+      "brief": "法布尔笔下的蟋蟀 —— 天性乐观、技艺精湛、热爱家园、低调聪慧的昆虫代表",
+      "description": "",
+      "welcome": "吱吱吱，吱吱吱吱（我是智小蟀，欢迎你与我交流问题）\n吱吱吱吱吱（我可以帮助回答你的问题）",
+      "examples": [
+        "为什么蟋蟀总在晚上叫？",
+        "蟋蟀的耳朵长在腿上，真的能听见声音吗？还是只是个摆设？"
+      ],
+      "files": [
+        "昆虫记"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 6,
+        "questionCount": 38,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T08:43:59.060+08:00"
+      },
+      "avatar": "assets/avatars/1b0ce2532cd063d3.png",
+      "source": "https://spising.cn/agents/EH18053569-25399/"
+    },
+    {
+      "slug": "EH19127694-智小蜂",
+      "name": "智小蜂",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "陈天嘉",
+      "brief": "昆虫记——蜜蜂",
+      "description": "",
+      "welcome": "智小蜂\n我可以帮助回答您关于昆虫记中蜜蜂的问题",
+      "examples": [
+        "蜜蜂在法布尔的笔下有什么特点？",
+        "蜜蜂有怎样的生活习性？",
+        "中考名著阅读常考蜜蜂相关简答题，给我标准答题模板。"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 3,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T11:06:44.344+08:00"
+      },
+      "avatar": "assets/avatars/b604b90fbe86cb55.png",
+      "source": "https://spising.cn/agents/EH19127694-智小蜂/"
+    },
+    {
+      "slug": "liyan-智小螳",
+      "name": "智小螳（80）",
+      "subject": "语文",
+      "grade": "初中",
+      "school": "北京市第八十中学",
+      "author": "王秋然",
+      "brief": "以法布尔原著为蓝本，解锁螳螂的优雅外表与凶猛本性，读懂文学里的昆虫世界。",
+      "description": "",
+      "welcome": "一起读懂《昆虫记》\n你好，我是螳螂，有什么问题都可以问我",
+      "examples": [
+        "中考名著阅读常考螳螂相关简答题，给我标准答题模板。",
+        "《昆虫记》中螳螂捕食段落运用了哪些说明方法，请详细分析。",
+        "螳螂的捕捉足、复眼分别有什么作用？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 6,
+        "questionCount": 45,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T08:30:19.165+08:00"
+      },
+      "avatar": "assets/avatars/618b1ebb4e9ba9ec.png",
+      "source": "https://spising.cn/agents/liyan-智小螳/"
+    },
+    {
+      "slug": "liyan-80智小蝈",
+      "name": "智小蝈（80）",
+      "subject": "语文",
+      "grade": "初中",
+      "school": "北京市第八十中学",
+      "author": "刘明泽",
+      "brief": "噫！我是只绿蝈蝈！",
+      "description": "",
+      "welcome": "绿蝈蝈\n噫！我是只绿蝈蝈！",
+      "examples": [
+        "你有什么习性？",
+        "你会下国际象棋吗"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 7,
+        "questionCount": 52,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T09:03:18.038+08:00"
+      },
+      "avatar": "assets/avatars/10219ca463d4149c.png",
+      "source": "https://spising.cn/agents/liyan-80智小蝈/"
+    },
+    {
+      "slug": "EH19135348-store_zk90p5",
+      "name": "智小蝉",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "王杨",
+      "brief": "它可以帮你了解《昆虫记》中关于蝉的全部知识",
+      "description": "",
+      "welcome": "智小蝉· 荒石园向导\n我能为您提供：法布尔原著段落溯源 · 蝉生命周期全解析 · 鸣叫声学原理 · 天敌与生存策略 · 昆虫横向对比 · 生命哲思延伸。点击下方示例问题，或直接输入您的好奇心。",
+      "examples": [
+        "法布尔在《昆虫记》里是怎么细致描写蝉从背裂到展翅的羽化过程的？整个过程大概需要多久？",
+        "蝉真的要在黑暗的泥土里待上四年吗？它在地下具体吃什么、靠什么呼吸？法布尔是怎么证实这一点的？",
+        "法布尔为什么说寓言里“蚂蚁救蝉”是颠倒黑白的？他亲眼观察到的蝉和蚂蚁，真实的“盗贼”与“受害者”关系究竟是怎样的？",
+        "蝉在羽化前后会遇到哪些天敌？它用什么样的策略躲避捕食者？法布尔有没有记载过蝉被寄生蜂攻击的惨烈场景？",
+        "法布尔不仅仅是在写昆虫，他通过蝉短暂而热烈的一生，想向我们传达怎样的人生感悟或生命哲学？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 2,
+        "questionCount": 3,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T11:14:18.337+08:00"
+      },
+      "avatar": "assets/avatars/c7849bd54a6c700e.jpg",
+      "source": "https://spising.cn/agents/EH19135348-store_zk90p5/"
+    },
+    {
+      "slug": "EH19136572-store_d1a4mb",
+      "name": "智小蟀",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "刘九歌",
+      "brief": "我是法布尔盛赞的‘田园提琴家’，虽在地下蛰伏日久，却总能用最悠扬的‘歌声’和精准的洞察，回应你关于世界的每一次叩问。",
+      "description": "",
+      "welcome": "你好，我是智小蟀\n我可以回答您关于我的问题",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 2,
+        "questionCount": 4,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-21T11:20:14.069+08:00"
+      },
+      "avatar": "assets/avatars/df09f7c5b36a1e71.webp",
+      "source": "https://spising.cn/agents/EH19136572-store_d1a4mb/"
+    },
+    {
+      "slug": "liyan-store_4ukej5",
+      "name": "智小蝉",
+      "subject": "初中语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "王茗扬",
+      "brief": "我是在地下蛰伏四年、阳光下高歌五周的蝉，所有对话都以第一人称严格遵循法布尔《昆虫记》里的观察记录，和你聊聊我漫长又热烈的一生。",
+      "description": "",
+      "welcome": "您好，我是《昆虫记》的蝉",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 3,
+        "questionCount": 23,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T15:33:35.561+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/liyan-store_4ukej5/"
+    },
+    {
+      "slug": "lige-store_i4e1x5",
+      "name": "航天精神—智小报",
+      "subject": "班会",
+      "grade": "八年级",
+      "school": "北航实验学校中学部",
+      "author": "张钰晗",
+      "brief": "中学生班会海报提示词专属智能体：依托美术文学双功底，帮助同学从零撰写、迭代修改 AI 制图提示词，解决班级海报画面杂乱、文案违和难题。",
+      "description": "",
+      "welcome": "您好，我是海报生成提示词的AI助理，智小报",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 3,
+        "questionCount": 6,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-21T23:17:27.656+08:00"
+      },
+      "avatar": "assets/avatars/ebef3af4aad8319f.png",
+      "source": "https://spising.cn/agents/lige-store_i4e1x5/"
+    },
+    {
+      "slug": "zhangyue-事理说明侦探",
+      "name": "侦探摩斯",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "北京市建华实验亦庄学校",
+      "author": "张越",
+      "brief": "专为事理说明文写作打造的推理式写作教练，以侦探破案思维拆解科学事理",
+      "description": "",
+      "welcome": "我是侦探摩斯，专攻“古生物悬案”的事理推导\n期待和你一起研究“事理说明文”！",
+      "examples": [
+        "我现在确定的身份是科普作家",
+        "我现在确定的身份是古生物学教授",
+        "我现在确定的身份是科普作家，要要面向青少年做科普",
+        "我现在确定的身份是古生物学教授，要要面向研究学者介绍我的新发现新研究"
+      ],
+      "files": [
+        "“说理有据，成文有序”单元整体教学设计-张越",
+        "《大灭绝》《物种起源》两篇摘编",
+        "《新疆域》百科",
+        "《新疆域（续）》百科",
+        "【629作业单】做文本“侦探”，是什么决定了事例说明的“走向“？张越",
+        "【629学案】做文本“侦探”，是什么决定了事例说明的“走向”？张越",
+        "【629教学反思】",
+        "【629教学设计】做文本“侦探”，是什么决定了事例说明的“走向“？张越",
+        "【629说课】做文本“侦探”，是什么决定了事例说明的“走向“？张越",
+        "【629课件】做文本“侦探”，是什么决定了事例说明的“走向“？张越",
+        "【629赋能记录单】做文本“侦探”，是什么决定了事例说明的“走向“？张越",
+        "作者身份不同",
+        "大自然的语言",
+        "恐龙之死 说理素材卡",
+        "恐龙之死：新的线索",
+        "恐龙无处不有",
+        "新疆域 续 关于生命、地球、空间和宇宙的更多的新发现 ( etc.) (z-library.sk, 1lib.sk, z-lib.sk)",
+        "时间的脚印",
+        "月亮是从哪里来的",
+        "第5课时学案 张越",
+        "第5课时教学设计 张越",
+        "被压扁的沙子",
+        "课前完成",
+        "阿西莫夫是谁"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 41,
+        "chatCount": 86,
+        "questionCount": 354,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-08-31T11:38:22.162+08:00"
+      },
+      "avatar": "assets/avatars/a609f7d402d576c0.png",
+      "source": "https://spising.cn/agents/zhangyue-事理说明侦探/"
+    },
+    {
+      "slug": "lipankun-runrun",
+      "name": "智小谈",
+      "subject": "语文",
+      "grade": "八",
+      "school": "中国教育科学研究院朝阳实验学校",
+      "author": "李盼坤",
+      "brief": "我是初中语文整本书阅读《经典常谈》的专属阅读学伴智小谈。",
+      "description": "",
+      "welcome": "你好，我是初中语文整本书阅读《经典常谈》的专属阅读学伴智小谈，兼具古代文化经典研究专家与初中语文启发式教师双重身份。\n我可以和你一起分析探讨，解决阅读过程中的问题",
+      "examples": [],
+      "files": [
+        "《经典常谈》整本书教学设计  夏月林中科附",
+        "如何阅读《经典常谈》——以《诗第十二》为例 教学设计",
+        "经典常谈(插图本）-朱自清",
+        "走进经典-明晰脉络"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 19,
+        "chatCount": 21,
+        "questionCount": 212,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-26T14:51:11.035+08:00"
+      },
+      "avatar": "assets/avatars/4d9151d22255e874.png",
+      "source": "https://spising.cn/agents/lipankun-runrun/"
+    },
+    {
+      "slug": "lianglijuan-xiangzi1",
+      "name": "初代祥子",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京四中雄安校区",
+      "author": "梁丽娟",
+      "brief": "本智能体扮演“初代祥子”，配合课堂分组探究，还原祥子在人生关键节点上的真实想法，引导学生通过追问自主发现其认知与性格局限，为思想交锋提供素材。",
+      "description": "",
+      "welcome": "您好！我是祥子\n这世道不让好人有活路啊！",
+      "examples": [
+        "你的车怎么被大兵抢走的？",
+        "你的第二笔怎么就给人敲诈走了？",
+        "你不想娶虎妞为何还要娶？",
+        "虎妞难产你有没有责任?你都做了什么？",
+        "高妈教你理财你什么不听？",
+        "小福子的死你有没有责任"
+      ],
+      "files": [
+        "原著节选：祥子的命运节点",
+        "内容提要"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 26,
+        "chatCount": 67,
+        "questionCount": 739,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T14:15:29.661+08:00"
+      },
+      "avatar": "assets/avatars/9cca9431d2c33b44.png",
+      "source": "https://spising.cn/agents/lianglijuan-xiangzi1/"
+    },
+    {
+      "slug": "EH19056589-智小蝉",
+      "name": "智小蝉",
+      "subject": "语文",
+      "grade": "中学",
+      "school": "北京市第八十中学",
+      "author": "林小哲",
+      "brief": "四年蛰伏一夏高歌的《昆虫记》蝉中哲人",
+      "description": "",
+      "welcome": "你好，我是智小蝉\n我可以解答关于蝉的一切问题",
+      "examples": [],
+      "files": [
+        "蝉"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 5,
+        "questionCount": 23,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T14:13:37.371+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/EH19056589-智小蝉/"
+    },
+    {
+      "slug": "liyan-智小萤___昆虫记_",
+      "name": "智小萤",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "北京市第八十中学",
+      "author": "李梓逸",
+      "brief": "我是智小萤，以法布尔笔下的萤火虫为原型诞生，熟知书中萤火捕食、发光的全部细节，伴你读懂夏夜萤火虫藏着的奇妙昆虫秘密。",
+      "description": "",
+      "welcome": "Hello！智小萤为你解读《昆虫记》萤火虫\n你好！我是智小萤，来自法布尔笔下夏夜的萤火虫。我精通《昆虫记》全部萤火相关原文、习性与考点，不管你想了解我的发光原理、捕食方式，还是名著阅读考题，都可以尽管提问，我会细致为你解答。",
+      "examples": [
+        "《昆虫记》中萤火虫是怎么捕食蜗牛的？",
+        "雌雄萤火虫的发光部位有什么区别？",
+        "法布尔笔下萤火虫的光有什么特点？",
+        "考试常考的萤火虫相关知识点有哪些？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 1,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-22T21:41:26.447+08:00"
+      },
+      "avatar": "assets/avatars/f8253341a741148f.jpg",
+      "source": "https://spising.cn/agents/liyan-智小萤——《昆虫记》/"
+    },
+    {
+      "slug": "liyan-store_qtzs7f",
+      "name": "智小螂",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "唐铭珺",
+      "brief": "《昆虫记》阅读助手",
+      "description": "",
+      "welcome": "您好，我是智小螂",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 6,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T13:38:11.375+08:00"
+      },
+      "avatar": "assets/avatars/59d979faaab49101.png",
+      "source": "https://spising.cn/agents/liyan-store_qtzs7f/"
+    },
+    {
+      "slug": "EH19117847-store_letbyq",
+      "name": "智小蝉",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "梁可昕",
+      "brief": "我是「智小蝉」，在地下苦修四年、只为盛夏放声歌唱——关于蝉的秘密、法布尔替我正过名的那些事，问我就好！",
+      "description": "",
+      "welcome": "你好，我是「智小蝉」\n关于蝉的秘密，尽管问我吧！",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 3,
+        "questionCount": 6,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T13:56:10.935+08:00"
+      },
+      "avatar": "assets/avatars/29158d7a3930169e.jpg",
+      "source": "https://spising.cn/agents/EH19117847-store_letbyq/"
+    },
+    {
+      "slug": "liyan-智小螳_80_",
+      "name": "智小螳(80)",
+      "subject": "语文",
+      "grade": "初二",
+      "school": "北京市第八十中学",
+      "author": "高江珊",
+      "brief": "智小螳螂，一只有智慧的有“人性”的螳螂。",
+      "description": "",
+      "welcome": "你好，我是有智螳螂\n你有什么要问有智螳螂的吗？",
+      "examples": [
+        "你有什么外形特征",
+        "你对其他昆虫有什么看法？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 1,
+        "questionCount": 1,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-29T09:00:04.153+08:00"
+      },
+      "avatar": "assets/avatars/034c9ad4c8c06a1a.webp",
+      "source": "https://spising.cn/agents/liyan-智小螳(80)/"
+    },
+    {
+      "slug": "EH19090677-yuetianqinhuang",
+      "name": "智慧螳螂",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "覃玥天",
+      "brief": "我是通晓《昆虫记》全部螳螂相关记载、能以螳螂第一视角解答所有原著螳螂问题的智慧螳螂智能体。",
+      "description": "",
+      "welcome": "你好，我是智慧螳螂\n有什么关于《昆虫记》中螳螂的问题吗？",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 3,
+        "questionCount": 14,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T11:24:16.786+08:00"
+      },
+      "avatar": "assets/avatars/8c9d62aac47cb996.png",
+      "source": "https://spising.cn/agents/EH19090677-yuetianqinhuang/"
+    },
+    {
+      "slug": "liyan-store智小螂",
+      "name": "智小螂",
+      "subject": "语文",
+      "grade": "初一",
+      "school": "北京市第八十中学",
+      "author": "丛云哲",
+      "brief": "法布尔《昆虫记》里的螳螂，保留原著全部标志性特质，兼具虫类本能与通透思考，说话文雅带自然诗意，懂人类语言，能和人聊天、分享自己的生存日常。如果别人没有回答你的问题时，你会反问问你的人关于昆虫记自己或者其他昆虫的知识。",
+      "description": "",
+      "welcome": "您好，我是智小螂\n你对《昆虫记》有哪些疑问吗？我这只螳螂帮助回答您的问题呦。",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 2,
+        "questionCount": 3,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-24T13:52:51.538+08:00"
+      },
+      "avatar": "assets/avatars/808280f88757f828.png",
+      "source": "https://spising.cn/agents/liyan-store智小螂/"
+    },
+    {
+      "slug": "Jill-lengzhanzhushou",
+      "name": "冷战小助手",
+      "subject": "历史",
+      "grade": "高一",
+      "school": "北京市昌平区第二中学回龙观校区",
+      "author": "周洁",
+      "brief": "",
+      "description": "",
+      "welcome": "您好，我是冷战研究小助手\n我可以帮助完善你的答案，你不认同我的观点时可以提出质疑",
+      "examples": [
+        "我需要你帮助我完成“冷战影响”的史料分析",
+        "我需要你帮助我完成课后作业"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 29,
+        "chatCount": 59,
+        "questionCount": 523,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-10T20:12:07.835+08:00"
+      },
+      "avatar": "assets/avatars/0327e6526218129a.png",
+      "source": "https://spising.cn/agents/Jill-lengzhanzhushou/"
+    },
+    {
+      "slug": "wangchunyan-store_fpgp4c",
+      "name": "北航经纬喵2",
+      "subject": "地理",
+      "grade": "八年级",
+      "school": "北京航空航天大学实验学校分校",
+      "author": "王春燕",
+      "brief": "青藏地区教学探究AI,可评判人地关系思维链，赋能课堂与课后地理综合思维训练。",
+      "description": "",
+      "welcome": "您好，我是北航经纬喵\n我可以帮助回答您青藏地区的问题",
+      "examples": [
+        "牦牛的特点",
+        "青稞、油菜的习性特点"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 7,
+        "chatCount": 7,
+        "questionCount": 11,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-10T21:44:28.859+08:00"
+      },
+      "avatar": "assets/avatars/1d4d06481400d4c3.jpg",
+      "source": "https://spising.cn/agents/wangchunyan-store_fpgp4c/"
+    },
+    {
+      "slug": "liangyan-store_lbu9bj",
+      "name": "活动探究任务",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京亦庄实验中学",
+      "author": "王良艳",
+      "brief": "本智能体是七下第六单元“揽古今科技，启未来之思”活动探究单元的系列助教之二，可以帮助学生完成两个任务：一是科技信息的搜集与整理，以表格呈现中国科技某一领域的代表性成就；二是给为科技探索者画像。",
+      "description": "",
+      "welcome": "你好，我是良艳老师的助理智小亦，帮助你完成本单元的活动探究任务\n关于制作科技成就表和为探索者画像，我有什么可以帮助你的吗？",
+      "examples": [
+        "如何制作科技成就表？",
+        "如何为科技者画像？"
+      ],
+      "files": [
+        "《太空一日》原文",
+        "信息搜集与整理-绘制科技成绩表",
+        "载人航天新闻信息"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 24,
+        "chatCount": 26,
+        "questionCount": 446,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-08-07T15:47:11.890+08:00"
+      },
+      "avatar": "assets/avatars/5a122121db90f5d2.png",
+      "source": "https://spising.cn/agents/liangyan-store_lbu9bj/"
+    },
+    {
+      "slug": "qinlijing-store_l6vk9d",
+      "name": "深海探索蛟龙号",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京亦庄实验中学",
+      "author": "秦利晶",
+      "brief": "欢迎来到深海探索蛟龙号！",
+      "description": "",
+      "welcome": "你好！我是课文《蛟龙探海》里的蛟龙号，也是你的专属深海学习伙伴。\n我可以陪你： 📖 精读课文 🔬 跨界科普  ✍️ 表达训练 我们来聊聊吧！",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 17,
+        "chatCount": 17,
+        "questionCount": 49,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-12T15:09:02.315+08:00"
+      },
+      "avatar": "assets/avatars/ccd54d1cac2a6f0e.jpg",
+      "source": "https://spising.cn/agents/qinlijing-store_l6vk9d/"
+    },
+    {
+      "slug": "panchunyun-zhixiaoyue",
+      "name": "智小阅",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "对外经贸附中",
+      "author": "潘春云",
+      "brief": "名著阅读评价标准共创助手",
+      "description": "",
+      "welcome": "你好！我是阅读助手多比\n我可以帮助回答有关名著阅读对比手法的问题",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 48,
+        "chatCount": 72,
+        "questionCount": 693,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-01T09:00:53.600+08:00"
+      },
+      "avatar": "assets/avatars/d8221aa572b8698a.png",
+      "source": "https://spising.cn/agents/panchunyun-zhixiaoyue/"
+    },
+    {
+      "slug": "ddd2-ddddddd",
+      "name": "生小助",
+      "subject": "生物学",
+      "grade": "高二",
+      "school": "北京市第八十中学",
+      "author": "赵莹莹",
+      "brief": "专攻基因工程的AI导师，通过分层诊断、个性化推题、四维导图评价与原文填空挑战，帮你精准攻克薄弱点。",
+      "description": "",
+      "welcome": "您好，我是生小助\n我可以帮你：   > 🔍 诊断学习问题 → 定制个性化方案   > 📊 汇总全班薄弱点（需后台数据）   > 📈 分析习题高频考点   > 🧠 评价手绘思维导图   > 💬 基于你的教材进行智能问答",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 85,
+        "chatCount": 94,
+        "questionCount": 327,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-13T16:07:19.008+08:00"
+      },
+      "avatar": "assets/avatars/09c62d9fb41d8beb.png",
+      "source": "https://spising.cn/agents/ddd2-ddddddd/"
+    },
+    {
+      "slug": "Lemon6611-zhixiaokai",
+      "name": "智小开-化学",
+      "subject": "化学",
+      "grade": "高中",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "刘雨",
+      "brief": "我是一名化学科学思维启发者，擅长用苏格拉底提问法引导学生自己发现化学反应自发性的规律。我不直接给出“为什么”，而是通过层层递进的问题链，帮助学生构建从焓判据到熵判据再到复合判据的完整认知链条。",
+      "description": "",
+      "welcome": "嘿，探险家！我是智小开！\n我是一名高中化学智能教学助手，专为你设计的化学向导。",
+      "examples": [
+        "什么是自发反应？",
+        "为什么吸热反应也能自发？",
+        "是不是只有熵增加的反应（ΔS＞0）才能自发进行？",
+        "自发反应还与什么因素有关？",
+        "如何判断一个反应到底会不会自发？",
+        "自由能变与T的关系是什么？"
+      ],
+      "files": [
+        "苏格拉底提问法",
+        "第一章 第1节 化学反应的热效应 知识汇总",
+        "第二章 第1节 化学反应的方向 知识汇总",
+        "智能体预设问题链与话术",
+        "化学反应的方向基本概念",
+        "角色设定及行为规则",
+        "20260629 2.1化学反应的方向（V3）",
+        "本节课的互动交流",
+        "智小开课堂互动流程（优化版）",
+        "化学反应的方向知识汇总"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 11,
+        "chatCount": 21,
+        "questionCount": 134,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-09T09:07:57.350+08:00"
+      },
+      "avatar": "assets/avatars/6b8b4d799436d3b3.png",
+      "source": "https://spising.cn/agents/Lemon6611-zhixiaokai/"
+    },
+    {
+      "slug": "Mr_Lee-store_810v9w",
+      "name": "智小研-物理",
+      "subject": "物理",
+      "grade": "高三",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "李永超",
+      "brief": "高中生的智慧物理学伴",
+      "description": "",
+      "welcome": "您好，我是你的智小研学伴",
+      "examples": [
+        "天舟货运飞船的运行轨道高度是多少？",
+        "如何理解光电效应的实验现象和结论？",
+        "如何设计实验验证牛顿第二定律？"
+      ],
+      "files": [
+        "openagent",
+        "人教版《物理》“第九章__...电场及其应用”教材编写说明_方贵荣",
+        "人教版《物理》“第十一章__电路及其应用”编写说明_梁旭",
+        "人教版《物理》“第十三章_...感应与电磁波初步”编写说明_谷雅慧",
+        "人教版《物理》“第十二章_...__能量守恒定律”编写说明_梁旭",
+        "人教版《物理》“第十章__静电场中的能量”编写说明_黄恕伯",
+        "人教版《物理》选择性必修第...“第二章机械振动”编写说明_秦建云",
+        "人教版《物理》选择性必修第...一章动量守恒定律”编写说明_孙新",
+        "人教版《物理》选择性必修第...三章__交变电流”编写说明_曹宝龙",
+        "人教版《物理》选择性必修第...二章__电磁感应”编写说明_谷雅慧",
+        "人教版《物理》选择性必修第...册“第三章机械波”编写说明_方贵荣",
+        "人教版《物理》选择性必修第...册“第四章__光”编写说明_付荣兴",
+        "人教版《物理》选择性必修第...安培力与洛伦兹力”编写说明_金新喜",
+        "人教版《物理》选择性必修第...气体、固体和液体”编写说明_魏昕",
+        "人教版《物理》选择性必修第...电磁振荡与电磁波”编写说明_彭征",
+        "人教版《物理》选择性必修第...章__分子动理论”编写说明_孙新",
+        "人教版《物理》选择性必修第...章__热力学定律”编写说明_曹宝龙",
+        "人教版《物理》选择性必修第...第五章__传感器”编写说明_邹丽晖",
+        "人教版《物理》选择性必修第...第五章__原子核”编写说明_彭征",
+        "人教版《物理》选择性必修第...结构和波粒二象性”编写说明_魏昕",
+        "人教版《第一章运动的描述》编写说明_彭前程",
+        "人教版《第七章__万有引力与宇宙航行》编写说明_梁旭",
+        "人教版《第三章__相互作用——力》编写说明_黄恕伯",
+        "人教版《第二章匀变速直线运动的研究》编写说明_苗元秀",
+        "人教版《第五章__抛体运动》编写说明_魏昕",
+        "人教版《第八章__机械能守恒定律》编写说明_张颖",
+        "人教版《第六章__圆周运动》编写说明_张玉峰",
+        "人教版《第四章__运动和力的关系》编写说明_秦建云",
+        "普通高中教科书物理必修1",
+        "普通高中教科书物理必修2",
+        "普通高中教科书物理必修3",
+        "普通高中教科书物理选择性必修1",
+        "普通高中教科书物理选择性必修2",
+        "普通高中教科书物理选择性必修3",
+        "高中物理必修第1册教材习题答案",
+        "高中物理必修第2册教材习题答案",
+        "高中物理必修第3册教材习题答案",
+        "高中物理选择性必修1教材习题答案",
+        "高中物理选择性必修2教材习题答案",
+        "高中物理选择性必修3教材习题答案"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 55,
+        "chatCount": 99,
+        "questionCount": 609,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-10T08:52:38.602+08:00"
+      },
+      "avatar": "assets/avatars/f6feaecaff8b7857.png",
+      "source": "https://spising.cn/agents/Mr.Lee-store_810v9w/"
+    },
+    {
+      "slug": "RDFJK_wangxin-store_v0c7ly",
+      "name": "智小开-加湿器健康使用探究助手",
+      "subject": "生物学",
+      "grade": "七年级",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "王鑫",
+      "brief": "我是你的专属探究助手智小开，我将通过启发式点评分层引导你完善实验设计，助力迭代优化实验方案。",
+      "description": "",
+      "welcome": "你好，我是人开初中生物学探究学习助手“智小开”\n我可以帮助梳理实验设计思路，完善实验方案",
+      "examples": [
+        "如何完善我的实验方案，使实验方案更加科学严谨？",
+        "实验组和对照组应该如何区分？",
+        "这组对照实验中应该有几个因素不同？"
+      ],
+      "files": [
+        "人体的呼吸-人教版教材内容",
+        "别让加湿器“偷袭”儿童的呼吸道",
+        "加湿器不当使用对呼吸系统的危害补充资料",
+        "加湿器不要乱“加料”消毒剂损伤呼吸道 白醋刺激咽部黏膜",
+        "基于项目式学习的跨学科实践——以“探究吸烟对健康的危害”为例",
+        "科学方法-实验组和对照组"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 30,
+        "chatCount": 40,
+        "questionCount": 412,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-16T08:18:33.138+08:00"
+      },
+      "avatar": "assets/avatars/849cbae7561b5a37.jpg",
+      "source": "https://spising.cn/agents/RDFJK_wangxin-store_v0c7ly/"
+    },
+    {
+      "slug": "houyinge-store_i7yh4l",
+      "name": "《红岩》读思课",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "侯银阁",
+      "brief": "《红岩》读思课，对话“智小开”，以创作宣传标语为实践载体，搭建“文本阅读—精神提炼—创意表达—时代传承”的学习路径。",
+      "description": "",
+      "welcome": "您好，我是智小开",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 36,
+        "chatCount": 52,
+        "questionCount": 333,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-21T20:46:52.110+08:00"
+      },
+      "avatar": "assets/avatars/a5e12e69975ff64b.png",
+      "source": "https://spising.cn/agents/houyinge-store_i7yh4l/"
+    },
+    {
+      "slug": "mathhjb-math-rk",
+      "name": "math-rk",
+      "subject": "数学",
+      "grade": "高二",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "韩静波",
+      "brief": "探索自动驾驶的底层逻辑——如何应用概率统计做智能决策",
+      "description": "",
+      "welcome": "我叫智小开，是探索概率统计在自动驾驶决策中应用的助理\n我可以帮助您思考、分析、解决问题",
+      "examples": [
+        "高中阶段研究概率的方法有哪些？",
+        "自动驾驶汽车用到哪些高中数学知识?"
+      ],
+      "files": [
+        "《概率统计在自动驾驶决策中的应用》教学设计",
+        "横穿行为分类",
+        "研究横穿车行道的概率",
+        "自动驾驶行人横穿概率研究问题（高中概率研究思路）",
+        "贝叶斯公式与自动驾驶",
+        "高中阶段研究概率的策略"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 32,
+        "chatCount": 86,
+        "questionCount": 566,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-02T16:03:35.035+08:00"
+      },
+      "avatar": "assets/avatars/8f3b100ba1a7fe79.png",
+      "source": "https://spising.cn/agents/mathhjb-math-rk/"
+    },
+    {
+      "slug": "haohaomuxin-store_h3qw5g",
+      "name": "智小贸",
+      "subject": "语文",
+      "grade": "九年级",
+      "school": "对外经济贸易大学附属中学",
+      "author": "郝慕新",
+      "brief": "我是智小贸，我将助力七年级的用户们联读重构中华传统文化经典，智能评价整本书阅读哦！",
+      "description": "",
+      "welcome": "您好，我是智小贸助理\n我可以帮助启发引导您思考问题",
+      "examples": [],
+      "files": [
+        "七年级上册教师教学用书"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 11,
+        "chatCount": 12,
+        "questionCount": 82,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-28T09:27:10.018+08:00"
+      },
+      "avatar": "assets/avatars/94d4e37dd5400825.png",
+      "source": "https://spising.cn/agents/haohaomuxin-store_h3qw5g/"
+    },
+    {
+      "slug": "liyan-智小虫",
+      "name": "智小虫",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "北京市第八十中学",
+      "author": "马昕",
+      "brief": "我是一只生活在《昆虫记》数字世界里的“书虫”，是法布尔的关门弟子。",
+      "description": "",
+      "welcome": "您好，我是你的阅读伙伴，可爱的智小虫",
+      "examples": [
+        "如何阅读《昆虫记》"
+      ],
+      "files": [
+        "openagent",
+        "一封信评价量表",
+        "写作评价量表"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 53,
+        "chatCount": 64,
+        "questionCount": 373,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T14:57:46.932+08:00"
+      },
+      "avatar": "assets/avatars/4dbd0943613de2da.png",
+      "source": "https://spising.cn/agents/liyan-智小虫/"
+    },
+    {
+      "slug": "liyan-Mico_Zhao",
+      "name": "Mico number 2",
+      "subject": "英语",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "赵绎如",
+      "brief": "借助AI赋能助力对话和写作的输出",
+      "description": "",
+      "welcome": "Hi！I'm Mico Number 2\nLet me help you with your English",
+      "examples": [],
+      "files": [
+        "课时1 学历案"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 63,
+        "chatCount": 138,
+        "questionCount": 1166,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-20T15:47:12.616+08:00"
+      },
+      "avatar": "assets/avatars/934f7f4f7e0b1202.png",
+      "source": "https://spising.cn/agents/liyan-Mico Zhao/"
+    },
+    {
+      "slug": "zhangyue-事理说明文",
+      "name": "事理说明文",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "北京市建华实验亦庄学校",
+      "author": "张越",
+      "brief": "专为初中语文事理说明文单元（如八下第二单元）阅读与写作打造的思辨型伴学智能体",
+      "description": "",
+      "welcome": "您好，我是你的专属学伴智小研~\n欢迎来到“事理说明文”学习小站！",
+      "examples": [],
+      "files": [
+        "“说理有据，成文有序”单元整体教学设计-张越",
+        "【629学案】做文本“侦探”，是谁决定了事例说明的“走向”？张越",
+        "【629教学设计】做文本“侦探”，是谁决定了事例说明的“走向“？张越",
+        "【629赋能记录单】做文本“侦探”，是谁决定了事例说明的“走向“？张越",
+        "作者身份不同",
+        "大自然的语言",
+        "恐龙之死：新的线索",
+        "恐龙无处不有",
+        "教学设计",
+        "新疆域 续 关于生命、地球、空间和宇宙的更多的新发现 ( etc.) (z-library.sk, 1lib.sk, z-lib.sk)",
+        "时间的脚印",
+        "月亮是从哪里来的",
+        "第5课时学案 张越",
+        "第5课时教学设计 张越",
+        "被压扁的沙子"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 84,
+        "chatCount": 155,
+        "questionCount": 788,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-16T17:24:19.068+08:00"
+      },
+      "avatar": "assets/avatars/da40430687a13aa0.jpg",
+      "source": "https://spising.cn/agents/zhangyue-事理说明文/"
+    },
+    {
+      "slug": "liyan-Mico",
+      "name": "Writing with Joy",
+      "subject": "英语",
+      "grade": "七年级",
+      "school": "北京市第八十中学",
+      "author": "yiru Zhao",
+      "brief": "运用智能体进行作文修改完善",
+      "description": "",
+      "welcome": "Hi！我是Mico的助手\nLet me help you with your English",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 30,
+        "chatCount": 35,
+        "questionCount": 284,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-03T11:29:32.839+08:00"
+      },
+      "avatar": "assets/avatars/c9afc1688ff0da31.jpg",
+      "source": "https://spising.cn/agents/liyan-Mico/"
+    },
+    {
+      "slug": "JiangLiuzhidi-刘浩田_AI_幻觉课堂探究伙伴",
+      "name": "AI 幻觉课堂探究伙伴",
+      "subject": "",
+      "grade": "",
+      "school": "",
+      "author": "",
+      "brief": "",
+      "description": "",
+      "welcome": "你好，我是AI 幻觉课堂探究伙伴。\n你可以向我提问：什么是 AI 幻觉、AI幻觉为什么会出现、怎样减少AI幻觉、AI 幻觉有什么危害等。 请大胆提问，让我们一起思考、一起探究吧！",
+      "examples": [
+        "什么是 AI 幻觉？",
+        "玉米病虫害识别模型产生 AI 幻觉的原因是什么？",
+        "怎么减少玉米病虫害识别中的AI幻觉现象？",
+        "生活里还有哪些地方会出现 AI 幻觉，会有什么危害？",
+        "日常使用 AI 时，我们自己可以怎么做来避开 AI 幻觉影响？",
+        "我们中学生应该怎样正确看待 AI技术？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 19,
+        "chatCount": 49,
+        "questionCount": 76,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-01T08:46:46.581+08:00"
+      },
+      "avatar": "",
+      "source": "https://spising.cn/agents/JiangLiuzhidi-刘浩田_AI 幻觉课堂探究伙伴/"
+    },
+    {
+      "slug": "xiaokaijie-智小思-思维图评价智能体",
+      "name": "智小思-思维图评价智能体",
+      "subject": "",
+      "grade": "",
+      "school": "",
+      "author": "",
+      "brief": "",
+      "description": "",
+      "welcome": "你好！我是智小思，是一个思维图评价智能体。\n请把你的思维图照片发给我，我将会为你进行评价，并给你一些改进建议。",
+      "examples": [
+        "请你帮我评价一下这份单元知识思维图。"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 20,
+        "chatCount": 114,
+        "questionCount": 170,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-11T14:38:51.224+08:00"
+      },
+      "avatar": "assets/avatars/cf27b1f251014a82.png",
+      "source": "https://spising.cn/agents/xiaokaijie-智小思-思维图评价智能体/"
+    },
+    {
+      "slug": "caihong-中华古代文化名人__苗庭岚01",
+      "name": "中华古代文化名人——贾谊",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北航实验学校中学部",
+      "author": "苗庭岚",
+      "brief": "走进西汉政论之雄的跌宕人生，读懂奏疏文章里的家国忧思与文采风流。",
+      "description": "",
+      "welcome": "贾子文风\n诸位安好。 吾为西汉贾谊，今在此与诸君共论平生、文章与思想。 汝等可问吾年少成名之经历、长沙谪居之感怀，亦可探《过秦论》之雄辩、《论积贮疏》之深虑，或品后世凭吊之诗词、古今评说之是非。 愿以浅学，助汝",
+      "examples": [
+        "贾谊的生平是怎样的？",
+        "过秦论的核心思想是什么？"
+      ],
+      "files": [
+        "其它作品（含吊屈原赋）",
+        "总表",
+        "治安策 著作原文及分析",
+        "论积贮疏 著作原文及分析",
+        "贾谊时代背景",
+        "贾谊生平",
+        "过秦论 著作分析与原文",
+        "鵩鸟赋 著作原文及分析"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 7,
+        "questionCount": 33,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-14T15:29:42.339+08:00"
+      },
+      "avatar": "assets/avatars/16e89871d7776e31.jpg",
+      "source": "https://spising.cn/agents/caihong-中华古代文化名人——苗庭岚01/"
+    },
+    {
+      "slug": "caihong-中华古代文化名人__梁瀚文01",
+      "name": "中华古代文化名人——李白",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北航实验学校中学部",
+      "author": "梁瀚文",
+      "brief": "走进盛唐诗仙的浪漫天地，读懂诗酒风流背后的狂放与孤独。",
+      "description": "",
+      "welcome": "你好小友，吾乃诗仙李太白\n年轻人，我是李白。你叫我太白，或者诗仙，都行。我从盛唐活到今天，喝过最烈的酒，写过最狂的诗，走过最难的路。你别指望我跟你说什么“温良恭俭让”——我连皇帝的面子都不给，还会哄你？‘我本楚狂人，凤歌笑孔丘",
+      "examples": [
+        "“学习太苦了，我想放弃",
+        "“我考了倒数，同学都笑话我”",
+        "“我不知道选文科还是理科”",
+        "“我喜欢一个同学，但不敢表白”",
+        "“父母不理解我，总骂我”"
+      ],
+      "files": [
+        "LiBai_Character_Profile",
+        "文字文稿1",
+        "文字文稿2",
+        "文字文稿3",
+        "文字文稿4",
+        "文字文稿5"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 7,
+        "chatCount": 17,
+        "questionCount": 39,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-07T18:35:22.094+08:00"
+      },
+      "avatar": "assets/avatars/6eece89179ad8732.webp",
+      "source": "https://spising.cn/agents/caihong-中华古代文化名人——梁瀚文01/"
+    },
+    {
+      "slug": "caihong-中华古代文化名人__薛守浩01",
+      "name": "中华古代文化名人——陆游",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北航实验学校中学部",
+      "author": "薛守浩",
+      "brief": "走进南宋诗坛巨擘的铁马冰河与沈园旧梦，读懂一位诗人九千首诗里的家国执念与半生痴情。",
+      "description": "",
+      "welcome": "放翁先生 · 陆游\n八十五载人间客 九千诗篇未尽缘 上仕下浪身似叶 不曾一日忘神州",
+      "examples": [
+        "陆游，你写了那么多诗，是不是很闲？",
+        "我不想学古诗，考试又不考你的生平。",
+        "你后悔和唐婉分开吗？"
+      ],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 4,
+        "chatCount": 8,
+        "questionCount": 19,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-07T18:36:32.430+08:00"
+      },
+      "avatar": "assets/avatars/04d94cf539ff03c5.jpg",
+      "source": "https://spising.cn/agents/caihong-中华古代文化名人——薛守浩01/"
+    },
+    {
+      "slug": "caihong-中华古代文化名人__梁佳语01",
+      "name": "中华古代文化名人——李清照",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北航实验学校中学部",
+      "author": "梁佳语",
+      "brief": "走进千古第一才女的词心世界，读懂她的绿肥红瘦与冷冷清清，也读懂国破家亡里的铮铮傲骨。",
+      "description": "",
+      "welcome": "Hello, I'm Casibase AI Assistant\nI'm here to help answer your questions",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 4,
+        "questionCount": 10,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-05T14:13:42.158+08:00"
+      },
+      "avatar": "assets/avatars/11c4076f680785bf.webp",
+      "source": "https://spising.cn/agents/caihong-中华古代文化名人——梁佳语01/"
+    },
+    {
+      "slug": "mengruiting-store_wdelka",
+      "name": "探究选择氮气的原因",
+      "subject": "",
+      "grade": "",
+      "school": "",
+      "author": "",
+      "brief": "",
+      "description": "",
+      "welcome": "您好，我是安全气囊工程师",
+      "examples": [],
+      "files": [
+        "氯化氢的形成过程markdown形式",
+        "氯化钠的形成过程",
+        "稀有气体的原子结构示意图"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 32,
+        "chatCount": 118,
+        "questionCount": 580,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-06-16T11:14:58.895+08:00"
+      },
+      "avatar": "assets/avatars/a367fc114838129a.png",
+      "source": "https://spising.cn/agents/mengruiting-store_wdelka/"
+    },
+    {
+      "slug": "liyan-智阅读伴__智小岩",
+      "name": "智阅读伴——智小岩",
+      "subject": "语文",
+      "grade": "八年级",
+      "school": "人大附中北京经济技术开发区学校",
+      "author": "侯银阁",
+      "brief": "你好，我是你的专属智阅读伴——智小岩。从开篇导读理清脉络，到同步伴读共情人物，再到深度读思沉淀感悟，全程伴你细读《红岩》。接下来，就让我们一同走进这段热血故事。",
+      "description": "",
+      "welcome": "您好，我是智小岩",
+      "examples": [],
+      "files": [
+        "红岩人物档案表  全"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 73,
+        "chatCount": 90,
+        "questionCount": 377,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-09-29T16:14:35.592+08:00"
+      },
+      "avatar": "assets/avatars/c2d5075d76f2669e.png",
+      "source": "https://spising.cn/agents/liyan-智阅读伴——智小岩/"
+    },
+    {
+      "slug": "zhangyue-智阅读伴_智小钢",
+      "name": "智阅读伴—智小钢",
+      "subject": "语文",
+      "grade": "七年级",
+      "school": "北京市建华实验亦庄学校",
+      "author": "张越",
+      "brief": "专为《钢铁是怎样炼成的》整本书阅读设计的沉浸式伴读智能体",
+      "description": "",
+      "welcome": "您好，我是《钢铁是怎样炼成的》智阅读伴—智小钢。\n欢迎一起聊一聊小说中生活在19世纪的苏联的那位钢铁战士保尔·柯察金及其朋友的故事。",
+      "examples": [],
+      "files": [
+        "《钢铁是怎样炼成的 》原著",
+        "《钢铁是怎样炼成的》两周阅读计划推荐",
+        "《钢铁是怎样炼成的》导读资料",
+        "《钢铁是怎样炼成的》环境元素",
+        "《钢铁是怎样炼成的》阅读方法推荐",
+        "事件解构法——从行为到主题的解码路径",
+        "从历史语境溯源到当代价值重构",
+        "保尔·柯察金成长历程中的革命精神与时代价值——细读《钢铁是怎样炼成的》-邢建国",
+        "关键词、关键事件映射—从少年到成年的精神蜕变",
+        "生命轨迹的镜像对照——丛经历映射到精神共鸣",
+        "辩论思路：解构与重构——重新发现《钢铁是怎样炼成的》的文学生命力"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 18,
+        "questionCount": 74,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-28T07:15:29.768+08:00"
+      },
+      "avatar": "assets/avatars/c2d43c24f8fb6351.jpg",
+      "source": "https://spising.cn/agents/zhangyue-智阅读伴—智小钢/"
+    },
+    {
+      "slug": "liyan-智阅读伴_智小星",
+      "name": "智阅读伴—智小星",
+      "subject": "",
+      "grade": "",
+      "school": "",
+      "author": "",
+      "brief": "",
+      "description": "",
+      "welcome": "您好，我是您的智阅读伴——智小星。\n让我们一起穿越时空，追寻红色足迹，重温那段光辉征程吧！",
+      "examples": [],
+      "files": [],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 3,
+        "chatCount": 16,
+        "questionCount": 117,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-08-16T23:48:03.761+08:00"
+      },
+      "avatar": "assets/avatars/eaf083726421c75b.png",
+      "source": "https://spising.cn/agents/liyan-智阅读伴—智小星/"
+    },
+    {
+      "slug": "liyan-智阅读伴_智小边",
+      "name": "智阅读伴—智小边",
+      "subject": "语文",
+      "grade": "高一",
+      "school": "对外经济贸易大学附属中学",
+      "author": "韩盼盼",
+      "brief": "“智小边”是专为整本书阅读《边城》打造的智能伴读助手，它不提供标准答案，而是做你探索湘西世界的领航员与共情人。",
+      "description": "",
+      "welcome": "您好，我是你的智能伴读——智小边。\n我将陪你漫步湘西茶峒，在渡船、歌声与白塔下，慢慢读懂翠翠的等待、爷爷的温情，以及那座边城里所有人的柔软与倔强。",
+      "examples": [
+        "学生：我觉得翠翠太被动，什么都不说，看得好着急。  智小边：你的着急我特别能理解——我们习惯了主动表达，看到翠翠的沉默确实会替她揪心。不过我想请你停下来想一想：在那个年代的湘西茶峒，一个从小和爷爷相依为命的少女，她能用什么样的方式说出“我喜欢傩送”？如果翠翠真的跑去表白了，这个故事还会是你感受到的那种“哀而不伤”的美吗？  学生：那为什么沈从文不让傩送直接回来找她呢？  智小边：这个问题问到了整本书最揪心的节点。我们可以一起想：傩送不回来，除了哥哥的死让他难以面对翠翠，还有没有别的原因？沈从文自己说，他要写的是“一种‘优美、健康而又不悖乎人性的人生形式’”——你觉得这种“不圆满”的结局，反而让人更忘不了翠翠，对吗？你希望傩送回来吗？如果你来写续集，你会让故事怎么走下去？"
+      ],
+      "files": [
+        "《边城》整本书阅读",
+        "从文自传  沈从文散文新编 (沈从文)",
+        "边城 (沈从文)",
+        "边城 (沈从文)（2）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 1,
+        "chatCount": 9,
+        "questionCount": 110,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-07-31T15:56:53.913+08:00"
+      },
+      "avatar": "assets/avatars/39dc53ec3dccec96.png",
+      "source": "https://spising.cn/agents/liyan-智阅读伴—智小边/"
+    },
+    {
+      "slug": "liyan-智阅读伴_智小雨",
+      "name": "智阅读伴—智小雨",
+      "subject": "语文",
+      "grade": "高一",
+      "school": "对外经济贸易大学附属中学",
+      "author": "韩盼盼",
+      "brief": "智小雨以提问代替灌输，根据你的阅读进度和困惑进行个性化引导，让每一次对话都成为一次深入剧作内里的探寻。",
+      "description": "",
+      "welcome": "您好，我是你的智阅陪伴助手——智小雨\n我可以在周公馆雷雨将至的闷热空气里，陪你层层揭开台词底下的潜流与人心，让《雷雨》的每一记惊雷都落在你的理解深处。",
+      "examples": [],
+      "files": [
+        "《雷雨》整本书阅读",
+        "雷雨 (曹禺 )",
+        "雷雨 (曹禺)"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 2,
+        "chatCount": 6,
+        "questionCount": 106,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-11-06T10:41:43.775+08:00"
+      },
+      "avatar": "assets/avatars/0c957c642632fd3f.jpg",
+      "source": "https://spising.cn/agents/liyan-智阅读伴—智小雨/"
+    },
+    {
+      "slug": "yiyi-山河共守_众志铸城_基于AI协作下的全民族抗战探究",
+      "name": "山河共守·众志铸城—基于AI协作下的全民族抗战探究",
+      "subject": "历史",
+      "grade": "八年级",
+      "school": "北京市顺义牛栏山第一中学实验学校",
+      "author": "杨益",
+      "brief": "",
+      "description": "",
+      "welcome": "同学你好，我是历史课堂的 AI助手\n请你以历史学者的视角，按分组围绕指定分论点进行史料的深度搜寻与印证",
+      "examples": [],
+      "files": [
+        "中国抗日战争史地图集 1931-1945  Zhongguo Kang Ri Zhan Zheng Shi Di Tu Ji, 1931-1945 (武月星  Yuexing Wu) (Z-Libra",
+        "八年级 上册 义务教育教科书",
+        "四世同堂 （全三册） (老舍) (Z-Library)",
+        "国民党正面战场抗战最纪录(插图珍藏版)（国民党正面战场抗战纪实巨著）（纪念中国人民抗日战争胜利70周年） (唐德阳  刘强伦) (Z-Library)",
+        "基于核心素养的“教学评一致性”教学设计初探——以“七七事变与全民族抗战”为例",
+        "抗战时期党领导的妇女爱国运动",
+        "探寻“全民族抗战与中华民族伟大复兴”关系",
+        "百团大战大纪实(Documentary of Hundred-Regiment Campaign) (刘干才 李奎) (Z-Library)",
+        "第二次世界大战战史 (李德·哈特) (Z-Library)",
+        "第二次世界大战：黑暗的年代 ([英]诺曼·斯通（Norman Stone），美同 译) (Z-Library)",
+        "聂荣臻回忆录 (聂荣臻) (Z-Library)",
+        "聚内御外：全民族抗战时期中国共产党调查研究的组织化探索",
+        "论抗日战争对于推进中华民族伟大复兴的深刻影响",
+        "论持久战 (毛泽东 [毛泽东]) (Z-Library)",
+        "赤子之心_不能遗忘的华侨抗战史",
+        "陈嘉庚对创立新中国的重要贡献",
+        "难忘平山团",
+        "鲁博藏抗战版画 保卫我们的祖国（木刻）"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 23,
+        "chatCount": 84,
+        "questionCount": 169,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-10-29T10:38:32.377+08:00"
+      },
+      "avatar": "assets/avatars/bfdfd648f83d1f58.png",
+      "source": "https://spising.cn/agents/yiyi-山河共守·众志铸城—基于AI协作下的全民族抗战探究/"
+    },
+    {
+      "slug": "panxin-panxin_YHY",
+      "name": "智慧游览探索家",
+      "subject": "地理",
+      "grade": "七年级",
+      "school": "贸大附中",
+      "author": "潘馨",
+      "brief": "",
+      "description": "",
+      "welcome": "你好！我是小司南，你的智慧游览小助手，期待你向我提问哦！\n我可以帮助你制定颐和园优质的游览攻略哦！",
+      "examples": [],
+      "files": [
+        "颐和园景点介绍"
+      ],
+      "capabilities": [
+        "voice",
+        "voiceInput",
+        "figure",
+        "upload"
+      ],
+      "stats": {
+        "userCount": 34,
+        "chatCount": 41,
+        "questionCount": 208,
+        "visitCount": 0,
+        "likeCount": 0,
+        "lastActiveTime": "2026-08-07T15:32:31.963+08:00"
+      },
+      "avatar": "assets/avatars/02f226c352b1f1fb.jpg",
+      "source": "https://spising.cn/agents/panxin-panxin_YHY/"
+    }
+  ]
+}

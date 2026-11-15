@@ -6,6 +6,7 @@ import {
   session,
 } from "electron";
 import { join } from "node:path";
+import { installVisualContextMenu } from "./visual-context-menu";
 import {
   createDefaultLocalAppDeps,
   createLocalAppCatalog,
@@ -1065,6 +1066,7 @@ function registerIpc() {
 // window that forgets to set a window-open handler therefore denies popups
 // and cannot attach a <webview> instead of inheriting Chromium's defaults.
 app.on("web-contents-created", (_event, contents) => {
+  installVisualContextMenu(contents);
   contents.setWindowOpenHandler(() => ({ action: "deny" }));
   contents.on("will-attach-webview", (event) => {
     event.preventDefault();

@@ -1,6 +1,12 @@
 const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const {query} = require('./query.cjs');
+test('verified project addresses match name and district without replacing original addresses',()=>{
+ const records=[{dataset:'imported',project:'乐府广场',district:'光明',date:'2026-11-13'}, {dataset:'imported',project:'乐府广场',district:'南山',date:'2026-11-13'}, {dataset:'imported',project:'乐府广场',district:'光明',address:'原始地址',date:'2026-11-13'}];
+ const rows=query({}, {records}).rows;
+ assert.equal(rows[0].address,'深圳市光明区凤凰街道光明大道481号');assert.match(rows[0].addressSource.url,/szgm.gov.cn/);assert.equal(rows[1].address,undefined);assert.equal(rows[2].address,'原始地址');assert.equal(records[0].address,undefined);
+ assert.equal(query({query:'光明大道481号'},{records}).count,1);
+});
 test('real and demo data stay separate and empty imported data stays empty',()=>{
   const demo=query({dataset:'demo',recordType:'挂牌',lease:'整租'});
   assert.equal(demo.count,320);assert.equal(demo.coveredDistricts,10);
@@ -55,6 +61,6 @@ test('registered Agent tool queries the same snapshot and unload releases regist
     const knowledgeTool=registrations.find(x=>x.name==='ShenzhenRentKnowledge');assert.ok(knowledgeTool);
     assert.equal((await knowledgeTool.execute({action:'coverage'})).city,'深圳市');
     assert.ok(registrations.some(x=>x.name==='AnkeHousing'));assert.ok(registrations.some(x=>x.name==='ZhuXiaoZhi'));
-    await onUnload();assert.deepEqual(removed,['AnkeHousing','ZhuXiaoZhi','ShenzhenRentEvents','anke.rents.open','ShenzhenRents','ShenzhenRentKnowledge','ResidentialEnvironment',...['overview','ledger','projects','scenario','map'].map(id=>`anke.rents.${id}`)]);
+    await onUnload();assert.deepEqual(removed,['FindeskCapabilities','AnkeHousing','ZhuXiaoZhi','ShenzhenRentEvents','anke.rents.open','ShenzhenRents','ShenzhenRentKnowledge','ResidentialEnvironment',...['overview','ledger','projects','scenario','map'].map(id=>`anke.rents.${id}`)]);
   } finally {delete global.pi;}
 });

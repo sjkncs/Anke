@@ -2,31 +2,32 @@ import { useEffect, useRef, useState } from "react";
 import { MAX_SMOOTH_TEXT_CODE_UNITS } from "../lib/render-content-limits";
 
 /**
- * Progressively reveals `source` text at an adaptive rate.
+ * Progressively reveals `source` text at the user's selected reading rate.
  *
- * When `enabled` is false or `streaming` is false the full source is
- * returned immediately — no rAF loop runs.
+ * Historical messages are immediate. A live reply keeps its reveal buffer
+ * after completion; tools, persistence and stop semantics remain independent.
  *
- * The release speed adapts to the backlog so the display never falls
- * more than ~500ms behind real content. On unmount or when streaming
- * ends, all remaining text is flushed instantly.
+ * There is no backlog acceleration or end-of-stream flush. Unmount cancels
+ * the animation frame; reopening history displays the complete saved result.
  */
 export function useSmoothText(
   source: string,
   streaming: boolean,
   enabled: boolean,
 ): string {
+  const activeRevealRef = useRef(false);
+  if (streaming) activeRevealRef.current = true;
   const shouldSmooth =
     enabled &&
-    streaming &&
+    (streaming || activeRevealRef.current) &&
     source.length <= MAX_SMOOTH_TEXT_CODE_UNITS;
-  const [revealed, setRevealed] = useState(source.length);
-  const revealedRef = useRef(source.length);
+  const [revealed, setRevealed] = useState(streaming && enabled ? 0 : source.length);
+  const revealedRef = useRef(streaming && enabled ? 0 : source.length);
   const rafRef = useRef<number | null>(null);
   const lastFrameRef = useRef(0);
   const fractionalAdvanceRef = useRef(0);
 
-  // When not enabled or not streaming, always show full text
+  // Historical messages and disabled animation always show full text.
   useEffect(() => {
     if (!shouldSmooth) {
       revealedRef.current = source.length;
@@ -62,18 +63,14 @@ export function useSmoothText(
       }
       lastFrameRef.current = now;
 
-      // Base speed: ~60 chars/sec. Adapt: if backlog > ~30 chars (~500ms),
-      // increase speed proportionally so we catch up within 500ms.
-      const baseCharsPerSec = 60;
-      const maxLagChars = 30;
-      const speed =
-        backlog > maxLagChars
-          ? backlog / 0.5 // clear backlog in 500ms
-          : baseCharsPerSec;
+      // Read the setting on each frame so a speed change applies immediately.
+      const configured = localStorage.getItem("anke.readingSpeed");
+      const speed = configured !== null && [0, 20, 40, 80].includes(Number(configured))
+        ? Number(configured) : 40;
 
       const dt = Math.min(elapsed, 100) / 1000; // cap dt to avoid big jumps
       // Carry fractional characters so skipped frames do not slow the reveal.
-      const exactAdvance = fractionalAdvanceRef.current + speed * dt;
+      const exactAdvance = speed === 0 ? backlog : fractionalAdvanceRef.current + speed * dt;
       const advance = Math.floor(exactAdvance);
       fractionalAdvanceRef.current = exactAdvance - advance;
       if (advance === 0) {
@@ -101,7 +98,7 @@ export function useSmoothText(
     };
   }, [shouldSmooth, source]);
 
-  // Flush on unmount
+  // Release the animation frame on unmount.
   useEffect(() => {
     return () => {
       if (rafRef.current !== null) {

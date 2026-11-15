@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "sourceSystem": "填写资料来源系统",
+    "exportedOn": "2026-11-14",
+    "authorizationReference": "填写部门授权依据或编号",
+    "useScope": "填写允许使用的范围"
+  },
+  "records": [
+    {
+      "id": "replace-with-entry-id",
+      "question": "填写已脱敏的问题",
+      "answer": "填写部门导出的原始答复，勿填写个人记录",
+      "category": "public_rental",
+      "version": "填写条目版本",
+      "effectiveFrom": "2026-01-01",
+      "effectiveTo": null,
+      "sourceIds": ["public-rental-352"],
+      "owner": "填写维护岗位"
+    }
+  ]
+}

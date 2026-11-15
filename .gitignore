@@ -71,6 +71,7 @@ apps/desktop/.*-ui-*/
 apps/desktop/resources/plugins/local.pi-bot/output/
 apps/desktop/resources/plugins/anke.rents/data/*.json
 !apps/desktop/resources/plugins/anke.rents/data/records.json
+!apps/desktop/resources/plugins/anke.rents/data/project-addresses.json
 event-monitor/data/
 event-monitor/verification/
 talent-housing/data/

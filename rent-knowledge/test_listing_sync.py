@@ -56,6 +56,15 @@ class SyncTest(unittest.TestCase):
             state, failed=run_cycle(Path(folder), ['anjuke'], fetcher=lambda _: self.fail('Hourly checkpoint ignored'))
             self.assertFalse(failed)
 
+    def test_disclosed_attributes_survive_list_parser(self):
+        html = HTML.replace('2室1厅 | 60平米', '2室1厅 | 60平米 | 中楼层(共20层) | 南北 | 精装 | 桃源路123号')
+        row = parse(html, 'anjuke', '2026-11-13T10:00:00+08:00')[0]
+        self.assertEqual(row['户型'], '2室1厅')
+        self.assertEqual(row['楼层'], '中楼层(共20层)')
+        self.assertEqual(row['装修'], '精装')
+        self.assertEqual(row['朝向'], '南北')
+        self.assertIn('桃源路123号', row['详细地址'])
+
     def test_import_failure_does_not_mark_success(self):
         with tempfile.TemporaryDirectory() as folder:
             def fail(_):

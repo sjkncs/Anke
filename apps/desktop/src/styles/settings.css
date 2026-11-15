@@ -1196,6 +1196,8 @@
 }
 
 .settings-row {
+  min-height: 70px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1206,12 +1208,11 @@
 }
 
 /*
- * A row that exists only because the row above it is on ("Show thinking",
- * "Transcript display") indents one step. It keeps the parent's tile surface, so
- * the pair reads as one setting with a condition instead of two siblings.
+ * Conditional rows retain the same card and text edges as their siblings.
+ * Their visibility expresses the dependency without shrinking the tile.
  */
 .settings-row.settings-row-nested {
-  margin-inline-start: 20px;
+  margin-inline-start: 0;
 }
 
 .settings-row-copy {

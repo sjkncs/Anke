@@ -2,7 +2,7 @@
   "mcpServers": {
     "anke-talent-housing": {
       "command": "node",
-      "args": ["/absolute/path/to/Anke/talent-housing/mcp.mjs"]
+      "args": ["C:/Users/Lenovo/Desktop/全市租金导航仓/talent-housing/mcp.mjs"]
     }
   }
 }

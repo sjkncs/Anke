@@ -11,7 +11,7 @@ from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parent
-PLUGIN = ROOT.parent / 'apps/desktop/resources/plugins/anke.rents/data'
+PLUGIN = ROOT.parent / 'anke-agent-source/apps/desktop/resources/plugins/anke.rents/data'
 TZ = timezone(timedelta(hours=8))
 SOURCES = {
     'anjuke': ('安居客', 'https://sz.zu.anjuke.com/'),
@@ -92,9 +92,30 @@ def parse(html, source, observed_at):
         title = listing.attrs.get('title') or listing.text().strip() or (title_links[0].text().strip() if title_links else '')
         lease = '合租' if '合租' in text else '整租' if '整租' in text else '未知'
         # A revision is identified by source listing + local observation date + content.
+        description = card.classes('content__list--item--des') or card.classes('details-item')
+        summary = description[0].text() if description else text
+        def capture(pattern, value=summary):
+            match = re.search(pattern, value)
+            return match[0].strip() if match else ''
+        address_nodes = card.classes('details-item') if source == 'anjuke' else card.classes('content__list--item--des')
+        address_text = ''
+        if address_nodes:
+            location_links = address_nodes[0].find(lambda n: n.tag == 'a' and n.text().strip())
+            address_text = ' '.join(n.text().strip() for n in location_links)
+        images = card.find(lambda n: n.tag == 'img')
+        tags = card.classes('content__list--item--bottom') or card.classes('bot-tag')
         content = {'标题': title, '小区名称': communities[0].text().strip() if communities else '',
                    '区县': district[1] if district else '', '月租金_元': rent[1],
-                   '面积_平方米': area[1], '出租方式': lease}
+                   '面积_平方米': area[1], '出租方式': lease,
+                   '详细地址': capture(r'[^|，。]{0,45}(?:路|街|巷|大道)\s*\d+号', text),
+                   '位置描述': address_text,
+                   '户型': capture(r'\d+\s*室(?:\s*\d+\s*厅)?(?:\s*\d+\s*卫)?', text),
+                   '楼层': capture(r'(?:高|中|低)楼层(?:\s*\(?共?\d+层\)?)?|\d+\s*/\s*\d+层|\d+层'),
+                   '朝向': capture(r'东南|西南|东北|西北|南北|东西|朝[东南西北]|(?:^|[/|\s])[东南西北](?=[/|\s]|$)').strip(' /|'),
+                   '装修': capture(r'精装|简装|毛坯|豪装', text),
+                   '标签': ' · '.join(n.text().strip() for n in tags),
+                   '图片URL': urljoin(base, images[0].attrs.get('data-src') or images[0].attrs.get('src') or '') if images else '',
+                   '列表描述': summary.strip()}
         revision = hashlib.sha256(json.dumps(content, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
         day = observed_at[:10]
         rows.append({**content, '统一观测ID': f'{source}:{identity}:{day}:{revision}',

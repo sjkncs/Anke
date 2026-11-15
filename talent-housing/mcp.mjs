@@ -1,15 +1,22 @@
 import readline from 'node:readline';
+const policyDefinition={name:'anke_official_policy',description:'住小保 official housing evidence lookup. Search by housing type and date, return original excerpts and URLs. Expired application batches are excluded unless includeHistorical=true. Review validity with business staff; no eligibility decisions or write operations. Route housing questions to structured tools.',inputSchema:{type:'object',properties:{action:{type:'string',enum:['policy_search','policy_answer','policy_coverage','policy_route']},query:{type:'string',maxLength:500},category:{type:'string',enum:['all','public_rental','affordable_rental','talent_rental','talent_sale','university','youth_transition','social_affordable']},asOf:{type:'string'},includeHistorical:{type:'boolean'},limit:{type:'integer',minimum:1,maximum:10},batchId:{type:'string'}},required:['action'],additionalProperties:false}};
 // Read-only tools share the domain service; the agent cannot save eligibility or allocate units.
-const definition={name:'talent_housing',description:'Read talent housing requirements, workflow, explained matches, simulations, public-source faculty preference dimensions and the survey template. Public evidence is not a personal weight or an official eligibility decision.',inputSchema:{type:'object',properties:{action:{type:'string',enum:['coverage','recommend','progress','simulate','preference_catalog','survey_template']},applicationId:{type:'string'},asOf:{type:'string',format:'date'}},required:['action'],additionalProperties:false}};
+const definition={name:'talent_housing',description:'Read housing profiles and explained matches. search_homes returns independent resident ratings (0-5 with count and source) and personalized fit (0-100); missing ratings stay null. Qualification precedes ratings. No official eligibility decisions.',inputSchema:{type:'object',properties:{action:{type:'string',enum:['workspace','search_homes','coverage','recommend','progress','simulate','preference_catalog','survey_template']},applicationId:{type:'string'},asOf:{type:'string',format:'date'},query:{type:'string',maxLength:200},sort:{type:'string',enum:['balanced','shortTerm','longTerm','residentRating']},provider:{type:'string',enum:['all','government','university']},minRating:{type:'number',minimum:0,maximum:5},minReviewCount:{type:'integer',minimum:1,maximum:1000000}},required:['action'],additionalProperties:false}};
+definition.inputSchema.properties.action.enum.push('compare_allocation');
 export function createHandler(execute){return async request=>{
   if(!request||request.jsonrpc!=='2.0')throw Error('Invalid JSON-RPC request');
   if(request.method==='initialize')return {protocolVersion:'2024-11-05',capabilities:{tools:{}},serverInfo:{name:'anke-talent-housing',version:'0.1.0'}};
   if(request.method==='ping')return {};
-  if(request.method==='tools/list')return {tools:[definition]};
+  if(request.method==='tools/list')return {tools:[definition,policyDefinition]};
   if(request.method==='tools/call'){
+    if(request.params?.name===policyDefinition.name){
+      const input=request.params.arguments;
+      if(!input||typeof input!=='object'||Array.isArray(input)||!policyDefinition.inputSchema.properties.action.enum.includes(input.action)||Object.keys(input).some(k=>!(k in policyDefinition.inputSchema.properties)))throw Error('Read-only policy arguments required');
+      return {content:[{type:'text',text:JSON.stringify(await execute(input))}],isError:false};
+    }
     if(request.params?.name!==definition.name)throw Error('Unknown tool');
     const input=request.params.arguments;
-    if(!input||typeof input!=='object'||Array.isArray(input)||!definition.inputSchema.properties.action.enum.includes(input.action)||Object.keys(input).some(k=>!['action','applicationId','asOf'].includes(k)))throw Error('Read-only tool arguments required');
+    if(!input||typeof input!=='object'||Array.isArray(input)||!definition.inputSchema.properties.action.enum.includes(input.action)||Object.keys(input).some(k=>!(k in definition.inputSchema.properties)))throw Error('Read-only tool arguments required');
     for(const key of ['applicationId','asOf'])if(input[key]!==undefined&&typeof input[key]!=='string')throw Error('Invalid tool argument');
     const value=await execute(input);
     return {content:[{type:'text',text:JSON.stringify(value)}],isError:false};

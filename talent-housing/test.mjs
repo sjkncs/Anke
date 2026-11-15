@@ -32,6 +32,9 @@ test('user path persists records, edits needs, recommends, simulates and queries
     service=await start({port:0,store});
     const post=async data=>{const r=await fetch(service.url+'/api',{method:'POST',headers:{Origin:service.url,'X-Anke-Token':service.token,'Content-Type':'application/json'},body:JSON.stringify(data)});const body=await r.json();if(!r.ok)throw Error(body.error);return body;};
     const html=await (await fetch(service.url)).text();assert.ok(html.includes('配租模拟'));assert.ok(!html.includes('__TOKEN__'));
+    const located=await post({action:'residential_locate',input:{project:'定位路由测试住宅',district:'南山',address:'测试地址',location:{longitude:114,latitude:22.6,crs:'GCJ02'}}});
+    assert.equal(located.selected,'supplied');assert.equal(located.results[0].address,'测试地址');
+    await assert.rejects(()=>post({action:'residential_street',input:{project:'定位路由测试住宅',location:{longitude:114,latitude:22.6,crs:'GCJ02'}}}),/街景位置/);
     const saved=await post({action:'save',kind:'application',record:app()});assert.equal(saved.revision,1);
     await post({action:'save',kind:'unit',record:unit()});
     assert.equal((await post({action:'recommend',applicationId:'A'})).results[0].state,'matched');

@@ -846,6 +846,10 @@ CREATE INDEX idx_session_import_origins_plugin
   old absolute data prefix, JSON escaping, or canonical alias spelling.
   Relocating the data directory before forking must retain those child copies.
   Cleanup and copying refuse redirected visualization base/session directories.
+  Missing-file and unavailable-runtime cards offer a manual retry of the same
+  owning-session URL, remounting the sandboxed frame without changing access
+  rules. Invalid, remote, oversized and full-document references do not gain a
+  retry action. A successful file write is not proof of successful rendering.
 
 ### 4.6 turns — one row per agent run
 

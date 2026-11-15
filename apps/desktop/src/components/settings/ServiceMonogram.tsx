@@ -1,19 +1,24 @@
 /**
- * The letter tile that leads an AI service (D625).
+ * The locally bundled product mark that leads an AI service.
  *
- * Deliberately no brand artwork or colour: every service sits in the same
- * quiet raised tone, so a row is told apart by its name and the tile only gives
- * the eye a column to scan. A name without a letter or digit gets the generic
- * server glyph instead.
+ * Unknown providers and failed images retain the existing letter fallback.
  */
 import { IconServer } from "../icons";
+import { useState } from "react";
+import { providerBrand } from "../../lib/provider-brand";
 import { monogramLetter } from "./service-row-status";
 
-export function ServiceMonogram({ name }: { name: string }) {
+export function ServiceMonogram({ name, endpoint }: { name: string; endpoint?: string }) {
   const letter = monogramLetter(name);
+  const brand = providerBrand(name, endpoint);
+  const [failedIcon, setFailedIcon] = useState<string | null>(null);
   return (
     <span className="service-monogram" aria-hidden>
-      {letter || <IconServer size={14} />}
+      {brand && failedIcon !== brand.icon ? (
+        <img src={brand.icon} alt="" width={22} height={22}
+          style={{ objectFit: "contain", display: "block", flexShrink: 0 }}
+          onError={() => setFailedIcon(brand.icon)} />
+      ) : letter || <IconServer size={14} />}
     </span>
   );
 }

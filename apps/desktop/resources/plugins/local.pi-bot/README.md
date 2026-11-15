@@ -206,7 +206,23 @@ tests/      使用测试数据的功能回归
 manifest.json  PI Desktop 插件声明
 ```
 
+## Anke 个人服务分类
+
+Bot 服务区新增三个分类：终身学习（知识库、科研中心）、修身养性（日常饮食、锻炼计划、营养搭配、阳明讲堂）、购物旅游（购物清单、旅游计划、行程管理）。各入口使用现有 Bot 会话和配置面板，沿用灰白手绘图标与服务添加、移除操作。
+
+首次加载自动补充九个服务及已有自定义服务栏中的对应入口，使用 `ankePersonalServicesVersion` 记录一次性迁移。之后用户删除的服务不会被自动重建；已有 Bot 和配置保持原样。新增入口本身不代表外部知识库、预订或健康数据接口已接通。
+
+验证：`node --test tests/anke-services.cjs tests/personal-services.cjs tests/service-launcher-ui.cjs`。源文件更新后，需要重新加载 Bot 插件或正常退出并重开 Anke，才能应用后台迁移。
+
 ## 验证与反馈
+
+### Local library search coverage
+
+Local Obsidian search traverses the selected vault without the former 5,000-entry, 200-note, or 16 MB aggregate limits. Matching results remain paginated at 50 items, with only the requested result page retained in memory. Content is read one note at a time. Each request scans again, so large-vault content searches can take longer and changes during pagination can shift results; this is not a persistent index or a frozen snapshot.
+
+Hidden entries, symbolic links and non-Markdown files remain excluded. The existing 500 KB per-note read limit remains enforced. Unreadable or oversized notes are counted as skipped and reported as incomplete coverage. Directory read errors fail the request. The UI distinguishes scanning, completed scans and incomplete results. Reload the plugin or restart Anke to load updated backend code.
+
+Validation: `node --test tests/learning-library.cjs tests/learning-library-ui.cjs`. The large-vault fixture places matches beyond 5,000 entries and verifies pagination above offset 5,000.
 
 本仓库提供无需真实账号的回归测试和 Windows CI。语音、模型、OAuth、浏览器与原生工具的真实效果仍需要在自己的配置中验证；测试通过不代表没有缺陷。
 

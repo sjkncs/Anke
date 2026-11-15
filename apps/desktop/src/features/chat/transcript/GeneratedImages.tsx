@@ -33,7 +33,7 @@ function ImageResult({
         tooltip={t("settings.generatedImage", { index: index + 1 })}
       >
         {dataUrl ? (
-          <img src={dataUrl} alt={t("settings.generatedImage", { index: index + 1 })} />
+          <img src={dataUrl} data-annotation-image={path} alt={t("settings.generatedImage", { index: index + 1 })} />
         ) : (
           <span>{t("settings.imagePreviewUnavailable")}</span>
         )}
@@ -78,7 +78,7 @@ export function GeneratedImages({ message }: { message: UiMessage }) {
       "IMAGE_AUTH_UNSUPPORTED",
     ].includes(String(record.errorCode));
   return (
-    <div className="generated-images" aria-label={t("settings.imageModel")}>
+    <div className="generated-images" data-message-id={message.id} aria-label={t("settings.imageModel")}>
       {needsSetup ? (
         <div>
           <p>{t("settings.imageModelSetupHint")}</p>

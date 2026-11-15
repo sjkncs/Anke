@@ -188,9 +188,8 @@ D684.
   **Count badge** and **Activity rail** switches
   (`sidebarRunningBadge`, `sidebarRunningRail`). When unset, the master and
   Count badge resolve on while Activity rail resolves off; explicit saved
-  values remain authoritative. The two gated switches render as indented
-  sub-rows of the master, so the dependency is visible without a sentence
-  explaining it. They are disabled while the master switch is off and keep
+  values remain authoritative. The two gated switches use the same card width,
+  label inset and control alignment as the master. They are disabled while the master switch is off and keep
   their stored value, so re-enabling the master restores the previous choice
   instead of resetting it. The affordances themselves are described in
   [01-ui-ia.md §3.2](01-ui-ia.md#32-sidebar-project-groups).
@@ -379,7 +378,7 @@ so no row repeats it.
   for persisted-settings compatibility and is no longer exposed; an absent or
   unknown value shows reasoning and an explicit `compact` hides it. Settings
   search indexes the row.
-- **Auto-fold finished thinking** is an indented sub-row directly under **Show
+- **Auto-fold finished thinking** is an aligned conditional row directly under **Show
   thinking** and appears only while that toggle is on, because with it off no
   completed reasoning row renders. It persists the optional
   `autoCollapseThinking` boolean, absent and `true` both meaning fold: only
@@ -404,7 +403,7 @@ so no row repeats it.
   standard 240px field-column cap. Labels stay on one line; when space is
   insufficient, the control moves below the title and whole options wrap
   within the available pane width without horizontal overflow.
-- **Auto-fold finished groups** is an indented sub-row directly under
+- **Auto-fold finished groups** is an aligned conditional row directly under
   **Transcript display**, and appears only for **Commands first** and **Fully
   folded**; **Flat** renders no activity groups, so the row is hidden there and
   has no effect. It persists the optional `autoCollapseSettledGroups` boolean,

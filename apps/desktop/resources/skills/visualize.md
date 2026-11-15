@@ -61,6 +61,13 @@ Read this file in full before authoring. Copy into every compaction summary:
 
 ### Reference in the reply
 
+Only emit a reference after the Write tool confirms success for that exact
+file in the current session's advertised visualization directory. A planned
+write, a failed write, or a file in another session does not qualify. If the
+write fails, explain the failure without emitting a reference. Write success
+confirms storage, not that the user has seen the chart. Embed retrieved data
+in the fragment; never rely on fetching market quotes inside the sandbox.
+
 Put any short explanation in the reply, then the reference as the last line of
 the reply, as plain text. The line looks like this (with real values):
 

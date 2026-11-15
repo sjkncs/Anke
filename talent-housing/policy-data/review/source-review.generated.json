@@ -1,0 +1,566 @@
+{
+  "generatedAt": "2026-11-14T01:50:02.380Z",
+  "purpose": "候选关联供审核，不代表条款等价或现行有效",
+  "rows": [
+    {
+      "id": "public-rental-352",
+      "title": "深圳市人民政府令（第352号）　深圳市公共租赁住房管理办法",
+      "category": "public_rental",
+      "publishedOn": null,
+      "url": "https://www.sz.gov.cn/zfgb/2023/gb1291/content/post_10689376.html",
+      "textSha256": "4a83c23a95fe5fd109d79d28849320fcf576cb7fd9206d48a8d76c2b8c6efca4",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "affordable-rental-353",
+      "title": "深圳市人民政府令（第353号）　深圳市保障性租赁住房管理办法",
+      "category": "affordable_rental",
+      "publishedOn": null,
+      "url": "https://www.sz.gov.cn/zfgb/2023/gb1291/content/post_10689377.html",
+      "textSha256": "999e5656522761cb2bb571fd532ce01a0e6f7ea71a13d9b6619d7c7b37b2ca29",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "talent-202604",
+      "title": "深圳市住房保障署关于面向高层次人才配租保障性租赁住房有关事项的通告",
+      "category": "talent_rental",
+      "publishedOn": "2026-04-24",
+      "url": "https://zjj.sz.gov.cn/szszfhjsjwzgkml/szszfhjsjwzgkml/seztfw/zfly/wyk/content/post_12753707.html",
+      "textSha256": "6703a5d5b68f33bf49d17103b96d3e3a06e3f0fbe7f5aa0a352e4bb990eeb485",
+      "historicalOnly": false,
+      "regulationCandidate": null,
+      "articleCandidates": [],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "talent-202608",
+      "title": "深圳市住房保障署关于面向高层次人才配租保障性租赁住房有关事项的通告",
+      "category": "talent_rental",
+      "publishedOn": "2026-08-19",
+      "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12942744.html",
+      "textSha256": "26b04de4d00ae5b945e30eb71d685f1af2f37ed1a2e1dbf689f608d0ed87c047",
+      "historicalOnly": false,
+      "regulationCandidate": null,
+      "articleCandidates": [],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "talent-sale-202604",
+      "title": "深圳市住房保障署面向人才配售住房通告（住保售〔2026〕027号）",
+      "category": "talent_sale",
+      "publishedOn": "2026-04-08",
+      "url": "https://zjj.sz.gov.cn/xxgk/tzgg/content/post_12725439.html",
+      "textSha256": "0c58db05b5cd2263857c38bc1ec837accb2cab9a6ca25ae28270384c406fa9a1",
+      "historicalOnly": false,
+      "regulationCandidate": null,
+      "articleCandidates": [],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "faq-eligibility",
+      "title": "政府组织配租的保障性租赁住房申请条件是什么？",
+      "category": "affordable_rental",
+      "publishedOn": "2025-09-01",
+      "url": "https://www.szns.gov.cn/main/ywzsk/z_f/content/post_12356062.html",
+      "textSha256": "2ae5b2d5e81aa5cc280dbf073500369705f9536dde32b61921277c23fa51132b",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [
+        {
+          "section": "第十二条",
+          "score": 16,
+          "chunkId": "affordable-rental-353:13"
+        },
+        {
+          "section": "第十一条",
+          "score": 15,
+          "chunkId": "affordable-rental-353:12"
+        },
+        {
+          "section": "第十七条",
+          "score": 15,
+          "chunkId": "affordable-rental-353:18"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "faq-supervision",
+      "title": "政府组织配租的保障性租赁住房如何监管？",
+      "category": "affordable_rental",
+      "publishedOn": "2025-12-05",
+      "url": "https://www.sz.gov.cn/ztfw/zfly/wyw_184911/ywzsk_184570/content/mpost_12533890.html",
+      "textSha256": "87ef317f654c8799d2b2c0e8ca54b8a0cb56afd28625cad000bd6ba317e6e305",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [
+        {
+          "section": "第十条",
+          "score": 13,
+          "chunkId": "affordable-rental-353:11"
+        },
+        {
+          "section": "第十一条",
+          "score": 13,
+          "chunkId": "affordable-rental-353:12"
+        },
+        {
+          "section": "第十二条",
+          "score": 13,
+          "chunkId": "affordable-rental-353:13"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-12582705",
+      "title": "政府组织配租的保障性租赁住房的配租面积标准如何确定？",
+      "category": "affordable_rental",
+      "publishedOn": "2026-01-04",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_12582705.html",
+      "textSha256": "56576fde14d0ec48e55fedb51e5825850f95058631c39492bfc338308da4f88b",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [
+        {
+          "section": "第十五条",
+          "score": 18,
+          "chunkId": "affordable-rental-353:16"
+        },
+        {
+          "section": "第十一条",
+          "score": 14,
+          "chunkId": "affordable-rental-353:12"
+        },
+        {
+          "section": "第十四条",
+          "score": 14,
+          "chunkId": "affordable-rental-353:15"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-12426895",
+      "title": "如何申请政府组织配租的保障性租赁住房？",
+      "category": "affordable_rental",
+      "publishedOn": "2025-10-10",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_12426895.html",
+      "textSha256": "57be5e20e703db566b8363f294be08c089d40a5c6ea4cb4a4d0daede4a6e91af",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [
+        {
+          "section": "第十一条",
+          "score": 15,
+          "chunkId": "affordable-rental-353:12"
+        },
+        {
+          "section": "第十六条",
+          "score": 15,
+          "chunkId": "affordable-rental-353:17"
+        },
+        {
+          "section": "第十二条",
+          "score": 14,
+          "chunkId": "affordable-rental-353:13"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-12363414",
+      "title": "政府组织配租的保障性租赁住房分配方式有哪些？",
+      "category": "affordable_rental",
+      "publishedOn": "2025-09-05",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_12363414.html",
+      "textSha256": "07523bb1b8abcfc0f13f674f6daa490385097049f0beec4db0438ff1b88a6f3a",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [
+        {
+          "section": "第十条",
+          "score": 14,
+          "chunkId": "affordable-rental-353:11"
+        },
+        {
+          "section": "第十三条",
+          "score": 14,
+          "chunkId": "affordable-rental-353:14"
+        },
+        {
+          "section": "第三十一条",
+          "score": 14,
+          "chunkId": "affordable-rental-353:32"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-12318536",
+      "title": "政府组织配租的保障性租赁住房申请条件是什么？",
+      "category": "affordable_rental",
+      "publishedOn": "2025-08-07",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_12318536.html",
+      "textSha256": "2ae5b2d5e81aa5cc280dbf073500369705f9536dde32b61921277c23fa51132b",
+      "historicalOnly": false,
+      "regulationCandidate": "affordable-rental-353",
+      "articleCandidates": [
+        {
+          "section": "第十二条",
+          "score": 16,
+          "chunkId": "affordable-rental-353:13"
+        },
+        {
+          "section": "第十一条",
+          "score": 15,
+          "chunkId": "affordable-rental-353:12"
+        },
+        {
+          "section": "第十七条",
+          "score": 15,
+          "chunkId": "affordable-rental-353:18"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11711555",
+      "title": "申请人及共同申请人在承租期间发生哪种情形，需腾退公共租赁住房？",
+      "category": "public_rental",
+      "publishedOn": "2024-11-08",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11711555.html",
+      "textSha256": "98b66abdecf4e4ec42fdeabfae04306254bb3596e8a035d788dfa65029f58329",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第三十一条",
+          "score": 20,
+          "chunkId": "public-rental-352:32"
+        },
+        {
+          "section": "第三十二条",
+          "score": 17,
+          "chunkId": "public-rental-352:33"
+        },
+        {
+          "section": "第十一条",
+          "score": 14,
+          "chunkId": "public-rental-352:12"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11597876",
+      "title": "有哪些情形的，可以申请全额减缴公共租赁住房租金？",
+      "category": "public_rental",
+      "publishedOn": "2024-10-10",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11597876.html",
+      "textSha256": "535a5479c019273349c5f5b9003e8ffba132b7526e24efbb2e1c122e13046a3e",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第三十条",
+          "score": 16,
+          "chunkId": "public-rental-352:31"
+        },
+        {
+          "section": "第三十一条",
+          "score": 10,
+          "chunkId": "public-rental-352:32"
+        },
+        {
+          "section": "第五十条",
+          "score": 10,
+          "chunkId": "public-rental-352:51"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11549383",
+      "title": "有哪些情形的，可以申请减缴公共租赁住房租金的百分之五十？",
+      "category": "public_rental",
+      "publishedOn": "2024-09-11",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11549383.html",
+      "textSha256": "a15c91dd361c1a4d15a879be0ccda20dd163ed8ee786050de13e8910389de89b",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第三十条",
+          "score": 21,
+          "chunkId": "public-rental-352:31"
+        },
+        {
+          "section": "第三十一条",
+          "score": 14,
+          "chunkId": "public-rental-352:32"
+        },
+        {
+          "section": "第二十条",
+          "score": 12,
+          "chunkId": "public-rental-352:21"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11498368",
+      "title": "承租公共租赁住房期间，申请人家庭人口数减少不再符合原住房配租面积标准的如何处理?",
+      "category": "public_rental",
+      "publishedOn": "2024-08-14",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11498368.html",
+      "textSha256": "736b06639d9983a260f132bec6118641759bedebc97eaa8a9edf41d15a86a299",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第二十九条",
+          "score": 29,
+          "chunkId": "public-rental-352:30"
+        },
+        {
+          "section": "第二十一条",
+          "score": 19,
+          "chunkId": "public-rental-352:22"
+        },
+        {
+          "section": "第二十五条",
+          "score": 14,
+          "chunkId": "public-rental-352:26"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11437530",
+      "title": "公共租赁住房申请人户籍市内跨区迁移的，该房源如何处理？",
+      "category": "public_rental",
+      "publishedOn": "2024-07-16",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11437530.html",
+      "textSha256": "b1c10aa5141eef2a8f2cbb17a1a8078696229ce5322fcbcd6588cf3cbe16e3ad",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第二十八条",
+          "score": 12,
+          "chunkId": "public-rental-352:29"
+        },
+        {
+          "section": "第十三条",
+          "score": 9,
+          "chunkId": "public-rental-352:14"
+        },
+        {
+          "section": "第十四条",
+          "score": 9,
+          "chunkId": "public-rental-352:15"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11366998",
+      "title": "公共租赁住房申请人在承租期间离异的，该房源如何处理？",
+      "category": "public_rental",
+      "publishedOn": "2024-06-18",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11366998.html",
+      "textSha256": "dfff022ee6b8b90a46b0ce0bee128c72f39e30b7bd08e9621dd010d94245cd47",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第二十八条",
+          "score": 12,
+          "chunkId": "public-rental-352:29"
+        },
+        {
+          "section": "第三十一条",
+          "score": 12,
+          "chunkId": "public-rental-352:32"
+        },
+        {
+          "section": "第三十二条",
+          "score": 12,
+          "chunkId": "public-rental-352:33"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-11299008",
+      "title": "公共租赁住房申请人在承租期间死亡的，该房源如何处理？",
+      "category": "public_rental",
+      "publishedOn": "2024-05-20",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_11299008.html",
+      "textSha256": "db98ea62eacc194048b11c98376b3550396175197b69784a6707c4705fc4a80a",
+      "historicalOnly": false,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第二十八条",
+          "score": 12,
+          "chunkId": "public-rental-352:29"
+        },
+        {
+          "section": "第三十一条",
+          "score": 12,
+          "chunkId": "public-rental-352:32"
+        },
+        {
+          "section": "第三十二条",
+          "score": 12,
+          "chunkId": "public-rental-352:33"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-10509542",
+      "title": "我是深户，但是户口是挂靠在亲戚的户口本上可以申请轮候深圳市公共租赁住房吗？",
+      "category": "public_rental",
+      "publishedOn": "2023-03-28",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_10509542.html",
+      "textSha256": "1b497a01f4b94302ee5f8f487b5c06621b42b7b1d3206b940c911487d5789531",
+      "historicalOnly": true,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第十一条",
+          "score": 9,
+          "chunkId": "public-rental-352:12"
+        },
+        {
+          "section": "第十三条",
+          "score": 9,
+          "chunkId": "public-rental-352:14"
+        },
+        {
+          "section": "第二十九条",
+          "score": 9,
+          "chunkId": "public-rental-352:30"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    },
+    {
+      "id": "official-faq-9934253",
+      "title": "公共租赁住房合同续签办理途径有哪些？",
+      "category": "public_rental",
+      "publishedOn": "2022-07-06",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_9934253.html",
+      "textSha256": "9f566e4abc4f407b93e768c0a74fca562222fe1d8065279714b27af7212843a9",
+      "historicalOnly": true,
+      "regulationCandidate": "public-rental-352",
+      "articleCandidates": [
+        {
+          "section": "第二十六条",
+          "score": 7,
+          "chunkId": "public-rental-352:27"
+        },
+        {
+          "section": "第十三条",
+          "score": 6,
+          "chunkId": "public-rental-352:14"
+        },
+        {
+          "section": "第十五条",
+          "score": 6,
+          "chunkId": "public-rental-352:16"
+        }
+      ],
+      "sourceValidity": "pending_department_review",
+      "answerReview": "pending",
+      "reviewer": null,
+      "reviewedOn": null,
+      "notes": null
+    }
+  ]
+}

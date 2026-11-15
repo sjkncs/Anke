@@ -5,6 +5,16 @@ const {LongMessages}=require('../src/long-messages'),{ImageCache}=require('../sr
 async function fixture(ctx){const root=await fs.realpath(await fs.mkdtemp(path.join(os.tmpdir(),'pi-attachments-'))),data=path.join(root,'plugins','data','local.pi-bot');await fs.mkdir(path.join(data,'uploaded-files'),{recursive:true});ctx.after(()=>fs.rm(root,{recursive:true,force:true,maxRetries:5,retryDelay:100}));return {root,data};}
 const inside=(root,file)=>{const relative=path.relative(root,file);return relative!==''&&relative!=='..'&&!relative.startsWith('..'+path.sep)&&!path.isAbsolute(relative);};
 
+test('managed upload roots are canonicalized independently of their parent',async ctx=>{
+ const t=await fixture(ctx),physical=path.join(t.root,'physical-uploads');await fs.mkdir(physical);
+ await fs.rmdir(path.join(t.data,'uploaded-files'));await fs.symlink(physical,path.join(t.data,'uploaded-files'),process.platform==='win32'?'junction':'dir');
+ const original={path:path.join(t.data,'uploaded-files','mapped.txt'),name:'mapped.txt',kind:'file'};await fs.writeFile(original.path,'mapped bytes');
+ const staged=await stageAttachment(t,'mapped-session',original);
+ assert.ok(inside(path.join(t.root,'scratch','mapped-session'),staged.path));assert.equal(await fs.readFile(staged.path,'utf8'),'mapped bytes');
+ const external=path.join(t.root,'outside.txt');await fs.writeFile(external,'external');
+ assert.equal((await stageAttachment(t,'mapped-session',{path:external})).path,external);
+});
+
 test('saved image previews allow images above 1 MB and require an exact attachment plus safe host image output',async ctx=>{
   const {previewAttachment}=require('../src/attachments'),t=await fixture(ctx),file={path:path.join(t.data,'uploaded-files','large.png'),name:'large.png',kind:'image'};
   await fs.writeFile(file.path,Buffer.alloc(1200000));let calls=0;const dataUrl='data:image/png;base64,iVBORw0KGgo=';

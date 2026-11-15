@@ -50,3 +50,22 @@ actual monthly housing expense for household affordability. State the filtering
 criteria and cite source URLs when available. The citywide scope is the product's
 coverage goal; sample counts establish actual coverage. Map navigation provides
 geographic context; a basemap alone is not a reconstructed 3D scene.
+
+For user-supplied resale transaction history or August 2026 community attributes,
+find ShenzhenRents through ToolSearch. Use dataset=history_sales for resale
+transactions, or dataset=reference_202608 for community reference attributes.
+Historical queries accept only dataset, district, query, year, limit and offset;
+omit recordType and lease. The reference dataset does not accept year. Use query
+for a community name, limit up to 100 and offset for subsequent pages.
+Example sales arguments: {"dataset":"history_sales","year":2023,"query":"深业上城"}.
+Example reference arguments: {"dataset":"reference_202608","district":"福田","query":"深业上城"}.
+The supplied sales file actually ends on 2024-04-25. The 2023-2026 view has
+12,031 rows; 2025 and 2026 are absent. Report empty years without inventing data.
+Sale prices in ten thousand yuan and yuan per square metre are not monthly rents.
+The reference month comes from its filename, not verified row observation dates.
+Preserve source filename, row, hash, coordinate system and missing field values.
+Same-district/name reference matches are candidates pending identity verification.
+Do not impute property or parking fees, school admission rights or coordinates
+from a candidate match. Do not backfill 2026 attributes into earlier training
+observations. The prepared chronological sales split is not a trained model and
+does not validate rent estimation or unseen-community performance.

@@ -7,6 +7,9 @@ import {ACCENT_INKS,INKS} from './upstream/inks.mjs';
 import {createUsagePage} from './settings-usage.mjs';
 import {avatarImage} from './avatar-editor.mjs';
 import {profileLook} from './profile-avatar.mjs';
+import {PACE_KEY,paceValue} from './reading-pace.mjs';
+import {connectionControls} from './learning-library.mjs';
+import {mountLifeSettings} from './life-services.mjs';
 // Anke Bot project links; upstream attribution is kept separately.
 const REPO='https://github.com/vsd269/PI-Bot';
 const UPSTREAM='https://github.com/Fei2411/DeepSeek-Bot';
@@ -17,6 +20,8 @@ export function createSettingsPages({body,show,call,getState,update,savePreferen
   let feedbackDraft='';
   function general(){
     show('通用',{page:'general'});const prefs=getState().prefs||{};
+    body.append(section('阅读',row('回复显示速度','',choose('回复显示速度',[['20','舒缓 · 20 字/秒'],['40','适中 · 40 字/秒'],['80','较快 · 80 字/秒'],['0','即时显示']],String(paceValue(localStorage.getItem(PACE_KEY))),value=>localStorage.setItem(PACE_KEY,value)))));
+    const food=section('外卖配送');body.append(food);call('team.connectors').then(value=>{if(!food.isConnected)return;for(const server of value.bridge?.servers||[])if(/mcd\.cn|lkcoffee\.com/.test(server.url||''))food.querySelector('.bt-set-card').append(row(server.name,server.enabled?'已启用':'已停用',soft('管理',()=>legacy.mcp(undefined,server))));}).catch(error=>notice(error.message));
     const profile=el('div','','pi-profile-avatar'),picture=el('span','','pi-profile-picture'),actions=el('div','','bt-actions'),status=el('p','','pi-profile-status');
     const file=el('input');file.type='file';file.accept='image/png,image/jpeg,image/webp,image/gif';file.hidden=true;file.setAttribute('aria-label','选择我的头像');
     const upload=soft('更换头像',()=>file.click()),reset=soft('恢复默认');reset.onclick=()=>persistProfile(null);status.setAttribute('role','status');
@@ -65,7 +70,10 @@ export function createSettingsPages({body,show,call,getState,update,savePreferen
     if(!state.rooms.length)card.append(row('还没有群聊','群聊让多位 Bot 和你一起完成一件事。'));body.append(actions,list);
   }
   async function connectors(){
-    const ticket=show('连接器',{page:'connectors'});body.append(section('应用',row('连接应用','用自己的 Composio 项目连接应用，再选择可使用的 Bot。',soft('打开应用',()=>legacy.apps()))));const view=await call('team.github',{action:'status'});if(!isCurrent(ticket))return;
+    const learning=section('终身学习');
+    const ticket=show('连接器',{page:'connectors'});body.append(section('应用',row('连接应用','用自己的 Composio 项目连接应用，再选择可使用的 Bot。',soft('打开应用',()=>legacy.apps()))));
+    body.append(learning);for(const service of ['knowledge','cloud'])await connectionControls({host:learning.querySelector('.bt-set-card'),call,service,onManage:()=>legacy.mcp(),onError:notice});if(!isCurrent(ticket))return;
+    let view;try{view=await call('team.github',{action:'status'});}catch{view={connected:false,error:'GitHub 连接状态暂时不可用。'};}if(!isCurrent(ticket))return;
     const list=section(''),card=list.querySelector('.bt-set-card'),line=connector('GitHub',view.connected?'已连接 · '+view.login:'仓库、Issue 和 PR',safe(()=>view.connected?disconnect():login()),view.connected?'断开':'连接');
     line.querySelector('.bt-connector-mark').replaceChildren(icon('GithubIcon'));card.append(line);body.append(list);
     if(view.error){body.append(el('p',view.error,'bt-error'));if(view.connected)body.append(soft('重新连接',safe(async()=>{await call('team.github',{action:'retry'});await connectors();})));}
@@ -129,6 +137,6 @@ export function createSettingsPages({body,show,call,getState,update,savePreferen
     }
     void load();return panel;
   }
-  const handlers={general,bots,groups,connectors,capabilities:()=>legacy.capabilities(),schedules:()=>legacy.schedules(),usage:usage.open,secrets,feedback,about};
+  const handlers={life:async()=>{show('生活服务',{page:'life'});const host=el('div');body.append(host);await mountLifeSettings({body:host,call,notice});},general,bots,groups,connectors,capabilities:()=>legacy.capabilities(),schedules:()=>legacy.schedules(),usage:usage.open,secrets,feedback,about};
   return {open:async(page,options)=>{await(handlers[page]||general)(options);}};
 }

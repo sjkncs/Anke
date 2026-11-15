@@ -1,0 +1,1200 @@
+{
+  "purpose": "业务人员待标注测试题，不是准确率评测结果",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "public_rental",
+      "query": "申请条件有哪些？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q02",
+      "category": "public_rental",
+      "query": "需要准备哪些材料？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q03",
+      "category": "public_rental",
+      "query": "家庭住房条件如何核验？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q04",
+      "category": "public_rental",
+      "query": "租金按照什么标准确定？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q05",
+      "category": "public_rental",
+      "query": "如何办理续租？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q06",
+      "category": "public_rental",
+      "query": "什么情况下需要退出？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q07",
+      "category": "public_rental",
+      "query": "放弃选房如何处理？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q08",
+      "category": "public_rental",
+      "query": "申请结束日期是什么时候？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q09",
+      "category": "public_rental",
+      "query": "学校证明能替代人才卡吗？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q10",
+      "category": "public_rental",
+      "query": "住房争议应向谁咨询？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q11",
+      "category": "affordable_rental",
+      "query": "申请条件有哪些？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-eligibility",
+        "affordable-rental-353"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q12",
+      "category": "affordable_rental",
+      "query": "需要准备哪些材料？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q13",
+      "category": "affordable_rental",
+      "query": "家庭住房条件如何核验？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "affordable-rental-353",
+        "faq-supervision",
+        "faq-eligibility"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q14",
+      "category": "affordable_rental",
+      "query": "租金按照什么标准确定？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "affordable-rental-353",
+        "faq-eligibility"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q15",
+      "category": "affordable_rental",
+      "query": "如何办理续租？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q16",
+      "category": "affordable_rental",
+      "query": "什么情况下需要退出？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-eligibility"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q17",
+      "category": "affordable_rental",
+      "query": "放弃选房如何处理？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-supervision",
+        "affordable-rental-353"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q18",
+      "category": "affordable_rental",
+      "query": "申请结束日期是什么时候？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-eligibility",
+        "affordable-rental-353"
+      ],
+      "requiresHuman": false,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q19",
+      "category": "affordable_rental",
+      "query": "学校证明能替代人才卡吗？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "affordable-rental-353"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q20",
+      "category": "affordable_rental",
+      "query": "住房争议应向谁咨询？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q21",
+      "category": "talent_rental",
+      "query": "申请条件有哪些？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q22",
+      "category": "talent_rental",
+      "query": "需要准备哪些材料？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q23",
+      "category": "talent_rental",
+      "query": "家庭住房条件如何核验？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q24",
+      "category": "talent_rental",
+      "query": "租金按照什么标准确定？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q25",
+      "category": "talent_rental",
+      "query": "如何办理续租？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q26",
+      "category": "talent_rental",
+      "query": "什么情况下需要退出？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q27",
+      "category": "talent_rental",
+      "query": "放弃选房如何处理？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q28",
+      "category": "talent_rental",
+      "query": "申请结束日期是什么时候？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q29",
+      "category": "talent_rental",
+      "query": "学校证明能替代人才卡吗？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q30",
+      "category": "talent_rental",
+      "query": "住房争议应向谁咨询？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q31",
+      "category": "talent_sale",
+      "query": "申请条件有哪些？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q32",
+      "category": "talent_sale",
+      "query": "需要准备哪些材料？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q33",
+      "category": "talent_sale",
+      "query": "家庭住房条件如何核验？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q34",
+      "category": "talent_sale",
+      "query": "租金按照什么标准确定？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q35",
+      "category": "talent_sale",
+      "query": "如何办理续租？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q36",
+      "category": "talent_sale",
+      "query": "什么情况下需要退出？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q37",
+      "category": "talent_sale",
+      "query": "放弃选房如何处理？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q38",
+      "category": "talent_sale",
+      "query": "申请结束日期是什么时候？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q39",
+      "category": "talent_sale",
+      "query": "学校证明能替代人才卡吗？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q40",
+      "category": "talent_sale",
+      "query": "住房争议应向谁咨询？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q41",
+      "category": "university",
+      "query": "申请条件有哪些？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q42",
+      "category": "university",
+      "query": "需要准备哪些材料？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q43",
+      "category": "university",
+      "query": "家庭住房条件如何核验？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q44",
+      "category": "university",
+      "query": "租金按照什么标准确定？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q45",
+      "category": "university",
+      "query": "如何办理续租？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q46",
+      "category": "university",
+      "query": "什么情况下需要退出？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q47",
+      "category": "university",
+      "query": "放弃选房如何处理？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q48",
+      "category": "university",
+      "query": "申请结束日期是什么时候？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q49",
+      "category": "university",
+      "query": "学校证明能替代人才卡吗？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q50",
+      "category": "university",
+      "query": "住房争议应向谁咨询？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q51",
+      "category": "all",
+      "query": "申请条件有哪些？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "public-rental-352",
+        "faq-eligibility",
+        "affordable-rental-353"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q52",
+      "category": "all",
+      "query": "需要准备哪些材料？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q53",
+      "category": "all",
+      "query": "家庭住房条件如何核验？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "affordable-rental-353",
+        "public-rental-352"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q54",
+      "category": "all",
+      "query": "租金按照什么标准确定？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "affordable-rental-353",
+        "public-rental-352"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q55",
+      "category": "all",
+      "query": "如何办理续租？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q56",
+      "category": "all",
+      "query": "什么情况下需要退出？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-eligibility",
+        "public-rental-352"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q57",
+      "category": "all",
+      "query": "放弃选房如何处理？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-supervision",
+        "affordable-rental-353",
+        "public-rental-352"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q58",
+      "category": "all",
+      "query": "申请结束日期是什么时候？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "faq-eligibility",
+        "affordable-rental-353",
+        "public-rental-352"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q59",
+      "category": "all",
+      "query": "学校证明能替代人才卡吗？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [
+        "affordable-rental-353"
+      ],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    },
+    {
+      "id": "Q60",
+      "category": "all",
+      "query": "住房争议应向谁咨询？",
+      "asOf": "2026-11-14",
+      "reviewStatus": "PENDING_BUSINESS_ANNOTATION",
+      "expectedSourceIds": null,
+      "expectedAnswer": null,
+      "accuracy": null,
+      "observedSourceIds": [],
+      "requiresHuman": true,
+      "acceptanceChecks": [
+        "住房类型正确",
+        "截止日期及历史批次正确",
+        "原文支持回答",
+        "群众可理解",
+        "应转人工时转人工"
+      ]
+    }
+  ]
+}

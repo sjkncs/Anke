@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "anke.edu",
+  "name": "智小研知识库",
+  "version": "0.1.0",
+  "description": "智小研（PKU OpenAgent 部署）公开智能体与知识库文件清单的离线检索；正文按账号权限由用户自备导入。",
+  "author": "Anke Agent",
+  "main": "main.js",
+  "ui": { "panel": "renderer/index.html", "title": "辅导平台", "width": 1200, "height": 820 },
+  "contributes": {
+    "commands": [
+      { "id": "anke.edu.search", "title": "查智小研智能体", "keywords": ["智小研", "教学", "智能体", "知识库"] }
+    ],
+    "skills": ["skills/zhixiaoyan-kb.md"],
+    "agentTools": [
+      {
+        "name": "ZhixiaoyanKnowledge",
+        "description": "Query the local mirror of the 智小研 (PKU OpenAgent) public agent catalog: 86 public K12 subject agents with teacher/school, subject, grade, brief, description, welcome text, example questions, capability flags (knowledge base / voice / digital human / upload) and the list of published knowledge-base FILE NAMES. Public metadata only: file bodies are not stored. Use it when a question is about 智小研 agents, which agent to use for a topic, or what material an agent publishes. Always keep the returned source URL. Use ToolSearch before calling.",
+        "risk": "low",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "action": { "type": "string", "enum": ["search", "agent", "list", "stats"] },
+            "query": { "type": "string", "maxLength": 300 },
+            "slug": { "type": "string" },
+            "subject": { "type": "string" },
+            "grade": { "type": "string" },
+            "limit": { "type": "integer", "minimum": 1, "maximum": 50 }
+          },
+          "additionalProperties": false
+        }
+      }
+    ]
+  },
+  "permissions": ["agent.tool.register", "ui.panel"],
+  "engines": { "piDesktop": ">=0.21.0" },
+  "activationEvents": ["onStartup", "onCommand:anke.edu.search"]
+}

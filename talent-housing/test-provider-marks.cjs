@@ -1,0 +1,9 @@
+const assert=require('node:assert/strict'),vm=require('node:vm');
+const root='C:/Users/Lenovo/Desktop/全市租金导航仓/anke-agent-source';
+const esbuild=require(root+'/node_modules/esbuild');
+const code=esbuild.buildSync({entryPoints:[root+'/apps/desktop/src/lib/provider-brand.ts'],bundle:true,write:false,platform:'node',format:'cjs',loader:{'.svg':'dataurl','.ico':'dataurl','.png':'dataurl'}});
+const box={module:{exports:{}},exports:{},URL};vm.runInNewContext(code.outputFiles[0].text,box);const {providerBrand}=box.module.exports;
+const cases=[['小米','https://token-plan-cn.xiaomimimo.com/v1','Xiaomi'],['小米欧洲','https://token-plan-ams.xiaomimimo.com/v1','Xiaomi'],['Hugging Face','https://router.huggingface.co/v1','Hugging Face'],['Jev','https://api.typesafe.ai/v1/systemone','Jev'],['Radius','https://radius.pi.dev','Radius']];
+for(const [name,url,want]of cases)assert.equal(providerBrand(name,url).name,want);
+assert.equal(providerBrand('custom','https://radius.ai'),undefined);
+(async()=>{const {chromium}=require('E:/FFD-Downloader-Windows/datafoundry-enhanced/node_modules/playwright');const b=await chromium.launch({headless:true});try{const p=await b.newPage();await p.setContent('<main style="display:flex;gap:30px;padding:30px;font:16px system-ui"></main>');await p.locator('main').evaluate((main,marks)=>{for(const mark of marks){const item=document.createElement('div'),img=new Image(32,32);img.src=mark.icon;item.append(img,document.createTextNode(' '+mark.name));main.append(item);}},cases.map(([name,url])=>providerBrand(name,url)));await p.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));await p.screenshot({path:__dirname+'/data/provider-marks.png'});console.log('PASS 5 provider identities, unrelated Radius rejected, all bundled marks decode');}finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1});

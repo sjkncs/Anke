@@ -82,7 +82,6 @@ import {
   sidebarPointerResize,
   sidebarResetWidth,
 } from "../lib/sidebar-resize";
-import { BrandLogo } from "./BrandLogo";
 import { NotificationCenter } from "./NotificationCenter";
 import {
   WorktreeBadge,
@@ -2558,8 +2557,7 @@ export function Sidebar({
           ariaLabel={t("nav.home")}
           onClick={() => setPage("chat")}
         >
-          <BrandLogo size={20} />
-          <span>{t("app.shellName")}</span>
+          <span className="anke-wordmark">ANKE</span>
         </TooltipButton>
         <div className="sidebar-header-actions no-drag">
           <TooltipButton

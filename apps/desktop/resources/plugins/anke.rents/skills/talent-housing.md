@@ -4,6 +4,13 @@ description: Match candidate needs to government/university supply and operate l
 ---
 
 Use ToolSearch to find AnkeHousing for candidate-based housing recommendations.
+For highly rated university housing, call search_homes with provider university
+and sort residentRating. Pass explicit minimum score and response count when
+the user specifies them. Resident survey averages use a 0-5 scale; personalized
+matching uses 0-100 and never incorporates or fabricates resident opinions.
+Always report review count and source/date; missing reviews remain unavailable.
+Eligibility and household hard constraints precede ratings. Current education
+evidence is not a school admission promise; planned facilities stay separate.
 Read the registered anonymous profile and supplied evidence. Never infer private
 household characteristics from names, titles, browsing activity or university rank.
 Use government/university supply only. Preserve existing eligibility and policy

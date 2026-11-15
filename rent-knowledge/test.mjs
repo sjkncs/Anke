@@ -6,7 +6,7 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 import {connect,ingest,exportSnapshot,statistics,setEmbedding,vectorSearch,refreshDocuments} from './store.mjs';
 const require=createRequire(import.meta.url);
-const {knowledge}=require('../apps/desktop/resources/plugins/anke.rents/knowledge.cjs');
+const {knowledge}=require('../anke-agent-source/apps/desktop/resources/plugins/anke.rents/knowledge.cjs');
 const sourceId='a'.repeat(64);
 function row(id,date,rent,area,extra={}) {
   return {'统一观测ID':`fixture:${id}:${date}`,'房源ID':id,'平台':'fixture','观测日期':date,'观测日期口径':'synthetic test observation',
@@ -32,7 +32,7 @@ test('import -> SQL -> exported knowledge -> Agent query preserves dates, strata
     const details=JSON.parse(await readFile(path.join(temp,'records.json'),'utf8'));
     assert.equal(details.records.filter(r=>r.dataset==='imported').length,4);
     assert.deepEqual([...new Set(details.records.map(r=>r.date))].sort(),['2026-11-07','2026-11-08']);
-    const {query}=require('../apps/desktop/resources/plugins/anke.rents/query.cjs');
+    const {query}=require('../anke-agent-source/apps/desktop/resources/plugins/anke.rents/query.cjs');
     const detailAnswer=query({district:'南山',lease:'整租'},details);
     assert.equal(detailAnswer.count,2);
     assert.equal(detailAnswer.unitRentMedian,stat.median_unit_rent);

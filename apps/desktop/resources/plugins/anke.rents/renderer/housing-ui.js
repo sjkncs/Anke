@@ -41,7 +41,7 @@
       for(const e of x.future){const line=make('div','规划中 · '+show(e.factor)+'：'+e.source);line.className='evidence';card.append(line);}
       if(x.blocked.length)row(card,'未满足',x.blocked.map(show).join('、'));if(x.unknown.length)row(card,'待核实',x.unknown.map(show).join('、'));
       row(card,'房源依据',x.supply.reference);
-      const map=make('button','查看位置');map.onclick=run(()=>window.pluginBridge.invoke('rents.openMap',{url:'https://map.baidu.com/search/'+encodeURIComponent('深圳'+x.project)}));card.append(map);$('homeResults').append(card);
+      const map=make('button','查看位置');map.onclick=run(()=>window.locateResidence({project:x.project,location:x.location||undefined}));card.append(map);$('homeResults').append(card);
     }if(!r.results.length)empty($('homeResults'),'暂无匹配的政府或高校房源');
   }
   function field(key,label,value,type='text',choices){
@@ -100,7 +100,7 @@
   };
   $('overviewCandidate').onchange=run(top);$('overviewSearch').onclick=run(async()=>{$('candidate').value=$('overviewCandidate').value;tab('matching');await search();});$('searchHomes').onclick=run(search);
   $('profileSelect').onchange=()=>edit(state.applications.find(a=>a.id===$('profileSelect').value));$('newProfile').onclick=()=>edit();$('orderSelect').onchange=orderView;$('newOrder').onclick=()=>{activeOrder=null;$('orderSelect').value='';$('orderForm').hidden=false;$('advanceForm').hidden=true;$('orderTimeline').replaceChildren();};
-  $('spatialMap').onclick=run(()=>window.pluginBridge.invoke('rents.openMap',{url:'https://map.baidu.com'}));
+  $('spatialMap').textContent='定位住宅';$('spatialMap').onclick=()=>{if(window.openSelectedHousingResidence?.())return;tab('map');document.querySelector('.filters').hidden=false;document.getElementById('residentialQuery').focus();};
   const baseRefresh=$('refresh').onclick;$('refresh').onclick=run(async()=>{await baseRefresh();await load();});
   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{const market=['ledger','projects','scenario','map','events'].includes(b.dataset.tab);document.querySelector('.filters').hidden=!market;}));document.querySelector('.filters').hidden=true;
   run(async()=>{await load();edit(state.applications[0]);orderView();})().then(()=>{window.housingReady=true;});

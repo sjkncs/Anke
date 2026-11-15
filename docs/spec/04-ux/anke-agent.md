@@ -1,5 +1,26 @@
 # Anke Agent rental workspace
 
+## Local reality layer (2026-11-12)
+
+The city overview Reality control accepts local SPLAT/PLY/KSPLAT files up to
+250 MB, explicit coordinates, units and yaw. Import is browser-local and
+temporary, with no upload. Position remains uncalibrated. Removal releases
+viewer resources and object URLs. Reuse vendored MIT GaussianSplats3D 0.4.7;
+do not claim this implements Spark or a real Shenzhen reconstruction. Sibling
+`talent-housing/city-model-browser.mjs` verifies synthetic import/render/removal.
+
+## Local Shenzhen city geometry (2026-11-12)
+
+The overview housing distribution renders six source-derived district meshes
+from preserved local MultiPatch SHP files. The SU originals remain unchanged;
+SKP equivalence and ground-control registration remain pending. A district
+selector and reset control preserve the gray/white layout. Drag rotates,
+wheel zooms, and shift/right drag pans. Explicit WGS84/GCJ02/BD09 housing
+coordinates share the local Web Mercator origin; inverse offset transforms
+are approximate. Missing or unknown coordinates must not create map markers.
+The model must not imply live housing inventory. Rebuild and evidence are
+documented in sibling `talent-housing/CITY_MODEL.md`.
+
 ## Rental method and source sync (2026-11-12)
 
 The rental skills distinguish the 2019-2025 thesis method from current listing
@@ -282,3 +303,90 @@ The loopback service is started by the existing Anke launcher. Browser acceptanc
 uses actual plugin assets and an isolated domain store; it does not establish
 native Electron or provider-chat acceptance. See the adjacent talent-housing
 README and workbench-v2 acceptance artifact for reproducible checks.
+
+Anke Bot exposes a service grid at the top of its existing sidebar. Thirteen
+local hand-drawn icons distinguish education/training, food delivery, parcels,
+repairs and related services. Entries select existing scoped conversations;
+they never create duplicate workers or change the native shell typography.
+Food delivery owns the Luckin and McDonald's HTTP MCP connector assignments.
+Bearer tokens use the existing Windows DPAPI vault and bot-scoped references.
+Readiness distinguishes configured from verified connectivity. The setup checks
+only initialization and tool discovery; an actual order still requires a user
+request for its specific contents. McDonald's stays disabled pending its token.
+# Reading pace and service artwork repair (2026-11-12)
+
+Service artwork is bundled as data-image module exports because the existing
+plugin-renderer protocol serves modules/styles, not PNG paths. Do not broaden
+the host protocol or filesystem permission for decorative assets. The browser
+service-entry check rejects PNG requests to reproduce this boundary.
+
+Appearance and Anke Bot General expose the same device-local display preference,
+`anke.readingSpeed`: 20, 40 (default), 80 characters/second, or 0 (immediate).
+This only limits presentation. Persistence, tool execution, approvals and stop
+requests retain their existing timing. Native smooth streaming retains its
+buffer after completion and does not accelerate to clear a backlog. Existing
+history opens immediately. Anke Bot offers a once-per-mount slowdown dialog for
+an observed completed reply >=160 characters and >80 characters/second. Its
+reply metadata shows elapsed task time and whole-task average character rate;
+this is not a provider token/s measurement. No telemetry leaves the device.
+
+Bundled extension cards hide internal package IDs; execution IDs, attribution
+and plugin security boundaries are unchanged. Appearance setting rows share a
+70px minimum height and existing semantic theme tokens.
+
+Recovery keeps its existing evidence-first adoption, explicit retry confirmation,
+duplicate-admission fencing and exclusive state writer. Orders are never replayed
+automatically. MCP discovery is not order execution or a remote image-upload API.
+
+Reading buffers only request repainting for the selected conversation. Failed
+and cancelled results bypass the display buffer. Plugin teardown clears its
+timer directly, without a document-wide mutation observer. The native browser
+hook test exercises a nonempty first chunk, completion, history and a live speed
+change against React in Chromium; it does not exercise the installed desktop
+window or a live provider. Attachment checks use an isolated fixture profile.
+
+## Installed desktop live verification (2026-11-12)
+
+### University supply ratings and match search
+
+The existing housing panel adds university/government scope, resident-rating
+sorting and minimum score/response-count filters without changing theme or shell.
+Optional sourced residentRating aggregates use 0-5, with count and verifiedOn.
+Absent opinions display unavailable; future evidence is ignored. Personalized
+short/long-term 0-100 scores remain independent. Pending/ineligible qualification
+cannot become matched even with a high resident rating. Import previews and the
+downloadable field template include rating provenance. AnkeHousing and the
+read-only talent_housing MCP share this query path. No live reviews are bundled.
+Candidate coverage: sibling talent-housing/resident-ratings.test.mjs exercises
+HTTP import, sorting/filtering, qualification gates, MCP dispatch and DB reopen;
+workbench-browser.mjs exercises profile registration, supply import and filters.
+
+The real desktop and configured remote provider were exercised through the
+desktop's loopback debugging connection, separately from fixture tests.
+Service artwork: all 13 service images loaded at natural width 256.
+Text task `85f9c9c0-a43f-4442-9598-cfe560ab70f4` completed in about 17 seconds.
+At the device-local 20-character/second preference, task
+`e33023a8-30a6-4c44-b999-1a67e6715155` produced measured visible increments
+of approximately 20 characters/second and continued revealing after completion.
+The sampling record is `apps/desktop/resources/plugins/local.pi-bot/output/pace-native-live.json`.
+Task `a9e40d50-3ac6-4849-8c15-13012d03bc78` was stopped using the real Stop
+button and ended interrupted. This does not establish crash recovery acceptance.
+
+Live image testing exposed Windows packaged-app directory virtualization:
+canonicalize each managed child root independently before comparing paths.
+Keep external files and other sessions subject to the existing native boundary.
+The current custom Sonnet model also needed its explicit supportsImages binding
+enabled; attachment storage success alone did not establish vision success.
+After both repairs, task `1f186ff9-a1ac-446c-b7ab-24225c79e7b1` correctly
+described the uploaded gray line-art steaming cup in about seven seconds.
+Error and needs_review statuses now bypass presentation buffering as well.
+
+Real native plugin MCP discovery returned eight Luckin tools and 36 McDonald's
+tools. The existing connector client successfully executed only read-only
+queryShopList (public university-town coordinates) and now-time-info calls.
+No orders, payment, external image upload, or messaging were performed.
+Neither crash/resume nor the fast-output recommendation dialog was triggered
+in this live run. Those remain distinct from unit/fixture coverage.
+Verification: node --test tests/attachments.cjs tests/attachment-limits.cjs
+tests/reading-pace.cjs: 32 passed. attachments-native.cjs: nine assertions passed
+against the current desktop source. No credentials are included in test artifacts.

@@ -10,5 +10,7 @@ const hook = await readFile(
 test("smooth text caps renderer commits at 60 Hz and stops when caught up", () => {
   assert.match(hook, /if \(elapsed < 1000 \/ 60\)/);
   assert.match(hook, /if \(backlog <= 0\) \{[\s\S]*?rafRef\.current = null;/);
-  assert.match(hook, /const exactAdvance = fractionalAdvanceRef\.current \+ speed \* dt/);
+  assert.match(hook, /fractionalAdvanceRef\.current \+ speed \* dt/);
+  assert.match(hook, /anke.readingSpeed/);
+  assert.doesNotMatch(hook, /backlog \/ 0\.5/);
 });

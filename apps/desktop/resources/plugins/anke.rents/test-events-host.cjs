@@ -24,6 +24,13 @@ test('production plugin process registers and invokes event tool and shuts down'
   const manifest=require('./manifest.json');
   await invoke('init',{pluginId:manifest.id,pluginPath:__dirname,main:manifest.main,manifest});
   assert.ok(tools.has('ShenzhenRentEvents'));
+  assert.ok(tools.has('FindeskCapabilities'));
+  const fd=await invoke('call',{method:'panel.invoke',payload:{channel:'rents.findesk',payload:{query:'money'}}});
+  assert.ok(fd.interfaces.length);assert.equal(fd.authenticatedDataVerified,false);
+  const plans=await invoke('call',{method:'panel.invoke',payload:{channel:'rents.findesk',payload:{action:'plans'}}});
+  assert.ok(plans.plans.length);assert.equal(plans.accountBalance,null);assert.ok(plans.policyVersion);
+  const cookbook=await invoke('call',{method:'panel.invoke',payload:{channel:'rents.findesk',payload:{action:'cookbook',query:'macroSeries'}}});
+  assert.equal(cookbook.scenarios.length,1);assert.match(cookbook.scenarios[0].code,/YOUR_EDB_CODE/);assert.equal(cookbook.templatesExecuted,false);
   const d=await invoke('call',{method:'panel.invoke',payload:{channel:'rents.events',payload:{query:'APEC'}}});
   assert.ok(d.events.length);assert.ok(notified<=1);
   await invoke('call',{method:'lifecycle.unload',payload:{}});

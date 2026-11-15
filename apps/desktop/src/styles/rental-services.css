@@ -1,5 +1,5 @@
 .rental-services { width: 100%; max-width: 960px; margin-inline: auto; text-align: left; }
-.rental-services header { margin-block-end: 16px; }
+.rental-services header { margin-block-end: 16px; text-align: center; }
 .rental-services h2 { font-size: 18px; margin: 0 0 6px; }
 .rental-services p { margin: 6px 0 12px; line-height: 1.6; font-size: 13px; }
 .rental-services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: stretch; }

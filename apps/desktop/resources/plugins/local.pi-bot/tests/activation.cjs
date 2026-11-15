@@ -30,3 +30,11 @@ test('partial Team shutdown does not checkpoint a default replacement roster',as
  const {Team}=require('../src/team');const t=new Team({events:{off:()=>assert.fail('no listener registered')}});let checkpoints=0;
  t.data='C:\\test';t.backups={root:'C:\\backup',checkpoint:async()=>checkpoints++};await t.close({checkpoint:false});assert.equal(checkpoints,0);
 });
+
+test('all shutdown callers wait for the data owner to release resources',async()=>{
+ const gate=deferred();let released=false;
+ const a=createActivation(async()=>({}),async()=>{await gate.promise;released=true;});await a.ready();
+ const first=a.close(),second=a.close();assert.equal(first,second);
+ let finished=false;second.then(()=>finished=true);await Promise.resolve();assert.equal(finished,false);
+ gate.resolve();await Promise.all([first,second]);assert.equal(released,true);
+});

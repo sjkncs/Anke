@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const {createRequire}=require('node:module');
 function harness(team){
   const filename=path.resolve(__dirname,'../main.js'),exports={};
-  const context={require:createRequire(filename),module:{exports},exports,process,Buffer,console,fixtureTeam:team,pi:{app:{getAppearance:()=>({theme:'light'}),setTheme:async()=>{}}}};
+  const context={require:createRequire(filename),module:{exports},exports,process,Buffer,console,setImmediate,fixtureTeam:team,pi:{app:{getAppearance:()=>({theme:'light'}),setTheme:async()=>{}}}};
   vm.runInNewContext(fs.readFileSync(filename,'utf8')+'\nactivation={ready:async()=>({team:fixtureTeam,microphone:{operation:()=>({status:"idle"}),panel:()=>({status:"idle"})}}),status:()=>({phase:"ready"})};',context,{filename});
   const api=context.module.exports;
   async function request(channel,payload={}){

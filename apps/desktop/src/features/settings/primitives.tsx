@@ -39,9 +39,8 @@ export function SettingsRow({
   detail?: ReactNode;
   children: ReactNode;
   /**
-   * A row that only exists while the row above it is on. It indents one step and
-   * keeps its own control, so the dependency is visible without a second
-   * explanation, and hiding it must never rewrite the value it holds.
+   * A row that only exists while the row above it is on. It keeps the same
+   * alignment and its own control; hiding it must never rewrite its value.
    */
   nested?: boolean;
 }) {

@@ -36,4 +36,10 @@ function createDelivery(pi) {
     }finally{busy=false;}
   };
 }
-module.exports={events,createDelivery};
+function validateEventUrl(value,snapshot=events({includeExpired:true})) {
+  const url=new URL(value);
+  const allowed=url.hostname.endsWith('.sz.gov.cn')||['view.inews.qq.com','news.qq.com','new.qq.com'].includes(url.hostname);
+  if(url.protocol!=='https:'||!allowed||url.username||url.password||url.port||!snapshot.events.some(e=>e.url===url.href))throw Error('Invalid event URL');
+  return url.href;
+}
+module.exports={events,createDelivery,validateEventUrl};

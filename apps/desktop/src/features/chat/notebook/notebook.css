@@ -1,0 +1,21 @@
+.anke-notebook-launch { position: absolute; right: 16px; top: 6px; z-index: 12; }
+.anke-bot-notebook { position: fixed; inset: 50px 12px 12px auto; width: min(380px, 90vw); z-index: 850; pointer-events: none; }
+.anke-bot-notebook .anke-notebook-launch, .anke-bot-notebook .anke-notebook { pointer-events: auto; }
+.anke-notebook { position: absolute; right: 12px; top: 44px; bottom: 24px; width: min(340px, calc(100% - 24px)); overflow: auto; z-index: 14; background: var(--ds-bg-elevated-opaque); color: var(--ds-text-primary); border: 1px solid var(--ds-border-default); border-radius: var(--radius-lg); padding: 12px; box-shadow: var(--ds-raised-shadow); }
+.anke-notebook header, .anke-notebook-editor footer, .anke-task-row { display: flex; align-items: center; gap: 6px; }
+.anke-notebook header { position: sticky; top: 0; background: var(--ds-bg-elevated-opaque); }
+.anke-task-row { border-bottom: 1px solid var(--ds-border-default); padding-block: 5px; }
+.anke-task-row > :first-child { flex: 1; text-align: left; justify-content: flex-start; white-space: normal; overflow-wrap: anywhere; }
+.anke-notebook-hint, .anke-note-card time { color: var(--ds-text-secondary); font-size: var(--text-xs); }
+.anke-note-card { border-bottom: 1px solid var(--ds-border-default); padding-block: 12px; }
+.anke-note-card p { white-space: pre-wrap; overflow-wrap: anywhere; }
+.anke-notebook blockquote, .anke-notebook-editor blockquote { border-left: 3px solid var(--ds-text-secondary); padding-left: 10px; margin: 10px 0; max-height: 130px; overflow: auto; white-space: pre-wrap; }
+.anke-notebook-backdrop { position: fixed; inset: 0; z-index: 1400; background: var(--ds-overlay-bg, rgba(0,0,0,.22)); display: grid; place-items: center; }
+.anke-notebook-editor { width: min(520px, calc(100vw - 36px)); max-height: 85vh; overflow: auto; background: var(--ds-bg-elevated-opaque); color: var(--ds-text-primary); padding: 22px; border-radius: var(--radius-lg); box-shadow: var(--ds-raised-shadow); display: grid; gap: 12px; }
+.anke-notebook-editor textarea { min-height: 120px; }
+.anke-notebook-editor footer { justify-content: flex-end; flex-wrap: wrap; }
+.anke-note-selection { position: fixed; z-index: 1300; background: var(--ds-bg-elevated-opaque); border-radius: var(--radius-md); box-shadow: var(--ds-raised-shadow); }
+.anke-notebook-backdrop, .anke-note-selection { pointer-events: auto; }
+::highlight(anke-note-yellow) { background: #f1d97666; }
+::highlight(anke-note-red) { background: #e98b8b66; }
+::highlight(anke-note-green) { background: #89bb9766; }

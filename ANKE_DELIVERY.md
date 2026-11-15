@@ -101,3 +101,12 @@ of the added dashboard, native expert catalog loading, rental queries and scenar
 calculation, plus both theme selections and reload persistence. The check is
 node ../verify_anke.cjs; current home screenshot is
 verification_anke/anke-native-restored.png in the delivery directory.
+
+Answer formatting update (2026-11-14): Agent and Bot user-facing prose uses
+plain paragraphs through shared runtime instructions and display cleanup.
+Heading hashes, emphasis asterisks and hyphen-list markers are suppressed,
+including partial streamed markup and historical answers. Agent copy actions
+and Bot copy/download/read actions use the same projection. Literal code, URLs,
+dates, negative numbers and structured tool arguments retain their meaning.
+Verification and live-provider limitations are recorded in
+E:/FFD-Downloader-Windows/_workspace/anke-answer-format-20261114/ACCEPTANCE.md.

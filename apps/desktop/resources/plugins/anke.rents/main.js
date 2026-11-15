@@ -1,9 +1,10 @@
 const {query} = require('./query.cjs');
 const {knowledge} = require('./knowledge.cjs');
 const {environment} = require('./environment.cjs');
-const {events,createDelivery}=require('./events.cjs');
+const {events,createDelivery,validateEventUrl}=require('./events.cjs');
 const manifest = require('./manifest.json');
 const {housing}=require('./housing.cjs');
+const {findesk}=require('./findesk.cjs');
 let activeModule='overview';
 let eventTimer;
 async function onLoad() {
@@ -16,7 +17,7 @@ async function onLoad() {
   const environmentTool=manifest.contributes.agentTools[2];
   await pi.agent.registerTool({...environmentTool, execute:async args=>environment(args)});
   await pi.agent.registerTool({...manifest.contributes.agentTools[3],execute:async args=>events(args)});
-  for(const tool of manifest.contributes.agentTools.slice(4))await pi.agent.registerTool({...tool,execute:async args=>housing(args,'agent')});
+  for(const tool of manifest.contributes.agentTools.slice(4))await pi.agent.registerTool({...tool,execute:async args=>tool.name==='FindeskCapabilities'?findesk(args):housing(args,'agent')});
   const deliver=createDelivery(pi);
   eventTimer=setInterval(()=>deliver().catch(error=>console.error('Event notification failed:',error.message)),30000);
   eventTimer.unref?.();
@@ -34,6 +35,12 @@ async function onUnload() {
   for(const id of ['overview','ledger','projects','scenario','map'])await pi.commands.unregister(`anke.rents.${id}`);
 }
 async function onPanelInvoke(channel, payload) {
+  if(channel==='rents.findesk')return findesk(payload);
+  if(channel==='rents.locate')return require('./map.cjs').locate(payload);
+  if(channel==='rents.saveAddress')return require('./geography.cjs').save(payload);
+  if(channel==='rents.street')return require('./map.cjs').street(payload);
+  if(channel==='rents.analyze')return require('./analysis.cjs').analyze(pi,payload);
+  if(channel==='rents.openMonitor')return pi.shell.openExternal('http://127.0.0.1:47831/housing_monitor/');
   if(channel==='rents.housing')return housing(payload);
   if(channel==='rents.events')return events(payload);
   if(channel==='rents.enableEventNotifications') {
@@ -42,18 +49,14 @@ async function onPanelInvoke(channel, payload) {
     return {permission};
   }
   if(channel==='rents.openEvent') {
-    const url=new URL(payload?.url);
-    if(url.protocol!=='https:'||!url.hostname.endsWith('.sz.gov.cn')||url.username||url.password||url.port)throw Error('Invalid government URL');
-    return pi.shell.openExternal(url.href);
+    return pi.shell.openExternal(validateEventUrl(payload?.url));
   }
   if(channel === 'rents.appearance')return pi.app.getAppearance();
   if(channel === 'rents.module')return activeModule;
   if(channel === 'rents.knowledge')return knowledge(payload);
   if(channel === 'rents.environment')return environment(payload);
   if(channel === 'rents.openMap') {
-    const url = new URL(payload?.url);
-    if(url.protocol !== 'https:' || url.hostname !== 'map.baidu.com' || url.username || url.password || url.port)throw Error('Invalid map URL');
-    return pi.shell.openExternal(url.href);
+    return pi.shell.openExternal(require('./map.cjs').validateMapUrl(payload?.url));
   }
   if(channel !== 'rents.query')throw Error('Unsupported rental operation');
   return query(payload);

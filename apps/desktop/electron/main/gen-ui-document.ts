@@ -94,6 +94,7 @@ const SHELL_CSS = `:root { --visualize-paint-gutter: 12px; }
 html, body { scrollbar-width: none !important; }
 html::-webkit-scrollbar, body::-webkit-scrollbar { display: none !important; }
 svg, canvas, img, video { max-width: 100%; }
+body, svg text { user-select: text !important; -webkit-user-select: text !important; }
 html[data-pi-genui-view="expanded"] body {
   display: flex;
   min-height: 100vh;

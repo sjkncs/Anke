@@ -214,6 +214,12 @@ result. Options may be plain strings or `{ label, description? }` objects; the
 selected label remains the answer value. Stopping the turn resolves outstanding
 questions as skipped.
 
+For consequential unresolved preferences, the runtime asks through the native
+card with 2–4 concrete options, recommending at most one with a localized
+label suffix and a brief supporting description. Resolved preferences and
+routine implementation steps do not cause repeated questions. A recommendation
+never grants authority for an external action.
+
 A stop sends a typed `tools.abort` request for each in-flight call (ADR
 tool-abort-abandons-host-call). Host-core registers cancellation before
 permission evaluation, so a pending approval or queued admission is cancelled

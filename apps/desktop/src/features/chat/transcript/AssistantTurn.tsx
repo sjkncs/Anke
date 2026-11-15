@@ -5,6 +5,7 @@ import {
   type MouseEvent as ReactMouseEvent,
 } from "react";
 import { useTranslation } from "react-i18next";
+import { ankeAnswerText } from "../../../lib/anke-answer-text";
 import type {
   AgentActivity,
   ContextCompactionMark,
@@ -295,7 +296,7 @@ export const AssistantTurn = memo(function AssistantTurn({
   // A live reply is joined only on menu/copy demand. Finished reply plugins
   // still receive exactly the text that the completed turn's Copy action uses.
   const content = useMemo(
-    () => complete ? getAssistantTurnContent(entry) : "",
+    () => complete ? ankeAnswerText(getAssistantTurnContent(entry)) : "",
     [complete, entry],
   );
   const slotReply = useMemo(() => complete && actionMessage
@@ -316,7 +317,7 @@ export const AssistantTurn = memo(function AssistantTurn({
       label: t("chat.messageMenu"),
       items: assistantTurnMenuItems({
         t,
-        answer: complete ? content : getAssistantTurnContent(entry),
+        answer: complete ? content : ankeAnswerText(getAssistantTurnContent(entry)),
         selectTarget:
           [
             ...event.currentTarget.querySelectorAll<HTMLElement>(

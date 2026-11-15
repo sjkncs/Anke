@@ -1,8 +1,10 @@
 import { memo, useCallback, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { ankeAnswerText } from "../../../lib/anke-answer-text";
 import type { PlanningState, RadialMenuAction, UiMessage } from "@pi-desktop/shared";
 import { proposalKindForMode } from "@pi-desktop/shared";
 import { ConversationMinimap } from "../../../components/ConversationMinimap";
+import { ConversationNotebook } from "../notebook/ConversationNotebook";
 import { RadialMenu, type RadialMenuSlot } from "../../../components/RadialMenu";
 import { PermissionCard } from "../../../components/PermissionCard";
 import { TooltipButton } from "../../../components/ui";
@@ -344,7 +346,7 @@ function TranscriptBody({
             label,
             icon: <IconChat size={16} />,
             disabled: !lastAnswer,
-            onSelect: () => void copyText(lastAnswer),
+            onSelect: () => void copyText(ankeAnswerText(lastAnswer)),
           };
         }
         case "scroll-top":
@@ -435,6 +437,14 @@ function TranscriptBody({
       ref={wrapRef}
       data-transcript-settling={veilCovering ? "true" : undefined}
     >
+      {sessionId && paneVisible ? <ConversationNotebook
+        conversationKey={`agent:${sessionId}`}
+        root={contentRef}
+        turns={minimapMessages.filter(message => message.role === "user").map(message => ({ id: message.id, text: message.content || "" }))}
+        earlier={hasEarlierHistory}
+        loadEarlier={revealEarlierHistory}
+        reveal={node => { releaseFollow(); node.scrollIntoView({ block: "center", behavior: "smooth" }); }}
+      /> : null}
       {/* The minimap measures row positions against a rendered scroller. A
         * hidden pane has none, so measuring there would cache junk offsets and
         * reuse them on reveal. It is out of flow and re-measures on mount, so

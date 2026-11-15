@@ -20,6 +20,15 @@ export function attachWorkspaceSidebar(root,{prepare=async()=>{},onError=()=>{},
   const resize=new ResizeObserver(schedule);
   function update(){
     frame=0;if(stopped)return;
+    // Session/browser callbacks can present an Agent panel after the mode
+    // switch has finished. While Bot owns the surface, native panels require
+    // an explicit Bot workspace request. Do not toggle an exiting panel: the
+    // host interprets that click as reopening it.
+    const control=native();
+    if(active&&!requested&&control?.getAttribute('aria-pressed')==='true'&&
+      !document.querySelector('.app-shell .work-panel.is-exiting,.app-shell .work-panel.is-exit-pending')){
+      control.click();
+    }
     const next=visiblePanel(true);if(next!==panel){resize.disconnect();panel=next;if(panel)resize.observe(panel);}if(!panel)closing=false;
     const box=panel?.getBoundingClientRect(),shown=active&&(requested||closing)&&box?.left>0;
     const width=shown?Math.max(0,Math.round(box.left)-5)+'px':'100%';if(root.style.width!==width){root.style.width=width;onLayout();}
@@ -86,6 +95,6 @@ export function attachWorkspaceSidebar(root,{prepare=async()=>{},onError=()=>{},
       }
       active=value;schedule();
     },
-    close(){root.removeEventListener('pi-bot:workspace-request',request);root.removeEventListener('pi-bot:details-open',closeForDetails);stopped=true;generation++;cancelAnimationFrame(frame);observer.disconnect();appearance.disconnect();resize.disconnect();window.removeEventListener('resize',schedule);root.style.width='100%';seam.remove();}
+    close(){if(stopped)return;const control=native();if(active&&requested&&control?.getAttribute('aria-pressed')==='true')control.click();root.removeEventListener('pi-bot:workspace-request',request);root.removeEventListener('pi-bot:details-open',closeForDetails);stopped=true;generation++;cancelAnimationFrame(frame);observer.disconnect();appearance.disconnect();resize.disconnect();window.removeEventListener('resize',schedule);root.style.width='100%';root.shadowRoot.querySelector('.pi-bot-app').removeAttribute('data-native-workspace');seam.remove();}
   };
 }

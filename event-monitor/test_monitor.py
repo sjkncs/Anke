@@ -45,5 +45,9 @@ class MonitorTest(unittest.TestCase):
         p = Page('https://www.sz.gov.cn/'); p.feed('<div class="article-content"><div>正文</div><script>evil()</script><p>后文</p></div><p>页脚</p>')
         self.assertEqual(p.body,['正文','后文'])
 
+    def test_paragraphs_join_inline_elements_without_merging_blocks(self):
+        e = parse('https://www.sz.gov.cn/content/post_123.html', article('<p>第一段<strong>重点</strong>继续。</p><p>第二段。<br>新行。</p><script>bad()</script>'))
+        self.assertEqual(e['paragraphs'], ['第一段重点继续。', '第二段。', '新行。'])
+
 
 if __name__ == '__main__': unittest.main()

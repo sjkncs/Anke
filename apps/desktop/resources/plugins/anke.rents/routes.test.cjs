@@ -12,7 +12,9 @@ test('all rental routes dispatch with isolated external APIs',async()=>{
   assert.ok(await call('rents.knowledge',{}));assert.ok(await call('rents.events',{}));
   await assert.rejects(()=>call('rents.environment',{}));
   assert.equal((await call('rents.enableEventNotifications',{})).permission,'denied');
-  await call('rents.openMap',{url:'https://map.baidu.com/'});await call('rents.openEvent',{url:'https://www.sz.gov.cn/'});assert.equal(calls.length,2);
+  const known=require('./events.cjs').events({includeExpired:true}).events[0].url;
+  await call('rents.openMap',{url:'https://map.baidu.com/'});await call('rents.openEvent',{url:known});assert.equal(calls.length,2);
+  await assert.rejects(()=>call('rents.openEvent',{url:'https://www.sz.gov.cn/uncollected-fixture'}));
   for(const channel of ['rents.openMap','rents.openEvent'])for(const url of ['file:///C:/private','https://evil.test','https://www.sz.gov.cn.evil.test','https://user@www.sz.gov.cn','https://www.sz.gov.cn:444/'])await assert.rejects(()=>call(channel,{url}));
   await assert.rejects(()=>call('unknown',{}));
 });

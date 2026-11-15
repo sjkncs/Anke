@@ -17,7 +17,7 @@ const {createBotFrom,createGroupFrom,archiveChat,deliverKickoffs}=require('./ros
 const {Backups}=require('./backups');
 const {AvatarLibrary}=require('./avatar-library');
 const {migrateIdentity}=require('./identity-migration');
-const {identityContext,upgradeIdentity}=require('./anke-identity');
+const {identityContext,upgradeIdentity,ANSWER_FORMAT}=require('./anke-identity');
 const {Vault}=require('./vault');
 const {McpBridge}=require('./mcp-bridge');
 const {Recovery}=require('./recovery');
@@ -435,7 +435,7 @@ class Team {
   async runCompletion(bot,system,messages,scope={}){
     const model=await this.model(scope.modelKey?{modelKey:scope.modelKey}:bot),at=Date.now();
     const record={id:randomUUID(),botId:bot.id,modelKey:model.key,...scope,at:new Date(at).toISOString()};
-    try{const response=await this.pi.agent.complete({modelKey:model.key,system,messages,thinkingLevel:['memory','btw','learning','greeting'].includes(scope.kind)?'off':bot.thinkingLevel||'off'});
+    try{const response=await this.pi.agent.complete({modelKey:model.key,system:system+'\n'+ANSWER_FORMAT,messages,thinkingLevel:['memory','btw','learning','greeting'].includes(scope.kind)?'off':bot.thinkingLevel||'off'});
       record.usage=collectUsage([{id:record.id,role:'assistant',usage:response.usage}]);record.durationMs=Date.now()-at;
       (this.state.completions??=[]).push(record);await this.save();return {...response,usageId:record.id};
     }catch(error){record.durationMs=Date.now()-at;record.failed=true;(this.state.completions??=[]).push(record);await this.save();throw error;}
@@ -905,6 +905,7 @@ class Team {
   }
   async savePreferences(input){
     // Validate the complete patch before making any changes.
+    const serviceShortcuts=input.serviceShortcuts===undefined?undefined:require('./service-shortcuts').validateServiceShortcuts(input.serviceShortcuts,this.state);
     if(input.appearanceMode!==undefined&&!['host','independent'].includes(input.appearanceMode))throw new Error('Invalid appearance mode');
     if(input.appearance!==undefined&&!['light','dark'].includes(input.appearance))throw new Error('Invalid appearance');
     if(input.theme!==undefined&&!['deepseek','mono','paper','moonlight'].includes(input.theme))throw new Error('Unknown theme');
@@ -918,6 +919,7 @@ class Team {
     // Let earlier writes take their snapshots before exposing tentative prefs.
     let pending;do{pending=this.writes;await pending;}while(pending!==this.writes);
     const prefs=this.state.prefs??={},edit=new StateEdit();
+    if(serviceShortcuts!==undefined)edit.set(prefs,'serviceShortcuts',serviceShortcuts);
     for(const key of ['theme','accent','motion','memoryReview','appearanceMode','appearance','messageLayout','bubbleWidth','textWidth','showThinking','learningReview','profileAvatar'])if(input[key]!==undefined)edit.set(prefs,key,key==='memoryReview'?input[key]===true:input[key]);
     await this.commitEdit(edit);
     return input.compact?{prefs:structuredClone(prefs)}:this.snapshot();

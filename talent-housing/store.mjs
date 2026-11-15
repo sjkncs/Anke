@@ -7,6 +7,8 @@ import {preferenceCatalog} from './preference-catalog.mjs';
 import {surveyTemplate} from './survey-template.mjs';
 import {validateSupply,validateProfile,searchHomes} from './matching.mjs';
 import {createOrder,advanceOrder} from './workorders.mjs';
+import {policy} from './policy.mjs';
+import {compareAllocation} from './allocation-comparison.mjs';
 export async function openStore(location=path.join(path.dirname(fileURLToPath(import.meta.url)),'data/postgres')) {
   await mkdir(location,{recursive:true});
   const db=new PGlite(location);
@@ -37,7 +39,7 @@ export async function openStore(location=path.join(path.dirname(fileURLToPath(im
     const next=queue.then(run);queue=next.catch(()=>{});return next;
   }
   async function workbench(input){
-    const allowed=['action','applicationId','query','sort','asOf','order','id','revision','on','actor','materials','decision','receipt','unitId','records','execution'];
+    const allowed=['action','applicationId','query','sort','provider','minRating','minReviewCount','asOf','order','id','revision','on','actor','materials','decision','receipt','unitId','records','execution'];
     if(Object.keys(input).some(k=>!allowed.includes(k)))throw Error('Unknown workbench field');
     const mutate=['create_order','advance_order','import_supply'].includes(input.action);
     const run=async()=>{
@@ -80,6 +82,7 @@ export async function openStore(location=path.join(path.dirname(fileURLToPath(im
   }
   async function execute(input){
     if(!input||typeof input!=='object'||Array.isArray(input))throw Error('Invalid request');
+    if(['policy_search','policy_answer','policy_coverage','policy_route'].includes(input.action))return policy(input);
     if(['workspace','search_homes','create_order','advance_order','import_supply'].includes(input.action))return workbench(input);
     if(Object.keys(input).some(k=>!['action','applicationId','asOf'].includes(k)))throw Error('Unknown request field');
     await queue;
@@ -88,6 +91,7 @@ export async function openStore(location=path.join(path.dirname(fileURLToPath(im
     const apps=await all('application');
     if(input.action==='coverage')return {applications:apps.length,units:(await all('unit')).length};
     if(input.action==='simulate')return simulate(apps,await all('unit'));
+    if(input.action==='compare_allocation')return compareAllocation(apps,await all('unit'));
     const a=apps.find(x=>x.id===input.applicationId);if(!a)throw Error('Application not found');
     if(input.action==='recommend')return recommend(a,await all('unit'));
     if(input.action==='progress')return progress(a,input.asOf??new Date().toISOString().slice(0,10));

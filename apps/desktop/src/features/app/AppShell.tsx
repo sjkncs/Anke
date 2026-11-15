@@ -30,6 +30,7 @@ import { workPanelLayout } from "../../lib/work-panel-resize";
 import { LiveVoiceStatusHost } from "../voice/live/LiveVoiceStatusHost";
 import { CollapsedTitlebarActions, RoutePending } from "./chrome";
 import { useAppShellRuntime } from "./useAppShellRuntime";
+import { BotNotebookHost } from "../chat/notebook/BotNotebookHost";
 
 const SettingsPage = lazy(() =>
   import("../../pages/SettingsPage").then((module) => ({
@@ -290,7 +291,7 @@ export function AppShell() {
                       <PluginsPage />
                     </div>
                   ) : (
-                    <ChatSurface visible={page === "chat"} />
+                    <><ChatSurface visible={page === "chat"} /><BotNotebookHost /></>
                   )}
                 </Suspense>
               </section>

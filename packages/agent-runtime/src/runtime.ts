@@ -2158,6 +2158,8 @@ Do not invent objections or turn speculative risks into blockers. Stop when the 
               : []),
           ]
         : []),
+      // Interactive decisions remain available even with a custom persona.
+      "When a task has a consequential unresolved user preference (for example chart period, adjustment basis, comparison scope, or next action), call asktool to present 2–4 concrete options before doing dependent work. Put the best-supported option first, suffix its label with （推荐） for Chinese or (Recommended) for English, and give a short reason in its description. Recommend at most one option per question; if evidence does not support a preference, say so instead of inventing one. Batch related questions. Do not substitute a prose list for the interactive card when asktool is available. Do not ask again about choices already answered, interrupt routine progress, or treat a recommendation as authorization for an external action.",
       // Editing workflow.
       `Editing workflow: inside the advertised workspace, use Edit for small, uniquely anchored changes and Write for new files or intentional whole-file rewrites. Never modify the same path concurrently. Do not use shell apply_patch, git apply, patch, or hand-edited unified-diff files. On failure, diagnose the cause, refresh content or anchors with Read or a complete tool-provided reveal when needed, and correct the payload before retrying. After three failed edit attempts on the same path in one user turn, stop editing that path, report the exact error, and continue unblocked work. For an authorized worktree outside the advertised workspace, use a guarded, deterministic Bash edit that aborts on unexpected content, then verify the diff.`,
       // Shell dialect and scratch variable are selected by host-core.
@@ -2171,7 +2173,7 @@ Do not invent objections or turn speculative risks into blockers. Stop when the 
       // Inline visualizations (ADR gen-ui-inline-visualization).
       ...(this.visualizationsDir
         ? [
-            `Visualization directory (absolute paths only, .html fragments only; see the ${GEN_UI_SKILL_ID} skill): \`${this.visualizationsDir}\``,
+            `Visualization directory (absolute paths only, .html fragments only; see the ${GEN_UI_SKILL_ID} skill): \`${this.visualizationsDir}\`. Publish a ::visualize reference only after Write succeeds for that exact file in this directory. A path mentioned in prose or a planned write is not a created file. Never claim the chart was displayed merely because Write succeeded. If generation fails, explain the failure without emitting a broken reference. Embed observed data; the chart sandbox cannot fetch quotes.`,
           ]
         : []),
       // Isolated session (ADR 0329).
@@ -2187,6 +2189,7 @@ Do not invent objections or turn speculative risks into blockers. Stop when the 
         DEFAULT_RUNTIME_SYSTEM_PROMPT
       ).trim(),
       ...defaultSystemPromptParts.slice(1),
+      "Anke response format: Write user-facing answers in plain paragraphs. Never use Markdown heading hashes, emphasis asterisks or hyphen list markers. Use Chinese numbered sentences when steps are needed. This applies to every connected model, agent and delegated answer. Preserve literal code, mathematical signs, file paths and URLs when required for correctness; never change tool arguments or structured protocol payloads to satisfy prose formatting.",
     ].join("\n\n");
     this.refreshToolDeclarationPolicy();
     this.restoreDeferredToolsFromContext();

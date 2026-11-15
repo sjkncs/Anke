@@ -95,6 +95,25 @@ export function projectMessageEnd(
   const empty =
     !(event.message.content || "").trim() &&
     !(event.message.thinking || "").trim();
+  // An empty abort bubble is hidden, but its terminal outcome must survive on
+  // the owning turn. Otherwise a tool-only turn is projected as completed.
+  // Never cross a user boundary or overwrite a delegate's independent result.
+  if (event.message.status === "aborted" && empty && !event.message.error &&
+      !event.message.parentToolCallId) {
+    for (let index = next.length - 1; index >= 0; index -= 1) {
+      const row = next[index];
+      if (row.role === "user") break;
+      if (row.id === event.message.id) continue;
+      if ((row.role === "assistant" || row.role === "tool") && !row.parentToolCallId) {
+        if (row.status !== "error" && row.status !== "aborted") {
+          const replacement = next.slice();
+          replacement[index] = { ...row, status: "aborted" };
+          next = registerSessionMessageReplacement(next, replacement, index);
+        }
+        break;
+      }
+    }
+  }
   return failed && empty && !event.message.error
     ? removeLiveSessionMessage(next, event.message.id)
     : upsertLiveSessionMessage(next, event.message);

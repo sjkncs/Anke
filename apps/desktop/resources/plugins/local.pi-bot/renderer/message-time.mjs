@@ -24,7 +24,8 @@ export function stampMessages(transcript,lines){
     }else meta?.remove();
     if(duration){
       if(!took){took=el('span','','pi-message-duration');took.title='从开始处理到本次回复结束';(row.querySelector('.bt-group-name')||row).append(took);}
-      const label='耗时 '+duration;if(took.textContent!==label)took.textContent=label;
+      const seconds=line.durationMs/1000,speed=seconds>0?Math.round(Array.from(String(line.text||'')).length/seconds):null;
+      const label='耗时 '+duration+(speed!==null?' · '+speed+' 字/秒':'');if(took.textContent!==label)took.textContent=label;
     }else took?.remove();
   }
 }

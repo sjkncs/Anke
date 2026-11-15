@@ -15,13 +15,13 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parent
 WAREHOUSE = ROOT.parent
-PLUGIN = WAREHOUSE / 'apps/desktop/resources/plugins/anke.rents/data/events.json'
+PLUGIN = WAREHOUSE / 'anke-agent-source/apps/desktop/resources/plugins/anke.rents/data/events.json'
 TZ = timezone(timedelta(hours=8))
 FACTORS = {
     '交通施工': ['地铁', '轨道交通', '站改造', '道路施工', '调整交通组织', '道路改造'],
     '临时交通管制': ['交通管制', '临时限行', '临时交通管理', '封路', '封闭道路', '禁止通行'],
     '城市更新': ['城中村', '城市更新', '旧住宅', '老旧小区', '楼房改造', '房屋征收', '拆迁'],
-    '住房供给': ['租赁住房', '公共租赁住房', '配租', '租金', '住宅用地', '住房供应'],
+    '住房供给': ['租赁住房', '公共租赁住房', '配租', '租金', '住宅用地', '住房供应', '住房保障', '人才住房', '人才配售住房', '安居型商品房'],
     '公共服务': ['学校', '医院', '公园', '养老', '公共文化', '体育设施'],
     '环境与市政': ['污水', '噪声', '污染', '停水', '停电', '积水', '绿化', '防洪'],
     '就业与产业': ['产业园', '企业搬迁', '就业', '总部基地'],
@@ -62,9 +62,17 @@ class Page(HTMLParser):
         self.base, self.links, self.meta, self.body = base, {}, {}, []
         self.stack, self.capture, self.skip, self.link, self.label = [], None, 0, None, []
         self.title, self.in_title = '', False
+        self.paragraphs, self.paragraph = [], []
+
+    def flush_paragraph(self):
+        text = ''.join(self.paragraph).strip()
+        if text: self.paragraphs.append(text)
+        self.paragraph = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if self.capture is not None and tag in ('p', 'div', 'br', 'li', 'h1', 'h2', 'h3', 'h4', 'tr'):
+            self.flush_paragraph()
         if tag == 'meta':
             self.meta[(a.get('name') or a.get('property') or '').lower()] = a.get('content', '')
         if tag == 'title': self.in_title = True
@@ -78,6 +86,8 @@ class Page(HTMLParser):
                 self.capture = len(self.stack)
 
     def handle_endtag(self, tag):
+        if self.capture is not None and tag in ('p', 'div', 'article', 'section', 'li', 'h1', 'h2', 'h3', 'h4', 'tr'):
+            self.flush_paragraph()
         if tag == 'title': self.in_title = False
         if tag in ('script', 'style'): self.skip = max(0, self.skip - 1)
         if tag == 'a' and self.link:
@@ -93,7 +103,9 @@ class Page(HTMLParser):
     def handle_data(self, data):
         if self.in_title: self.title += data
         if self.link and not self.skip: self.label.append(data)
-        if self.capture is not None and not self.skip and data.strip(): self.body.append(data.strip())
+        if self.capture is not None and not self.skip and data.strip():
+            self.body.append(data.strip())
+            self.paragraph.append(data.strip())
 
 
 def categories(text):
@@ -101,7 +113,7 @@ def categories(text):
 
 
 def parse(url, html):
-    p = Page(url); p.feed(html)
+    p = Page(url); p.feed(html); p.flush_paragraph()
     title = p.meta.get('articletitle') or p.title.split('-深圳政府在线')[0].strip()
     published = p.meta.get('pubdate') or p.meta.get('publishdate') or ''
     if not title or not p.body:
@@ -130,7 +142,7 @@ def parse(url, html):
     return {'title': title, 'url': canonical(url), 'publishedAt': published,
             'categories': cats, 'districts': [d for d in DISTRICTS if d in body or d in title],
             'places': places, 'phase': phase, 'effectiveStart': start, 'effectiveEnd': end,
-            'evidence': evidence[:8], 'body': body, 'geometry': None,
+            'evidence': evidence[:8], 'body': body, 'paragraphs': p.paragraphs, 'geometry': None,
             'spatialStatus': 'named_area_only', 'rentEffect': None,
             'contentHash': hashlib.sha256(body.encode()).hexdigest()}
 
@@ -163,7 +175,7 @@ def upsert(db, event):
     stamp = now(); version = (old[2] if old else 0)
     old_data = json.loads(old[1]) if old else None
     # Parser improvements also need a new revision, even if source text is stable.
-    keys = ['contentHash','places','categories','districts','phase','effectiveStart','effectiveEnd']
+    keys = ['contentHash','paragraphs','places','categories','districts','phase','effectiveStart','effectiveEnd']
     if old and all(old_data.get(k)==event.get(k) for k in keys):
         db.execute('UPDATE events SET last_seen=? WHERE id=?', (stamp, old[0])); db.commit(); return 'unchanged'
     event = dict(event, id=old[0] if old else fp[:24], version=version + 1,
@@ -193,7 +205,7 @@ def snapshot(db):
     return {'schemaVersion': 1, 'generatedAt': now(), 'pollSeconds': 600,
             'events': events, 'sources': [json.loads(r[0]) for r in db.execute('SELECT data FROM sources')],
             'counts': {'events': len(events), 'located': sum(e['geometry'] is not None for e in events)},
-            'coverage': 'registered_official_sources', 'rentImpactEstimated': False}
+            'coverage': 'registered_sources', 'rentImpactEstimated': False}
 
 
 def export(db):
@@ -227,8 +239,22 @@ def collect(db, config, limit=8):
         except Exception as exc:
             stats['errors'].append({'url': url, 'error': type(exc).__name__})
         time.sleep(.4)
+    from tencent_news import collect_news
+    try:
+        stats['news'] = collect_news(db)
+        if stats['news']['status'] == 'error': stats['errors'].append('tencent-news')
+    except Exception as exc:
+        stats['news'] = {'status': 'error', 'error': type(exc).__name__}
+        stats['errors'].append('tencent-news')
     atomic_json(ROOT / 'data/last_run.json', dict(stats, completedAt=now()))
     export(db)
+    try:
+        subprocess.run(['node', str(WAREHOUSE / 'talent-housing/refresh-event-semantic.cjs')],
+                       capture_output=True, timeout=90, check=True, cwd=str(WAREHOUSE / 'talent-housing'))
+        stats['semanticSync'] = 'ok'
+    except Exception as exc:
+        stats['semanticSync'] = 'error'
+        stats['errors'].append({'component': 'semantic-analysis', 'error': type(exc).__name__})
     try:
         subprocess.run(['node', str(WAREHOUSE / 'rent-knowledge/import-events.mjs')],
                        capture_output=True, timeout=60, check=True, cwd=str(WAREHOUSE / 'rent-knowledge'))

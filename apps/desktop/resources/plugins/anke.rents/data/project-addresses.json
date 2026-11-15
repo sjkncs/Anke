@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    {"names":["金地梅陇镇四期"],"district":"龙华","street":"民治街道","source":{"name":"深圳市公共场所名录·金地梅陇镇四期地址","url":"https://www.sz.gov.cn/attachment/1/1577/1577132/12154828.pdf","checkedOn":"2026-11-14"}},
+    {"names":["锦荟PARK"],"district":"龙岗","street":"横岗街道","source":{"name":"深圳市住房项目名录·锦荟PARK横岗街道六约社区","url":"https://www.szns.gov.cn/attachment/1/1114/1114255/7196708.pdf","checkedOn":"2026-11-14"}},
+    {"names":["珑城原点广场"],"district":"龙岗","street":"龙城街道","source":{"name":"中建四局珑城原点广场项目主体结构封顶公告","url":"https://4tm.cscec.com/kjcn/gcdt/202205/3518732.html","checkedOn":"2026-11-14"}},
+    {"names":["碧海富通城三期"],"district":"宝安","street":"西乡街道","source":{"name":"深圳市市场监督管理局公开登记文书·碧海富通城三期地址","url":"https://amr.sz.gov.cn/xyjggs.webui/XYJGGS/CXDJGGDetailNew.aspx?task=A3A05DA12FA5186D4C1CFF5A1B1BD9096BDD1CB2CBE3B31B86D0E70D831053C2376F2AB8B2DED68C&type=JDS","checkedOn":"2026-11-14"}},
+    {"names":["龙光玖钻"],"district":"龙华","street":"民治街道","source":{"name":"龙华区政府民治街道红山社区2024年度述职报告·龙光玖钻","url":"https://www.szlhq.gov.cn/ztzq/sqswgk/dw/zzjy/zyjc/content/post_12202595.html","checkedOn":"2026-11-14"}},
+    {"names":["天健天骄南苑"],"district":"福田","street":"莲花街道","source":{"name":"福田区莲花街道天健天骄南苑监管服务采购公示","url":"https://www.szft.gov.cn/bmxx/qlhjdbsc/tzgg/content/post_9363483.html","checkedOn":"2026-11-14"}},
+    {"names":["中洲滨海华府三期"],"district":"福田","street":"沙头街道","address":"深圳市福田区沙头街道建文路以东、上沙商业大道以南","source":{"name":"福田区中洲滨海华府三期总平面图修改公示·宗地B108-0072","url":"https://www.sz.gov.cn/szzt2010/wgkzl/jcgk/jcygk/zdzcjc/content/post_10803813.html","checkedOn":"2026-11-14"}},
+    {"names":["碧湖春天"],"district":"坪山","street":"碧岭街道","address":"深圳市坪山区碧岭街道汤坑路99号碧湖春天","source":{"name":"坪山区人民医院汤坑社区健康服务站地址","url":"https://www.szpsq.gov.cn/zwgk/zdlyxxgk/ggqsydw/ylwsjgxxgk/skzxylb/content/post_12188523.html","checkedOn":"2026-11-14"}},
+    {"names":["金地香蜜山"],"district":"福田","street":"香蜜湖街道","source":{"name":"深圳市生态环境局福田区餐饮服务项目位置信息表·金地香蜜山","url":"https://meeb.sz.gov.cn/attachment/1/1382/1382735/10999480.pdf","checkedOn":"2026-11-14"}},
+    {"names":["泥围新村"],"district":"光明","street":"马田街道","source":{"name":"光明区2026年下半年室内应急避难场所信息一览表·合水口社区泥围新村","url":"https://www.szgm.gov.cn/gmaqscjdglj/attachment/1/1744/1744934/12964004.pdf","checkedOn":"2026-11-14"}},
+    {"names":["香蜜新村"],"district":"福田","street":"莲花街道","address":"深圳市福田区红荔西路香蜜新村","source":{"name":"福田政府在线学前教育学校信息·所在街道莲花街道","url":"https://www.szft.gov.cn/ggfwzy/jyzy/school/xqjy/content/post_11521662.html","checkedOn":"2026-11-14"}},
+    {"names":["塘尾城市花园"],"district":"宝安","street":"福海街道","address":"深圳市宝安区福海街道塘尾东路8号","source":{"name":"深圳市水务局居民小区地址名录·塘尾城市花园","url":"https://swj.sz.gov.cn/attachment/1/1390/1390124/11042796.pdf","checkedOn":"2026-11-14"}},
+    {"names":["KPR佳兆业广场"],"district":"大鹏新区","street":"大鹏街道","source":{"name":"前海法院公开文书KPR地址；大鹏新区政府佳兆业广场场所许可","url":"https://www.dpxq.gov.cn/xxgk/xxgk/tzgg/content/post_11354865.html","identityUrl":"https://startpage.soufunimg.com/adindex/85dc6ed2-177a-47ac-8976-3adebddb7988.pdf","checkedOn":"2026-11-14"}},
+    {"names":["中粮云景广场写字楼"],"district":"光明","street":"马田街道","address":"深圳市光明区马田街道松白路与创维路交汇处中粮云景广场","source":{"name":"光明区文化公配物业社会化运营项目意向公开","url":"https://www.szgm.gov.cn/xxgk/xqgwhxxgkml/gzgg/content/post_12966262.html","checkedOn":"2026-11-14"}},
+    {"names":["深城投·中心公馆"],"district":"坪山","street":"坪山街道","address":"深圳市坪山区坪山街道行政二路九号","source":{"name":"坪山区深城投中心公馆项目信息公示表（2021年更新）","url":"https://www.szpsq.gov.cn/pszfhjsj/gkmlpt/content/8/8593/post_8593293.html","checkedOn":"2026-11-14"}},
+    {"names":["市政大院"],"district":"福田","street":"莲花街道","source":{"name":"福田区治理物业服务突出问题典型案例通报（第一批）","url":"https://www.szft.gov.cn/xxgk/bmtzgg/content/post_12854137.html","checkedOn":"2026-11-14"}},
+    {"names":["深业中城(公寓)"],"district":"福田","street":"香蜜湖街道","address":"深圳市福田区香蜜湖街道红荔西路8089号深业中城","source":{"name":"华凯创意关于购买深圳深业中城商务公寓的公告","url":"https://static.cninfo.com.cn/finalpage/2022-04-13/1212910922.PDF","checkedOn":"2026-11-14"}},
+    {"names":["会展湾中港"],"district":"宝安","street":"福海街道","address":"深圳市宝安区福海街道展景路83号会展湾中港广场","source":{"name":"巨潮资讯上市公司披露·会展湾中港广场注册地址","url":"https://static.cninfo.com.cn/finalpage/2022-03-31/1212750235.PDF","checkedOn":"2026-11-14"}},
+    {"names":["会展湾南岸"],"district":"宝安","street":"福海街道","source":{"name":"前海产发集团会展湾南岸A2、A4栋公告·福海街道展云路","url":"https://www.qhidg.com/zhcn/news/bulletin/20250908/1931.html","checkedOn":"2026-11-14"}},
+    {"names":["同泰时代中心"],"district":"宝安","street":"福海街道","source":{"name":"深圳市文化广电旅游体育局·旅行社分社一览表·桥头社区同泰时代中心","url":"https://wtl.sz.gov.cn/ggfw/lyl/lxsfs/index_12.html","checkedOn":"2026-11-14"}},
+    {"names":["鸿荣源·珈誉府"],"district":"宝安","street":"新桥街道","source":{"name":"深圳政府在线·新桥街道鸿荣源珈誉府活动公告","url":"https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_12745128.html","checkedOn":"2026-11-14"}},
+    {"names":["益田御龙天地"],"district":"罗湖","street":"翠竹街道","source":{"name":"深圳市规划和自然资源局·项目土地信息表·益田御龙天地","url":"https://pnr.sz.gov.cn/attachment/1/1362/1362393/10871175.pdf","checkedOn":"2026-11-14"}},
+    {"names":["会展湾东城","会展湾东城广场"],"district":"宝安","street":"福海街道","address":"深圳市宝安区福海街道凤塘大道与展景路交会处","source":{"name":"深圳政府在线·宝安保障性租赁住房项目地址","url":"https://www.sz.gov.cn/cn/xxgk/zfxxgj/gqdt/content/post_12933631.html","checkedOn":"2026-11-13"}},
+    {"names":["会展湾水岸(公寓)","会展湾水岸","会展湾水岸广场"],"district":"宝安","street":"福海街道","address":"深圳市宝安区福海街道展城社区福园二路83号","source":{"name":"深圳市住宿场所卫生信誉度名单·会展湾水岸广场","url":"https://www.sz.gov.cn/attachment/1/1709/1709417/12756248.pdf","checkedOn":"2026-11-13"}},
+    {"names":["华强城花园一期"],"district":"宝安","street":"福海街道","source":{"name":"深圳民政在线·福海街道塘尾社区华强城服务点","url":"https://mzj.sz.gov.cn/szmz/pc/zwgk/jcxxgk/ztzl/shjzyshfllyzt/bsfw/shfl/content/post_2915122.html","checkedOn":"2026-11-13"}},
+    {"names":["中粮凤凰里"],"district":"宝安","street":"福海街道","address":"深圳市宝安区塘新路92号中粮凤凰里小区","source":{"name":"深圳市教育局幼儿园办学基本信息·福海街道稔田社区","url":"https://szeb.sz.gov.cn/attachment/1/1405/1405428/10301488.pdf","checkedOn":"2026-11-13"}},
+    {"names":["东海国际公寓"],"district":"福田","street":"香蜜湖街道","address":"深圳市福田区香蜜湖街道深南大道7888号","source":{"name":"福田区餐饮服务项目位置信息表","url":"https://www.sz.gov.cn/attachment/1/1382/1382735/10999556.pdf","checkedOn":"2026-11-13"}},
+    {
+      "names": ["乐府广场", "特区建发乐府广场"],
+      "district": "光明",
+      "street": "凤凰街道",
+      "address": "深圳市光明区凤凰街道光明大道481号",
+      "source": {
+        "name": "光明区政府 · 特区建发乐府广场项目信息（2021年更新）",
+        "url": "https://www.szgm.gov.cn/xxgk/xqgwhxxgkml/gzgg/content/post_9127877.html",
+        "checkedOn": "2026-11-13"
+      }
+    },
+    {
+      "names": ["星河天地"], "district": "光明", "street": "光明街道",
+      "address": "深圳市光明区光明大道与丰安路交汇处",
+      "source": {"name":"星河控股项目介绍；光明区建筑工务署街道信息","url":"https://www.chngalaxy.com/business.aspx?id=36008","streetUrl":"https://www.szgm.gov.cn/gmjzgwj/gkmlpt/content/10/10208/post_10208358.html","checkedOn":"2026-11-13"}
+    },
+    {
+      "names": ["金地峰境瑞府二期"], "district":"光明", "street":"光明街道",
+      "address":"深圳市光明区光明街道东周公园路与恩誉路交叉口以南200米",
+      "source":{"name":"乐有家小区详情","url":"https://shenzhen.leyoujia.com/xq/detail/892487.html","checkedOn":"2026-11-13"}
+    }
+  ]
+}

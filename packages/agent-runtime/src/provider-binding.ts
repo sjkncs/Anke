@@ -18,6 +18,7 @@ import {
   type ModelAuth,
   type Models,
   type ProviderStreams,
+  type StreamOptions,
 } from "@earendil-works/pi-ai";
 import {
   buildCopilotDynamicHeaders,
@@ -506,6 +507,26 @@ export function createProviderModels(
   operations?: Pick<Parameters<typeof createProvider>[0], "models" | "images" | "classifiers">,
 ): Models {
   const resolveAuth = provider.resolveAuth;
+  const api = apiBindingForProviderModel(provider).adapter();
+  // Adaptive-only gateways reject even `thinking: { type: "disabled" }`.
+  // Keep reasoning off by omitting that field, after the caller's payload hook.
+  const requestOptions = <T extends StreamOptions>(options?: T): T | undefined => {
+    if (model.api !== "anthropic-messages" || !model.compat ||
+        !("forceAdaptiveThinking" in model.compat) || model.compat.forceAdaptiveThinking !== true) return options;
+    return {
+      ...options,
+      onPayload: async (payload, requestModel) => {
+        const rewritten = await options?.onPayload?.(payload, requestModel);
+        const effective = rewritten ?? payload;
+        if (effective && typeof effective === "object" &&
+            (effective as { thinking?: { type?: string } }).thinking?.type === "disabled") {
+          const { thinking: _thinking, ...rest } = effective as Record<string, unknown>;
+          return rest;
+        }
+        return effective;
+      },
+    } as T;
+  };
   return createAccountModels({
     ...provider,
     resolveAuth: async () => resolveAuth
@@ -514,7 +535,11 @@ export function createProviderModels(
   }, {
     ...operations,
     models: [model, ...(operations?.models ?? [])],
-    api: apiBindingForProviderModel(provider).adapter(),
+    api: {
+      ...api,
+      stream: (requestModel, context, options) => api.stream(requestModel, context, requestOptions(options)),
+      streamSimple: (requestModel, context, options) => api.streamSimple(requestModel, context, requestOptions(options)),
+    },
   });
 }
 /** Build a pi-ai model collection for a trusted extension-owned agent. */

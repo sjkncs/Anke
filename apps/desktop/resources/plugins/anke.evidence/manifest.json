@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "anke.evidence",
+  "name": "研究证据",
+  "version": "0.1.0",
+  "description": "Source-backed capability discovery, point-in-time coverage and event links.",
+  "author": "Anke",
+  "main": "main.js",
+  "permissions": [
+    "agent.tool.register"
+  ],
+  "engines": {
+    "piDesktop": ">=0.21.0"
+  },
+  "activationEvents": [
+    "onStartup"
+  ],
+  "contributes": {
+    "skills": [
+      "skills/evidence.md"
+    ],
+    "agentTools": [
+      {
+        "name": "AnkeEvidence",
+        "description": "Discover captured technical capabilities or evaluate supplied evidence coverage and event links. Static discovery never proves runtime availability or causal effects. All analysis is local; no paid provider query.",
+        "risk": "low",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "enum": [
+                "capabilities",
+                "coverage",
+                "event_links"
+              ]
+            },
+            "query": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "asOf": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "strict",
+                "return_available"
+              ]
+            },
+            "required": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": "string"
+              }
+            },
+            "records": {
+              "type": "array",
+              "maxItems": 500,
+              "items": {
+                "type": "object"
+              }
+            },
+            "events": {
+              "type": "array",
+              "maxItems": 200,
+              "items": {
+                "type": "object"
+              }
+            },
+            "projects": {
+              "type": "array",
+              "maxItems": 200,
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ use std::mem::size_of;
 use std::os::windows::ffi::OsStrExt;
 use std::os::windows::io::{AsRawHandle, FromRawHandle, OwnedHandle};
 use windows_sys::Win32::Foundation::{
-    HANDLE, INVALID_HANDLE_VALUE, NTSTATUS, OBJ_CASE_INSENSITIVE, OBJ_DONT_REPARSE, UNICODE_STRING,
+    HANDLE, INVALID_HANDLE_VALUE, NTSTATUS, OBJ_CASE_INSENSITIVE, UNICODE_STRING,
 };
 use windows_sys::Win32::Storage::FileSystem::{
     FILE_LIST_DIRECTORY, FILE_READ_ATTRIBUTES, FILE_READ_DATA, FILE_SHARE_READ, SYNCHRONIZE,
@@ -19,6 +19,7 @@ const FILE_DIRECTORY_FILE: u32 = 0x0000_0001;
 const FILE_NON_DIRECTORY_FILE: u32 = 0x0000_0040;
 const FILE_SYNCHRONOUS_IO_NONALERT: u32 = 0x0000_0020;
 const FILE_OPEN_REPARSE_POINT: u32 = 0x0020_0000;
+const RELATIVE_OBJECT_ATTRIBUTES: u32 = OBJ_CASE_INSENSITIVE;
 
 // winternl OBJECT_ATTRIBUTES / IO_STATUS_BLOCK layouts. The existing Cargo
 // features expose UNICODE_STRING but not Wdk::Foundation or System::IO. The
@@ -82,7 +83,7 @@ pub(super) fn open_child(
         length: size_of::<ObjectAttributes>() as u32,
         root_directory: parent.as_raw_handle(),
         object_name: &unicode,
-        attributes: OBJ_CASE_INSENSITIVE | OBJ_DONT_REPARSE,
+        attributes: RELATIVE_OBJECT_ATTRIBUTES,
         security_descriptor: std::ptr::null(),
         security_quality_of_service: std::ptr::null(),
     };
@@ -110,8 +111,11 @@ pub(super) fn open_child(
     // SAFETY: parent is a live directory File, the single-component UTF-16
     // name and all repr(C) arguments live through the synchronous create.
     // FILE_OPEN never creates/truncates; SYNCHRONIZE is paired with synchronous
-    // I/O. OBJ_DONT_REPARSE rejects reparsing and OPEN_REPARSE_POINT forbids
-    // following the final entry; the caller also checks opened-handle metadata.
+    // I/O. Every name is a single component relative to a pinned parent, so
+    // OPEN_REPARSE_POINT prevents following the only entry being resolved.
+    // The caller rejects reparse entries using opened-handle metadata. Do not
+    // add OBJ_DONT_REPARSE: Windows filters can return STATUS_REPARSE_POINT_ENCOUNTERED
+    // for ordinary directories even when their handles have no reparse attribute.
     let status = unsafe {
         nt_create_file(
             &mut handle,
@@ -202,5 +206,15 @@ mod tests {
         }
         assert!(component_name(OsStr::new("a folder")).is_ok());
         assert!(component_name(OsStr::new("chart.html")).is_ok());
+    }
+
+    #[test]
+    fn relative_opens_use_no_follow_without_filter_sensitive_object_flag() {
+        // A real non-reparse session directory on Windows returned C000050B
+        // with OBJ_DONT_REPARSE. No-follow belongs to CreateOptions, with
+        // opened-handle metadata validation, rather than this object flag.
+        assert_eq!(RELATIVE_OBJECT_ATTRIBUTES, OBJ_CASE_INSENSITIVE);
+        assert_eq!(RELATIVE_OBJECT_ATTRIBUTES & 0x1000, 0);
+        assert_eq!(FILE_OPEN_REPARSE_POINT, 0x0020_0000);
     }
 }

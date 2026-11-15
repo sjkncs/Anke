@@ -16,5 +16,12 @@ test('official events import idempotently, retain revisions, and leave rental ob
   assert.equal((await db.query('SELECT body FROM rent_documents WHERE id=$1',['event:'+e.id])).rows[0].body,e.body);
   assert.equal((await db.query('SELECT count(*)::integer AS n FROM rent_observations')).rows[0].n,0);
   await assert.rejects(importEvents(db,{...data,events:[{...e,url:'https://evil.com/a'}]}));
+  for(const url of ['https://view.inews.qq.com.evil.test/a','https://user@view.inews.qq.com/a','http://view.inews.qq.com/a']){
+   await assert.rejects(importEvents(db,{...data,events:[{...e,sourceKind:'media',url}]}));
+  }
+  const media={...e,id:'media-fixture',sourceKind:'media',publisher:'Fixture publisher',url:'https://view.inews.qq.com/a/fixture'};
+  await importEvents(db,{...data,events:[media]});
+  const metadata=(await db.query('SELECT metadata FROM rent_documents WHERE id=$1',['event:media-fixture'])).rows[0].metadata;
+  assert.equal(metadata.sourceKind,'media');assert.equal(metadata.publisher,'Fixture publisher');
  }finally{await db.close();}
 });

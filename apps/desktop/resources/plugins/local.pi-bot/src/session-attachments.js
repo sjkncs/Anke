@@ -21,7 +21,13 @@ async function attachmentSource(team,filePath){
   const host=hostDataRoot(team.data),data=await fs.realpath(team.data),canonical=await fs.realpath(filePath),realHost=await fs.realpath(host);
   const relative=path.relative(path.join(realHost,'scratch'),canonical).split(path.sep);
   const ownScratch=relative.length===4&&/^[A-Za-z0-9_-]{1,200}$/.test(relative[0])&&relative[1]==='pi-bot-attachments'&&/^[a-f0-9]{64}$/.test(relative[2])&&/^[a-f0-9-]{36}-/.test(relative[3]);
-  const managed=ownScratch||['uploaded-files','image-cache','message-files'].some(name=>inside(path.join(data,name),canonical));
+  // Windows packaged-app virtualization can resolve a managed child directory
+  // to a different physical prefix than its existing parent. Compare both
+  // sides after canonicalization, without granting the entire cache tree.
+  const roots=await Promise.all(['uploaded-files','image-cache','message-files'].map(async name=>{
+    try{return await fs.realpath(path.join(data,name));}catch(error){if(error.code==='ENOENT')return null;throw error;}
+  }));
+  const managed=ownScratch||roots.some(root=>root&&inside(root,canonical));
   return {host,canonical,managed};
 }
 async function stageAttachment(team,sessionId,file){

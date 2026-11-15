@@ -3,7 +3,7 @@ import {createRequire} from 'node:module';
 import path from 'node:path';
 import {connect,ingest,exportSnapshot,root,setEmbedding,vectorSearch} from './store.mjs';
 const require=createRequire(import.meta.url);
-const plugin=path.resolve(root,'../apps/desktop/resources/plugins/anke.rents');
+const plugin=path.resolve(root,'../anke-agent-source/apps/desktop/resources/plugins/anke.rents');
 const {knowledge}=require(path.join(plugin,'knowledge.cjs'));
 const [command,argument]=process.argv.slice(2);
 if(command==='query') {

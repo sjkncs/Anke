@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import * as fs from "node:fs";
 import * as path from "node:path";
+import * as os from "node:os";
+import * as fsPromises from "node:fs/promises";
 import ts from "typescript";
 import * as shared from "../../../../packages/shared/dist/index.js";
 import { PersistenceOutbox } from "../../electron/main/persistence-outbox.ts";
@@ -25,7 +27,23 @@ const { createSessionCoordination } = load("../../electron/main/runtime/session-
   "@pi-desktop/shared": shared,
   "../notification-policy": load("../../electron/main/notification-policy.ts", {}),
 });
+const rentalRoles = load("../../src/lib/rental-roles.ts", {});
+const rentalRoleStore = load("../../electron/main/rental-role-store.ts", {
+  "node:fs": fs,
+  "node:path": path,
+  "../../src/lib/rental-roles": rentalRoles,
+});
+const rentalWorkspaces = load("../../electron/main/rental-workspaces.ts", {
+  "node:fs/promises": fsPromises,
+  "node:path": path,
+  "node:os": os,
+  "../../src/lib/rental-roles": rentalRoles,
+  "./rental-role-store": rentalRoleStore,
+});
 const { registerSessionIpc } = load("../../electron/main/ipc/session-ipc.ts", {
+  "../rental-role-store": rentalRoleStore,
+  "../rental-workspaces": rentalWorkspaces,
+  "../../../src/lib/rental-roles": rentalRoles,
   electron: { shell: {} },
   "node:fs": fs,
   "node:path": path,

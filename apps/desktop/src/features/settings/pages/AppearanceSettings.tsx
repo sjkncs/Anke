@@ -17,6 +17,7 @@ import { RadialMenuSettings } from "../../../components/settings/RadialMenuSetti
 import { StartupAnimationRows } from "../../../components/settings/StartupAnimationRows";
 import { ThemeRow } from "../../../components/settings/ThemeRow";
 import { SettingsCard, SettingsRow } from "../primitives";
+import { ReadingSpeedRow } from "../ReadingSpeedRow";
 
 export function AppearanceSettings({
   settings,
@@ -35,6 +36,7 @@ export function AppearanceSettings({
         <LanguageRow settings={settings} saveSettings={saveSettings} />
         <FontFamilyRow settings={settings} saveSettings={saveSettings} />
         <FontSizeRow settings={settings} saveSettings={saveSettings} />
+        <ReadingSpeedRow />
         {platform === "darwin" && (
           <MacosWindowTranslucencyRow settings={settings} saveSettings={saveSettings} />
         )}

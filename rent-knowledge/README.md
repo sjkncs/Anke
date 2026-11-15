@@ -60,4 +60,10 @@ SAM3/SAM3D were inspected, not run. The native application UI is unchanged.
 
 ## Acceptance
 
-`npm test` runs the actual in-memory PostgreSQL engine and pgvector through import, duplicate protection, SQL statistics, export, the production plugin query function, historical gaps, invalid inputs, model isolation and refresh. `node --test ../apps/desktop/resources/plugins/anke.rents/query.test.cjs` checks plugin registration/routing. Desktop live-provider chat and a standalone PostgreSQL server are separate pending acceptance steps.
+## Listing field preservation (2026-11-13)
+
+`listing-fields.mjs` carries disclosed dwelling attributes and raw source fields through snapshot export. Community position labels remain separate from street addresses. Property fees quoted per square metre are not converted into monthly totals automatically. The market table provides a transparent horizontal scroll track, fixed headers and an expandable source-field view. Verified project addresses are maintained in the housing plugin's `data/project-addresses.json` with district/name matching and source URLs; supplied listing addresses take precedence. `node refresh-listing-fields.mjs` restores attributes from existing import evidence and creates a backup before replacing the snapshot. It does not collect new listings or change rent observations.
+
+Run `node --test listing-fields.test.mjs test.mjs` and `python -m unittest test_listing_sync -v` for field/export/parser checks.
+
+`npm test` runs the actual in-memory PostgreSQL engine and pgvector through import, duplicate protection, SQL statistics, export, the production plugin query function, historical gaps, invalid inputs, model isolation and refresh. `node --test ../anke-agent-source/apps/desktop/resources/plugins/anke.rents/query.test.cjs` checks plugin registration/routing. Desktop live-provider chat and a standalone PostgreSQL server are separate pending acceptance steps.

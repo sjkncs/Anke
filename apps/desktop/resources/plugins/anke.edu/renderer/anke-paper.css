@@ -1,0 +1,14 @@
+/* ANKE Bot paper/graphite palette; source metadata is not a visual identity. */
+:root{--bg:#f5f5f3;--card:#fff;--ink:#292929;--ink-2:#626260;--ink-3:#777873;--line:#e0e0dc;--brand:#494b4d;--brand-soft:#eeeeea;--shadow:none;--radius:12px;color-scheme:light}
+.head{background:#fafaf8}.logo{background:#efefeb;color:#494b4d;border:1px solid #d4d5cf;box-shadow:none;border-radius:9px 11px 8px 10px}
+.badge,.pill,.tag,.tag.blue,.tag.green,.tag.purple,.cap,.cap.on,.mini.on{background:#f0f0ec;color:#626260;border-color:#deded8}
+.pill.ok{background:#efefeb;color:#626260;border-color:#deded8}
+.card,.panel,.search{box-shadow:none}.card:hover{box-shadow:0 4px 14px #29292908;border-color:#bcbeb7;transform:translateY(-1px)}
+.avatar,.avatar.lg{background:#f5f5f0;border-radius:10px 12px 9px 11px}.avatar:before{display:none}.avatar img{object-fit:contain}
+.detail-head{background:#fafaf8}.btn{box-shadow:none}.btn:hover,.icon-btn.send:hover{background:#333536}.qa button,.files li{background:#fafaf8}.qa button:hover{background:#efefeb;border-color:#c6c7c0;color:#292929}
+.figure-panel{background:#fafaf8;border-radius:14px 11px 15px 12px;position:relative}.figure-panel canvas{width:min(100%,280px);height:280px;border:1px solid #e0e0d9;border-radius:48% 51% 46% 49%;background:radial-gradient(#9b9c9218 .6px,transparent .6px),#f4f4ef;background-size:6px 6px}
+.figure-note{max-width:235px}.chat-head{background:#fafaf8}.msg.user .bubble{background:#eeeeea;border-color:#e0e0da;color:#292929}.msg .bubble{border-radius:11px 13px 10px 12px}.composer textarea{background:#fafaf8;color:var(--ink)}.composer textarea:focus{border-color:#9c9e94;box-shadow:0 0 0 2px #494b4d12}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #73776b;outline-offset:3px}
+.head-left{flex-wrap:wrap}.head{min-height:56px;height:auto;padding-block:10px}.head-right{flex-wrap:wrap;justify-content:flex-end}.search input{min-width:0;color:var(--ink)}
+@media(max-width:600px){.head{align-items:flex-start;flex-wrap:wrap}.head-right{margin-left:0;width:100%;justify-content:space-between}.badge{font-size:10px}.wrap{padding:14px}.grid{grid-template-columns:1fr}.chat{padding:10px;gap:10px}.figure-panel{padding:16px}.figure-panel canvas{width:170px;height:170px}.chat-panel{min-height:520px}.messages{min-height:220px}.msg{max-width:100%}.cta{flex-wrap:wrap}.composer textarea{min-width:0}}
+@media(prefers-reduced-motion:reduce){.card:hover{transform:none}.typing span{animation:none}}

@@ -2,6 +2,8 @@
   "schemaVersion": 1,
   "intervalSeconds": 600,
   "sources": [
+    {"id":"sz-zjj-notices","name":"深圳住建局 · 通知公告","url":"https://zjj.sz.gov.cn/xxgk/tzgg/"},
+    {"id":"sz-housing-allocation","name":"深圳住建局 · 住房保障分配过程","url":"https://zjj.sz.gov.cn/ztfw/zfbz/fpgc/"},
     {"id":"sz-notices","name":"深圳政府在线 · 通知公告","url":"https://www.sz.gov.cn/cn/xxgk/zfxxgj/tzgg/"},
     {"id":"sz-news","name":"深圳政府在线 · 政务动态","url":"https://www.sz.gov.cn/cn/xxgk/zfxxgj/zwdt/"},
     {"id":"sz-traffic","name":"深圳交警 · 交通管制","url":"https://szjj.sz.gov.cn/ZWGK/TZGG/GGJG/index.html"}

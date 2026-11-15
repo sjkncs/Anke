@@ -1,0 +1,21 @@
+{
+  "blockedFiles": [
+    "apps\\desktop\\resources\\plugins\\local.pi-bot\\tests\\upstream-024.cjs",
+    "apps\\desktop\\test\\live-voice-service-lifecycle.test.mjs",
+    "apps\\desktop\\test\\logger-routing.test.mjs",
+    "apps\\desktop\\test\\vendor-oauth-login.test.mjs",
+    "crates\\host-core\\src\\audit.rs",
+    "docs\\adr\\0299-subagent-context-budget.md",
+    "docs\\zh-CN\\adr\\index.md",
+    "packages\\agent-runtime\\src\\runtime.test.ts"
+  ],
+  "bots": 38,
+  "rooms": 5,
+  "providers": 2,
+  "models": 15,
+  "projects": 10,
+  "mcpServerFiles": 0,
+  "credentialsExported": false,
+  "buildAcceptance": "NOT_RUN",
+  "executablePublished": false
+}

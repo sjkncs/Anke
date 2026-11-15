@@ -1,5 +1,9 @@
 # 文件管理器（File Manager）
 
+本地 Anke 增补：文件侧栏按钮支持 Ctrl+B（macOS 为 Cmd+B）；编辑器内保留原有快捷键。
+图片预览可右键复制完整图片、另存为 PNG，或复制选中文字。原有适应窗口、实际大小、
+文件列表状态与项目多文件夹切换保持沿用。
+
 ## SSH workspaces
 
 Remote directory browsing and text/image previews use the Host's scoped

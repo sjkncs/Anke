@@ -11,6 +11,7 @@ import {
 } from "@pi-desktop/shared";
 import { getToolAction, isDelegationStartTool } from "./tool-display";
 import { messageContentFacts } from "./transcript-summary";
+import { projectMessageEnd } from "./session-transcript";
 
 export type AssistantActivityItem =
   | { kind: "thinking"; message: UiMessage }
@@ -226,7 +227,21 @@ export function buildTranscriptEntries(
   const runs = collectSubagentRuns(messages);
   // Delegate rows are not transcript rows of their own: they hang off their
   // `Task` call, so they stay out of the turn stream and the minimap.
-  const visible = messages.filter(
+  // A durable empty abort carries the outcome without rendering a bubble.
+  // Reapply the same projection used for live events before filtering it out.
+  let settledMessages = messages as UiMessage[];
+  for (const message of messages) {
+    if (message.role === "assistant" && message.status === "aborted" &&
+        !message.content?.trim() && !message.thinking?.trim() && !message.error &&
+        !message.parentToolCallId) {
+      const index = settledMessages.findIndex(row => row.id === message.id);
+      if (index >= 0) settledMessages = [
+        ...projectMessageEnd(settledMessages.slice(0, index + 1), { type: "message_end", message }),
+        ...settledMessages.slice(index + 1),
+      ];
+    }
+  }
+  const visible = settledMessages.filter(
     (message) => !message.parentToolCallId && isVisibleMessage(message),
   );
   const anchored = new Map<string, ContextCompactionMark[]>();

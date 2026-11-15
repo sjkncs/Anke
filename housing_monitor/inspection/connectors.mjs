@@ -1,0 +1,13 @@
+import {localSegment} from './local-segment.mjs';
+export function serviceURL(value){
+ const url=new URL(value);if(url.username||url.password||!['http:','https:'].includes(url.protocol)||(url.protocol==='http:'&&!['localhost','127.0.0.1','[::1]'].includes(url.hostname)))throw Error('Service requires HTTPS or loopback');return url;
+}
+async function jsonRequest(url,options={}){
+ const r=await fetch(url,{...options,redirect:'error',signal:AbortSignal.timeout(60000)});if(!r.ok)throw Error('Service HTTP '+r.status);const text=await r.text();if(text.length>8000000)throw Error('Service response too large');const data=JSON.parse(text);if(data.errors?.length||data.success===false)throw Error('Service rejected request');return data;
+}
+export function createConnectors(env=process.env){
+ const neo4j=env.ANKE_NEO4J_URL?async query=>{if(!env.ANKE_NEO4J_USER||!env.ANKE_NEO4J_PASSWORD)throw Error('Neo4j credentials missing');const base=serviceURL(env.ANKE_NEO4J_URL),db=env.ANKE_NEO4J_DATABASE||'neo4j';if(!/^[a-zA-Z0-9_-]+$/.test(db))throw Error('Invalid Neo4j database');const data=await jsonRequest(new URL('/db/'+db+'/query/v2',base),{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Basic '+Buffer.from(env.ANKE_NEO4J_USER+':'+env.ANKE_NEO4J_PASSWORD).toString('base64')},body:JSON.stringify(query)});if(!data.bookmarks?.length)throw Error('Neo4j acknowledgement missing');return {status:'confirmed',bookmarks:data.bookmarks};}:undefined;
+ const segment=env.ANKE_SEGMENT_URL?async image=>{if(typeof image!=='string'||!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(image)||image.length>7000000)throw Error('Invalid image');return jsonRequest(serviceURL(env.ANKE_SEGMENT_URL),{method:'POST',headers:{'Content-Type':'application/json',...(env.ANKE_SEGMENT_TOKEN?{Authorization:'Bearer '+env.ANKE_SEGMENT_TOKEN}:{})},body:JSON.stringify({image,classes:['facade','window','balcony','road','vegetation','equipment'],maskFormat:'normalized-polygons'})});}:undefined;
+ const mirofish=env.ANKE_MIROFISH_URL?async(action,input)=>{const base=serviceURL(env.ANKE_MIROFISH_URL);if(action==='list')return jsonRequest(new URL('/api/simulation/list',base));if(action==='status'){if(!/^[A-Za-z0-9_-]{1,100}$/.test(input.id))throw Error('Invalid simulation ID');return jsonRequest(new URL('/api/simulation/'+input.id+'/run-status',base));}if(action==='create'){if(!/^[A-Za-z0-9_-]{1,100}$/.test(input.projectId))throw Error('Invalid MiroFish project ID');return jsonRequest(new URL('/api/simulation/create',base),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({project_id:input.projectId})});}throw Error('Unknown MiroFish action');}:undefined;
+ return {neo4j,segment:segment||localSegment(env),mirofish};
+}

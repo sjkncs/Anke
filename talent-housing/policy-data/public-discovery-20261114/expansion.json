@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-11-14T01:59:58.989747+00:00",
+  "method": "public_html_not_private_api",
+  "indexPages": 8,
+  "discovered": 76,
+  "eligible": 34,
+  "articleBudget": 80,
+  "added": 2,
+  "totalCollected": 40,
+  "internal12345": "not_connected",
+  "errors": [],
+  "addedSources": [
+    {
+      "id": "official-faq-10835845",
+      "title": "公共租赁住房分配方式有哪些？",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_10835845.html",
+      "category": "public_rental",
+      "publishedOn": "2023-09-14"
+    },
+    {
+      "id": "official-faq-10662220",
+      "title": "公共租赁住房能否用来注册公司？",
+      "url": "https://www.sz.gov.cn/hdjl/ywzsk/jsj/zfbz/content/post_10662220.html",
+      "category": "public_rental",
+      "publishedOn": "2023-06-21"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "anke.rea",
+  "name": "REA 逆向分析",
+  "version": "0.1.0",
+  "description": "Pinned local REA 6.4.0 MCP integration. Native engines require separate configuration.",
+  "author": "Anke",
+  "main": "main.js",
+  "permissions": [
+    "mcp.server.local"
+  ],
+  "engines": {
+    "piDesktop": ">=0.21.0"
+  },
+  "activationEvents": [
+    "onStartup"
+  ],
+  "contributes": {
+    "mcpServers": [
+      {
+        "id": "rea",
+        "label": "REA 6.4.0",
+        "transport": "stdio",
+        "command": "node",
+        "args": [
+          "E:/tools/rea-6.4.0/node_modules/rea-agents/scripts/rea.mjs",
+          "mcp"
+        ]
+      }
+    ]
+  }
+}

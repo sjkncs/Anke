@@ -1,5 +1,9 @@
 # Anke Bot adaptation
 
+2026-11-13 lifecycle repair: concurrent activation shutdown callers await the
+same resource cleanup; microphone cleanup failure still closes Team and releases
+its owned data lock. Live-owner lock checks and task data remain intact.
+
 Source: https://github.com/vsd269/PI-Bot
 Revision: b37894bdc873879eb48d3c11aeab94b47c688877 (0.3.107).
 Retrieved: 2026-11-11. License: Apache-2.0; LICENSE and NOTICE retained.

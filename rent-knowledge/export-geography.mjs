@@ -1,0 +1,10 @@
+import {createRequire} from 'node:module';
+import {mkdir,writeFile} from 'node:fs/promises';
+const require=createRequire(import.meta.url),{query}=require('../anke-agent-source/apps/desktop/resources/plugins/anke.rents/query.cjs');
+const stats=query({dataset:'imported',recordType:'挂牌',lease:'整租'}).geographicStats;
+const dir=new URL('./artifacts/geographic-rents/',import.meta.url);await mkdir(dir,{recursive:true});
+await writeFile(new URL('statistics.json',dir),JSON.stringify({generatedAt:new Date().toISOString(),dailyDedupe:'same platform/listing/day; conflicting prices excluded',pairing:'same platform/listing/project/district/area',statistics:stats},null,2));
+const columns=['level','district','name','previousDate','currentDate','previousCount','count','previousMean','meanUnitRent','medianUnitRent','areaWeightedUnitRent','sampleChangePercent','pairedChangePercent','pairedCount'];
+const rows=stats.flatMap(s=>s.groups.map(g=>({level:g.level,district:g.district||'',name:g.name,previousDate:g.previousDate,currentDate:g.currentDate,previousCount:g.previous?.count,count:g.current?.count,previousMean:g.previous?.meanUnitRent,meanUnitRent:g.current?.meanUnitRent,medianUnitRent:g.current?.medianUnitRent,areaWeightedUnitRent:g.current?.areaWeightedUnitRent,sampleChangePercent:g.sampleChange?.percent,pairedChangePercent:g.pairedChange?.percent,pairedCount:g.pairedChange?.count})));
+const quote=v=>'"'+String(v??'').replaceAll('"','""')+'"';await writeFile(new URL('statistics.csv',dir),'\uFEFF'+[columns,...rows.map(r=>columns.map(c=>r[c]))].map(r=>r.map(quote).join(',')).join('\r\n'));
+console.log(JSON.stringify({groups:rows.length,rows}));

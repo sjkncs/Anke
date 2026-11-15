@@ -4,7 +4,7 @@ import {connect,ingest,root} from './store.mjs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 const require=createRequire(import.meta.url);
-const {knowledge}=require('../apps/desktop/resources/plugins/anke.rents/knowledge.cjs');
+const {knowledge}=require('../anke-agent-source/apps/desktop/resources/plugins/anke.rents/knowledge.cjs');
 const db=await connect();
 try {
   const before=(await db.query('SELECT count(*)::integer AS n FROM rent_observations')).rows[0].n;

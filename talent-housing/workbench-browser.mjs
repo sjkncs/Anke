@@ -24,10 +24,16 @@ try{
   await page.selectOption('#p-eligibility','verified');await page.selectOption('#p-needsElevator','true');await page.selectOption('#p-needsFurnished','true');
   await page.getByRole('button',{name:'保存画像',exact:true}).click();await page.locator('#status').filter({hasText:'画像已保存'}).waitFor();
   const unit={id:'TEST-U',project:'测试房源 · 非实际供应',type:'高校住房',status:'available',source:'synthetic browser fixture',rent:2500,fees:200,bedrooms:2,elevator:true,availableOn:'2026-11-01',quality:80,commute:{'TEST-A':15},supply:{provider:'university',reference:'synthetic browser fixture',verifiedOn:'2026-11-01'},furnished:true,setupCost:1000,location:{longitude:114.05,latitude:22.65,crs:'BD09'},factors:{education:{score:80,source:'测试教育条件，非真实学区',verifiedOn:'2026-11-01',status:'current'},stability:{score:90,source:'测试租期，非真实合同',verifiedOn:'2026-11-01',status:'current'}}};
-  await page.click('[data-tab="supply"]');await page.locator('#supplyFile').setInputFiles({name:'test-supply.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify([unit]))});
+  unit.residentRating={score:4.8,count:20,source:'测试问卷 · 非真实评价',verifiedOn:'2026-11-01'};
+  await page.click('[data-tab="supply"]');await page.locator('#supplyFile').setInputFiles({name:'test-supply.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify([unit,{...unit,id:'TEST-NO-REVIEW',residentRating:null}]))});
   await page.locator('#previewTable').getByText('TEST-U',{exact:true}).waitFor();await page.click('#confirmImport');await page.locator('#status').filter({hasText:'房源已接入'}).waitFor();
-  await page.click('[data-tab="matching"]');await page.click('#searchHomes');await page.locator('#homeResults').getByText('符合需求',{exact:true}).waitFor();
+  await page.click('[data-tab="matching"]');await page.click('#searchHomes');await page.locator('#homeResults').getByText('符合需求',{exact:true}).first().waitFor();
   assert.match(await page.locator('#homeResults').innerText(),/84/);await page.screenshot({path:path.join(out,'matching-synthetic.png'),fullPage:true});
+  assert.match(await page.locator('#homeResults').innerText(),/暂无评价/);
+  await page.selectOption('#housingProvider','university');await page.selectOption('#housingRating','4.5');await page.selectOption('#housingReviewCount','20');await page.selectOption('#housingSort','residentRating');await page.click('#searchHomes');
+  await page.waitForFunction(()=>document.querySelectorAll('.home-card').length===1);
+  assert.match(await page.locator('#homeResults').innerText(),/4.8 \/ 5 · 20 份评价/);assert.match(await page.locator('#homeResults').innerText(),/测试问卷 · 非真实评价/);
+  await page.screenshot({path:path.join(out,'resident-ratings-synthetic.png'),fullPage:true});
   await page.fill('#housingQuery','不存在');await page.click('#searchHomes');await page.locator('#homeResults').getByText('暂无匹配的政府或高校房源').waitFor();await page.fill('#housingQuery','');
   await page.click('[data-tab="overview"]');await page.locator('#spatialEmpty').waitFor({state:'hidden'});await page.screenshot({path:path.join(out,'overview-synthetic.png'),fullPage:true});
   await page.click('[data-tab="workorders"]');await page.fill('#orderSubject','测试住房办理');await page.fill('#orderTranscript','测试材料，不是真实录音');await page.fill('#orderSource','browser-fixture');await page.locator('#orderForm button').click();

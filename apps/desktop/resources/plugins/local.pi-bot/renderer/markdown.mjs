@@ -1,9 +1,10 @@
 import {el} from './dom.mjs';
+import {answerText} from './answer-text.mjs';
 import {messageTable,tableCells} from './message-table.mjs';
 
 // Construct nodes directly: model output never becomes executable HTML.
 export function markdown(text,plain=value=>document.createTextNode(value),openFile){
-  const root=el('div'),lines=String(text??'').split('\n');
+  const root=el('div'),lines=answerText(text).split('\n');
   function inline(target,value){
     const pattern=/`([^`\n]+)`|\*\*([^*\n]+)\*\*|\[([^\]\n]+)\]\(([^\s)]+)\)|~~([^~\n]+)~~|\*([^*\n]+)\*/g;let last=0;
     for(const match of value.matchAll(pattern)){

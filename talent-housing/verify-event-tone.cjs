@@ -1,0 +1,33 @@
+const {chromium}=require('E:/FFD-Downloader-Windows/datafoundry-enhanced/node_modules/playwright');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+(async()=>{const browser=await chromium.launch({headless:true});try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto((process.env.ANKE_TONE_URL||'http://127.0.0.1:47846')+'/workspace/');
+ await page.locator('[data-tab="events"]').click();
+ await page.waitForFunction(()=>document.querySelector('#eventTable tbody tr')?.dataset.polarity);
+ assert.ok(await page.locator('#eventTable tbody tr[data-polarity]').count());
+ assert.ok(await page.locator('#eventTable tbody tr[data-semantic-method="minilm-onnx-topic-v1"]').count(),'Live semantic annotations must be loaded');
+ assert.equal(await page.evaluate(()=>window.ankeEventSemantics.cosineIsProbability),false);
+ assert.equal(await page.locator('#rentProvenance .source-badge').evaluateAll(es=>es.some(e=>/\d+\s条/.test(e.textContent))),false);
+ for(const sources of await page.locator('.event-sources').all())assert.equal(await sources.isVisible(),false);
+ await page.screenshot({path:__dirname+'/data/event-tone-live.png'});
+ await page.locator('#eventTable .event-reader-launch').first().click();
+ await page.locator('.event-reader[open]').waitFor();
+ assert.ok(await page.locator('.event-reader-content > p').count()>1,'Original body must retain paragraphs');
+ assert.ok((await page.locator('.event-reader').boundingBox()).width>900,'Reader must escape narrow table cell');
+ assert.equal(await page.locator('.event-reader script').count(),0);
+ await page.screenshot({path:__dirname+'/data/event-semantic-live.png'});
+ await page.locator('.event-reader button').click();
+ assert.equal(await page.locator('.event-reader').count(),0);
+ await page.evaluate(()=>{
+  const table=document.getElementById('eventTable');table.innerHTML='<table><tbody><tr><td>租金下调，地铁开通<details><summary>详情</summary><p>租金下调。</p></details></td></tr><tr><td>房租上涨</td></tr><tr><td>发布住房公告</td></tr></tbody></table>';
+ });
+ await page.waitForFunction(()=>document.querySelector('#eventTable tr')?.dataset.polarity==='positive');
+ assert.deepEqual(await page.locator('#eventTable tr').evaluateAll(es=>es.map(e=>e.dataset.polarity)),['positive','negative','neutral']);
+ assert.equal(await page.locator('.event-tone-positive').first().evaluate(e=>getComputedStyle(e).color),'rgb(180, 35, 44)');
+ assert.equal(await page.locator('.event-tone-other').first().evaluate(e=>getComputedStyle(e).color),'rgb(36, 115, 71)');
+ await page.waitForTimeout(300);assert.equal(await page.locator('.event-tone-label').count(),3);
+ assert.deepEqual(errors,[]);console.log('PASS live events, no count capsules, source metadata retained, red/green fixture, idempotent rendering, no page errors');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

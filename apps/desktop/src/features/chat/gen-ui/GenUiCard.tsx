@@ -23,7 +23,11 @@ export function genUiCardTitle(reference: GenUiReference): string {
   return parts.at(-1) || reference.path;
 }
 
-function UnavailableCard({ title, reason }: { title: string; reason: GenUiUnavailableReason }) {
+export function UnavailableCard({ title, reason, onRetry }: {
+  title: string;
+  reason: GenUiUnavailableReason;
+  onRetry?: () => void;
+}) {
   const { t } = useTranslation();
   return (
     <div className="gen-ui-card is-unavailable" role="note">
@@ -32,6 +36,11 @@ function UnavailableCard({ title, reason }: { title: string; reason: GenUiUnavai
         <span className="gen-ui-title">{t("chat.genUi.unavailable", { title })}</span>
         <span className="gen-ui-unavailable-reason">{t(genUiUnavailableReasonKey(reason))}</span>
       </div>
+      {onRetry && (reason === "not-found" || reason === "runtime-unavailable") ? (
+        <Button type="button" variant="ghost" size="sm" onClick={onRetry}>
+          {t("chat.imagePreview.retry")}
+        </Button>
+      ) : null}
     </div>
   );
 }
@@ -59,7 +68,7 @@ export function GenUiScriptErrorNotice({ message }: { message: string }) {
 
 function LiveGenUiCard({ url, title }: { url: string; title: string }) {
   const [error, setError] = useState<GenUiErrorCode | null>(null);
-  if (error) return <UnavailableCard title={title} reason={error} />;
+  if (error) return <UnavailableCard title={title} reason={error} onRetry={() => setError(null)} />;
   return <PooledGenUiCard url={url} title={title} onError={setError} />;
 }
 

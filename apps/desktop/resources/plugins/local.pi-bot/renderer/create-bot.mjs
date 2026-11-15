@@ -4,7 +4,7 @@ import {lookOf,MAIN_LOOK} from './upstream/characters.mjs';
 import {nameProblem} from './upstream/mentions.mjs';
 
 // The upstream CreateBot is a conversation pane, separate from Bot settings.
-export function createBotPage({host,getBots,models,create,onCreated,onOpen,onBack,notice,onLibrary}){
+export function createBotPage({host,getBots,models,create,onCreated,onOpen,onBack,notice,onLibrary,onDismiss=()=>{}}){
   const pane=el('section','','bt-create pi-create-bot');pane.hidden=true;
   pane.setAttribute('role','dialog');pane.setAttribute('aria-label','创建 Bot');
   const head=el('div','','bt-create-head'),back=el('button','','bt-icon-btn'),closeButton=el('button','','bt-icon-btn');
@@ -27,7 +27,7 @@ export function createBotPage({host,getBots,models,create,onCreated,onOpen,onBac
     error.textContent=problem||'';error.hidden=!problem;submit.disabled=busy||Boolean(problem);
   }
   function close(){revision++;pane.hidden=true;editor?.dispose();editor=null;looks.replaceChildren();}
-  function backToChat(){if(busy)return;close();onBack();}
+  function backToChat(){if(busy)return;close();onDismiss();onBack();}
   function show(start=''){
     if(busy)return;
     notice('');onOpen();close();const token=revision;
@@ -41,7 +41,7 @@ export function createBotPage({host,getBots,models,create,onCreated,onOpen,onBac
       for(const item of catalog){const option=el('option',(item.alias||item.label||String(item.key).split('/').pop())+(item.providerName?' · '+item.providerName:''));option.value=item.key;option.title=item.key;model.append(option);}
     }).catch(()=>{if(!pane.hidden&&token===revision)notice('模型列表读取失败，仍可使用 客户端默认模型创建 Bot。');});
   }
-  name.oninput=paint;back.onclick=cancel.onclick=backToChat;closeButton.onclick=()=>{if(!busy)close();};
+  name.oninput=paint;back.onclick=cancel.onclick=backToChat;closeButton.onclick=()=>{if(!busy){close();onDismiss();}};
   card.onsubmit=async event=>{
     event.preventDefault();if(busy)return;paint();if(submit.disabled)return;
     busy=true;submit.disabled=true;submit.textContent='创建中…';name.disabled=model.disabled=cancel.disabled=back.disabled=closeButton.disabled=true;looks.inert=true;
@@ -52,7 +52,7 @@ export function createBotPage({host,getBots,models,create,onCreated,onOpen,onBac
     }catch(failure){if(token===revision){error.textContent=failure.message||String(failure);error.hidden=false;}}
     finally{busy=false;submit.textContent='创建';submit.disabled=false;name.disabled=model.disabled=cancel.disabled=back.disabled=closeButton.disabled=false;looks.inert=false;}
   };
-  const escape=event=>{if(!pane.hidden&&event.key==='Escape'&&!busy){event.preventDefault();event.stopPropagation();close();}};
+  const escape=event=>{if(!pane.hidden&&event.key==='Escape'&&!busy){event.preventDefault();event.stopPropagation();close();onDismiss();}};
   window.addEventListener('keydown',escape,true);
   return {show,close,isOpen:()=>!pane.hidden,dispose(){close();window.removeEventListener('keydown',escape,true);pane.remove();}};
 }

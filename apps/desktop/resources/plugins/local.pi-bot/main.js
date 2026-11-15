@@ -20,7 +20,7 @@ async function onLoad(){
     const loaded=new Team(pi,{identityReady:true});
     try{await loaded.load();return {team:loaded,microphone:new (process.platform==='win32'?WindowsMicrophone:Microphone)(pi,loaded.integrations)};}
     catch(error){await loaded.close({checkpoint:false}).catch(()=>{});throw error;}
-  },async active=>{await active.microphone.close();await active.team.close();});
+  },async active=>{try{await active.microphone.close();}finally{await active.team.close();}});
   await pi.commands.register({id:'local.pi-bot.open',title:'Anke Bot: Open team / 打开机器人团队',run:()=>{openRequested=true;}});
   await pi.services.register({id:'pi-bot-team-service',start:async()=>{},stop:async()=>activation?.close()});
   activation.begin();
@@ -34,6 +34,9 @@ async function onPanelInvoke(channel,input={}){
   const active=await activation.ready();team=active.team;microphone=active.microphone;
   if(team.storeConflict&&!['team.attention','team.bootstrap','team.state','team.models','team.workspaces','team.transcript','team.history.search','team.session.open'].includes(channel))throw Error('团队数据存在冲突，自动操作已暂停。请打开设置里的“待处理”核对双方副本。');
   switch(channel){
+    case 'team.learning.library': return require('./src/learning-library').operation(team,input);
+    case 'team.life': return require('./src/life-services').operation(team,input);
+    case 'team.wealth': return require('./src/wealth').panelWealth(team,input);
     case 'team.anke.desk': return require('./src/anke-desk').panelDesk(team,input);
     case 'team.microphone': return microphone.operation(input);
     case 'microphone.panel': return microphone.panel(input);
@@ -132,7 +135,7 @@ function onRendererCall(method,args={}){
   if(method==='mode.request'){const open=openRequested;openRequested=false;return {open};}
   if(method==='request.start'){
     if(args.channel==='team.bootstrap')return beginRequest(args);
-    if(!['team.updates','team.anke.desk','team.sidebar.sections','team.apps','team.template','team.fileWaits','team.startup','team.microphone','team.file.open','team.attachment.upload','team.plugins','team.github','team.bot.main','team.skill.import','team.extensions','team.browser','team.speech','team.mcp.login','team.secret.transfer','team.attachment.preview','team.mcp.save','team.mcp.delete','team.mcp.tools','team.secrets','team.secret.set','team.secret.get','team.secret.delete','team.secret.export','team.secret.import','team.recovery','team.attention','team.bot.preview','team.bot.permission','team.theme','team.backup','team.bot.patch','team.room.patch','team.bot.appearance','team.avatar.library','team.bootstrap','team.state','team.models','team.workspaces','team.appearance','team.bot.save','team.memory.view','team.memory.add','team.memory.forget','team.memory.ask','team.room.save','team.group.send','team.group.stop','team.group.continue','team.learning','team.office','team.btw.start','team.btw.action','team.secret.purpose','team.private.send','team.job.cancel','team.session.open','team.bot.delete','team.bot.duplicate','team.room.delete','team.history.search','team.transcript','team.pin','team.react','team.prefs','team.question.answer','team.view.answer','team.usage','team.connectors','team.schedules','team.schedule.save','team.schedule.toggle','team.schedule.delete','team.capabilities','team.capability.save','team.capability.delete','team.capability.attach'].includes(args.channel))throw new Error('Unknown Anke Bot operation.');
+if(!['team.life','team.updates','team.learning.library','team.wealth','team.anke.desk','team.sidebar.sections','team.apps','team.template','team.fileWaits','team.startup','team.microphone','team.file.open','team.attachment.upload','team.plugins','team.github','team.bot.main','team.skill.import','team.extensions','team.browser','team.speech','team.mcp.login','team.secret.transfer','team.attachment.preview','team.mcp.save','team.mcp.delete','team.mcp.tools','team.secrets','team.secret.set','team.secret.get','team.secret.delete','team.secret.export','team.secret.import','team.recovery','team.attention','team.bot.preview','team.bot.permission','team.theme','team.backup','team.bot.patch','team.room.patch','team.bot.appearance','team.avatar.library','team.bootstrap','team.state','team.models','team.workspaces','team.appearance','team.bot.save','team.memory.view','team.memory.add','team.memory.forget','team.memory.ask','team.room.save','team.group.send','team.group.stop','team.group.continue','team.learning','team.office','team.btw.start','team.btw.action','team.secret.purpose','team.private.send','team.job.cancel','team.session.open','team.bot.delete','team.bot.duplicate','team.room.delete','team.history.search','team.transcript','team.pin','team.react','team.prefs','team.question.answer','team.view.answer','team.usage','team.connectors','team.schedules','team.schedule.save','team.schedule.toggle','team.schedule.delete','team.capabilities','team.capability.save','team.capability.delete','team.capability.attach'].includes(args.channel))throw new Error('Unknown Anke Bot operation.');
     return beginRequest(args);
   }
   if(method==='request.read'){
@@ -150,7 +153,10 @@ function beginRequest(args){
   for(const [id,item] of requests)if(Date.now()-item.at>120000)requests.delete(id);
   if(requests.size>=100)throw new Error('Too many pending requests.');
   const id=randomUUID(),item={at:Date.now(),pending:true};requests.set(id,item);
-  Promise.resolve().then(()=>onPanelInvoke(args.channel,args.payload)).then(value=>{item.json=JSON.stringify(value??null);item.pending=false;},error=>{item.error=error.message;item.pending=false;});
+  // Give the host its request receipt before computing a potentially large
+  // snapshot. A microtask can run before the bridge serializes that receipt
+  // and consume the renderer's two-second acknowledgement budget.
+  setImmediate(()=>Promise.resolve().then(()=>onPanelInvoke(args.channel,args.payload)).then(value=>{item.json=JSON.stringify(value??null);item.pending=false;},error=>{item.error=error.message;item.pending=false;}));
   return {id};
 }
 module.exports={onLoad,onUnload,onPanelInvoke,onRendererCall};

@@ -1,5 +1,6 @@
 import { memo, useContext, useLayoutEffect, useRef, useState } from "react";
 import { Markdown } from "../../../components/Markdown";
+import { ankeAnswerText } from "../../../lib/anke-answer-text";
 import { observeTranscriptContent } from "../../../lib/transcript-content-observer";
 import { hasStatefulTranscriptContent, shouldMountTranscriptContent } from "../../../lib/transcript-content-window";
 import { ScopeContext } from "./disclosure-scope";
@@ -54,6 +55,6 @@ export const TranscriptProse = memo(function TranscriptProse({ source, streaming
     data-transcript-content={mounted ? "mounted" : "placeholder"}
     style={mounted ? undefined : { height: window.height }}
   >
-    {mounted ? <Markdown source={source} streaming={streaming} /> : null}
+    {mounted ? <Markdown source={ankeAnswerText(source)} streaming={streaming} /> : null}
   </div>;
 });

@@ -360,7 +360,7 @@ function persistAgentEvent(envelope: AgentEventEnvelope): UiMessage | undefined 
       completionNoticeTurns.delete(messageTurnId);
     if (
       empty && !carriesTool && !event.message.error && !reservedForSteering &&
-      !isCompletionNoticeReply && !event.message.providerReplay
+      !isCompletionNoticeReply && !event.message.providerReplay && event.message.status !== "aborted"
     ) {
       return;
     }

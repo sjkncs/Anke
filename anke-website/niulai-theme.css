@@ -1,0 +1,40 @@
+/* Video-derived ANKE palette. Semantic map/mask colors retain their meaning. */
+:root,html:root[data-palette],body.warm,body.monitor{color-scheme:light;--bg:#f4f4f5;--panel:#fff;--surface:#fff;--fg:#18181b;--ink:#18181b;--muted:#71717a;--line:#e4e4e7;--accent:#dc2626;--green:#dc2626;--blue:#18181b;--blue-soft:#ededf0;--bt-card:#fff;--bt-ink:#18181b;--bt-ink-2:#71717a;--bt-hover:#f4f4f5;--bt-line:#e4e4e7;accent-color:#dc2626}
+html body,body.research-body{color:#18181b!important;background-color:#f4f4f5!important;background-image:radial-gradient(ellipse at 4% 0%,#dc262605,transparent 40%),radial-gradient(ellipse at 90% 75%,#18181b04,transparent 45%)!important}
+body:before{background:radial-gradient(ellipse at 25% 20%,#71717a0a,transparent 35%),radial-gradient(ellipse at 80% 65%,#a1a1aa0a,transparent 35%)!important}
+body header,body .site-header,body .topbar{background:#ffffffef!important;border-color:#e4e4e7!important;color:#18181b!important}
+body header strong,body .wordmark,body .logo,body footer .wordmark{color:#18181b!important}
+body article,body .metric,body .research-panel,body .research-metrics article,body .rv-panel,body .rv-detail,body .panel,body .capability-card,body .demo,body .profile-form,body .scenario-grid,body .order-stage,body #residentialResult,body dialog{background:#fff!important;border-color:#e4e4e7!important;color:#18181b!important;box-shadow:0 5px 22px #18181b04}
+body .eyebrow,body .lead,body .intro,body .quiet,body small,body .data-stamp,body .rv-stamp,body .rv-readout,body .legend,body .chart-readout,body .field-unit,body .research-panel p,body .empty-state,body .card-body p,body .console-title span,body .console aside strong,body .mini-panels small{color:#71717a!important}
+body h1 span,body h2 span,body .card-category,body .capability-card .card-category,body .chapter-strip>a,body .scene-grid small{color:#dc2626!important}
+body button,body input,body textarea,body select,body .file-button,body .pill,body .outline{color:#18181b;border-color:#e4e4e7;background-color:#fff}
+body button:hover,body button.active,body .tabs button[aria-pressed=true],body .category-tabs button[aria-pressed=true],body .workflow-selector button[aria-pressed=true],body .research-body nav button[aria-pressed=true],body nav button[aria-pressed=true]{background:#ededf0!important;color:#18181b!important;border-color:#d4d4d8!important}
+body #housingModes button[aria-pressed=true],body #refresh,body .agent-button,body .order-stage.current{background:#18181b!important;color:#fff!important;border-color:#18181b!important}
+body .primary,body .actions>.button:not(.secondary),body .closing .button.primary{background:#dc2626!important;color:#fff!important;border-color:#dc2626!important;box-shadow:0 5px 15px #dc262612}
+body .primary:hover,body .actions>.button:not(.secondary):hover{background:#b91c1c!important}
+body .secondary,body .dialog-header button,body .dialog-note,body .tag-list span,body .source-badge,body .profile-summary span,body .preview-body aside,body .preview-bottom,body .preview-footer,body .window-bar,body .hero-topics,body .console header,body .console .selected,body .filterbar{background:#fafafa!important;border-color:#e4e4e7!important;color:#52525b!important}
+body a:focus-visible,body button:focus-visible,body input:focus-visible,body select:focus-visible,body textarea:focus-visible,body summary:focus-visible,body .rv-chart:focus-visible{outline:2px solid #dc2626!important;outline-offset:3px}
+body ::selection{background:#fecaca;color:#18181b}
+body th{background:#fafafa!important;color:#71717a!important}body td,body th{border-color:#ededf0!important}body tbody tr:hover{background:#fafafa}
+body .bar-track,body .distribution-track,body .topic-track{background:#ededf0!important}body .bar-fill,body .distribution-track>i:not([style*="background"]),body .topic-fill{background:#a1a1aa!important}
+body .rv-single,body .review-quote,body #image-stage,body .card-visual,body .hero-visual,body #dialog-visual,body .map-art,body .map-empty,body .map-stage,body #spatial{background:#f4f4f5!important;border-color:#e4e4e7!important}
+body .workspace-preview,body .console{border-color:#e4e4e7!important;background:#fff!important;box-shadow:0 18px 60px #18181b09}
+body .research-chart text,body .rv-chart text{fill:#71717a!important}
+body .research-chart .ink-line,body .research-chart polyline,body .rv-chart polyline{stroke:#dc2626!important}
+body .research-chart polygon{fill:#dc2626!important;opacity:.09!important}
+body .research-chart circle{fill:#dc2626!important}body #review-map circle{fill:#71717a!important}
+body .research-chart rect{fill:#c4c4cc!important}
+body #rentVisuals .rv-tiles button[data-direction=unknown]{background:#ededf0!important;color:#71717a!important}
+body [data-direction=up] .rv-direction-arrow{color:#dc2626}body [data-direction=down] .rv-direction-arrow{color:#10b981}
+body .rv-districts button:disabled{background:#fafafa!important;color:#71717a!important;border-color:#d4d4d8!important}
+body .event-source[data-status=failed]{background:#fff7ed!important;border-color:#fed7aa!important;color:#9a3412!important}
+body .research-title{border-bottom:1px solid #e4e4e7;margin-bottom:10px}body .research-title h1{font-weight:750;letter-spacing:-.04em}body .research-body nav button[aria-pressed=true]{background:#18181b!important;color:#fff!important}
+body .research-metrics{gap:0;border:1px solid #e4e4e7;border-radius:12px;overflow:hidden;background:white}body .research-metrics article{border:0;border-right:1px solid #e4e4e7;border-radius:0;box-shadow:none}body .research-metrics article:last-child{border-right:0}
+body .console .map-art svg{filter:grayscale(1)}body .status-dot{background:#dc2626!important}
+body dialog::backdrop{background:#18181b66;backdrop-filter:blur(3px)}
+body .card-visual svg,body .hero-visual svg,body #dialog-visual svg,body .still-life{filter:grayscale(1)}
+body .preview-body aside b,body .conversation,.conversation #workflow-question,body .conversation-head,body .card-tags span,body .principle-grid p,body .workflow-selector span,body .capability-card>a,body .card-link{color:#71717a!important;border-color:#e4e4e7!important}
+body .preview-body aside b,body #workflow-question,body .conversation-head b,body .card-tags span{background:#f4f4f5!important;color:#52525b!important}
+body .conversation-head span,body .conversation ol,body .conversation small,body .principle-grid p{color:#71717a!important}
+body .research-body nav button[aria-pressed=true],body.research-body nav button[aria-pressed=true]{background:#18181b!important;color:#fff!important}
+body .research-body select,body.research-body select,body.research-body input{border-color:#e4e4e7!important}

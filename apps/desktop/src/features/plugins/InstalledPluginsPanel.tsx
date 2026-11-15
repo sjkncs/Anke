@@ -136,7 +136,7 @@ export function InstalledPluginsPanel({
                           </div>
                           <div className="plugins-row-copy">
                             <div className="plugins-row-meta">
-                              <span className="plugins-row-id">{plugin.id}</span>
+                              {!plugin.bundled && <span className="plugins-row-id">{plugin.id}</span>}
                               <span className="plugins-dot" aria-hidden>
                                 ·
                               </span>

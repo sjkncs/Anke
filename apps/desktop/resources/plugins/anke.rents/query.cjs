@@ -8,6 +8,7 @@ function median(values) {
   return sorted.length%2 ? sorted[mid] : (sorted[mid-1]+sorted[mid])/2;
 }
 function query(input = {}, snapshot) {
+  if(input?.dataset==='history_sales'||input?.dataset==='reference_202608')return require('./history.cjs').history(input);
   if (!input || typeof input !== 'object' || Array.isArray(input)) throw Error('Invalid filters');
   const allowed = ['dataset','district','recordType','lease','query'];
   if(Object.keys(input).some(k=>!allowed.includes(k)))throw Error('Unknown filter');
@@ -18,7 +19,8 @@ function query(input = {}, snapshot) {
   if(input.query !== undefined && (typeof input.query!=='string'||input.query.length>200))throw Error('Invalid search');
   const data = snapshot || JSON.parse(fs.readFileSync(path.join(__dirname,'data/records.json'),'utf8'));
   const dataset = input.dataset || 'imported';
-  const rows = data.records.filter(r=>r.dataset===dataset && (!input.district||r.district===input.district)
+  const enriched=require('./geography.cjs').enrich(data.records);
+  const rows = enriched.filter(r=>r.dataset===dataset && (!input.district||r.district===input.district)
     && (!input.recordType||r.record_type===input.recordType) && (!input.lease||r.lease===input.lease)
     && (!input.query||`${r.project} ${r.address}`.includes(input.query)));
   const summarize = group => [...new Set(rows.map(r=>r[group]))].sort().map(name=>{
@@ -30,12 +32,14 @@ function query(input = {}, snapshot) {
     return {name,count:selected.length,unitRentMedian:median(selected.map(unitRent))};
   });
   const homogeneous = strata.length<=1;
+  const visual=require('./visual-data.cjs').visualData(rows,homogeneous);
   return {city:'深圳',dataset,label:dataset==='demo'?'演示数据':'导入数据',updatedAt:data.updatedAt,
     count:rows.length,projectCount:new Set(rows.map(r=>r.project)).size,coveredDistricts:new Set(rows.filter(r=>districts.includes(r.district)).map(r=>r.district)).size,
     dateStart:rows.length?rows.map(r=>r.date).sort()[0]:null,dateEnd:rows.length?rows.map(r=>r.date).sort().at(-1):null,
     unit:'元/平方米/月',unitRentMedian:homogeneous?median(rows.map(unitRent)):null,
-    strata,districts:homogeneous?summarize('district'):[],projects:homogeneous?summarize('project'):[],
-    rows:rows.slice(0,500),rowsTruncated:rows.length>500};
+    sources:summarize('source'),strata,districts:homogeneous?summarize('district'):[],projects:homogeneous?summarize('project'):[],
+    fieldCoverage:{records:rows.length,address:rows.filter(r=>r.address).length,street:rows.filter(r=>r.street).length,district:rows.filter(r=>districts.includes(r.district)).length,layout:rows.filter(r=>r.layout).length,coordinates:rows.filter(r=>r.location).length},
+    geographicStats:require('./geographic-stats.cjs').geographicStats(rows),visual,rows:rows.slice(0,500),rowsTruncated:rows.length>500};
 }
 function unitRent(row){return Number.isFinite(row.rent)&&row.rent>0&&Number.isFinite(row.area)&&row.area>0?row.rent/row.area:null;}
 module.exports = {query,median,districts};

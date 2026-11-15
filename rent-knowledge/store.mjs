@@ -4,6 +4,7 @@ import path from 'node:path';
 import {PGlite} from '@electric-sql/pglite';
 import {vector} from '@electric-sql/pglite-pgvector';
 import pg from 'pg';
+import {listingFields} from './listing-fields.mjs';
 
 export const root = path.dirname(fileURLToPath(import.meta.url));
 export const districts = ['南山','福田','罗湖','盐田','宝安','龙华','龙岗','坪山','光明','大鹏新区'];
@@ -142,8 +143,7 @@ export async function exportSnapshot(db, destination) {
     listingId:r.listing_id,project:r.community||'未知小区',district:r.district||'',
     area:r.area_sqm===null?null:Number(r.area_sqm),rent:r.rent_monthly===null?null:Number(r.rent_monthly),
     date:r.observed_on instanceof Date?r.observed_on.toISOString().slice(0,10):String(r.observed_on).slice(0,10),record_type:r.record_type,lease:r.lease,
-    fee:null,fee_mode:'未知',address:r.raw?.['详细地址']||'',source:r.platform,url:r.source_url,
-    lon:null,lat:null}));
+    ...listingFields(r.raw),source:r.platform,url:r.source_url}));
   await writeFile(detailFile+'.tmp',JSON.stringify({city:'深圳',updatedAt:snapshot.generatedAt,
     source:'rental PostgreSQL observations',records:[...demo,...records]}),'utf8');
   await rename(detailFile+'.tmp',detailFile);

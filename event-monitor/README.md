@@ -1,5 +1,13 @@
 # 深圳租金动态监测
 
+## Tencent News connection
+
+The collector also searches Tencent News for `深圳 住房 租金`, bounded to five results per cycle. Media articles retain publisher, publication time, article URL, and the provider abstract. They are labeled separately from government notices. Abstracts are not model-generated summaries or measured rent observations. Failures retain the previous articles and record a source error. This is a bounded search, not full historical coverage.
+
+Credentials are read from `TENCENT_NEWS_API_KEY` or the Windows user-scoped DPAPI vault `%LOCALAPPDATA%/AnkeAgent/secrets/tencent-news.dpapi`. Never put plaintext keys in project files, snapshots, or logs. The existing service reads the vault on each collection cycle. The gray-white news cards expand to show source excerpts and the original article; expanded cards remain open across refreshes. Original article navigation permits only HTTPS Shenzhen government subdomains and the exact Tencent article hosts `view.inews.qq.com`, `news.qq.com`, and `new.qq.com`.
+
+Verification: `python -m unittest test_monitor test_tencent_news -v`, plus the plugin event tests and a browser interaction check. A successful API request does not establish rental-data API access, prediction accuracy, or native desktop acceptance.
+
 从登记的深圳官方来源每 10 分钟读取一次公告，筛选交通施工、临时交通管制、城市更新、住房供给、公共服务、环境市政、就业产业、重大活动、住房政策和极端天气。当前已接入市政府通知公告、政务动态和交警交通管制三个栏目。每轮读取首页最多 8 篇相关公告并复查三个指定案例；不代表全网或完整历史覆盖。
 
 原始页面保留在 `data/articles`，事件及版本保存在独立 `data/events.sqlite3`。原租金库保持不变。两端读取同一 JSON 快照。采集失败在来源状态和 `last_run.json` 留痕；一次执行只要有失败就返回非零退出码。服务端口固定为本机 18743，只提供只读健康和事件接口。启动 Anke 或原租金导航仓时启动服务，不重复启动；没有注册开机任务。

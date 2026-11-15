@@ -1,0 +1,43 @@
+.rv-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px}.rv-toolbar h2,.rv-toolbar h3{margin:0 auto 0 0}.rv-stamp,.rv-readout{font-size:12px;color:#748078;font-variant-numeric:tabular-nums}.rv-districts{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.rv-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:8px;margin:18px 0;max-height:420px;overflow:auto}.rv-tiles button{display:grid;gap:9px;text-align:left;background:#eef1ee;padding:16px;font-size:13px}.rv-tiles button:hover{background:#dce4de}.rv-tiles button span{font-variant-numeric:tabular-nums}.rv-tiles button span:nth-child(2){color:#79837d;font-size:12px}.rv-panel,.rv-detail{background:#fff;border:1px solid #e2e5e2;border-radius:12px;padding:20px;margin:16px 0}.rv-chart{display:block;width:100%;max-height:350px;touch-action:none;cursor:crosshair}.rv-chart:focus-visible{outline:2px solid #7e9186}.rv-toolbar button[aria-pressed=true]{background:#dce3dd}.rv-detail{scroll-margin-top:12px}.rv-detail[hidden]{display:none}.rv-detail table{width:100%}.rv-tiles button:focus-visible{outline:2px solid #7e9186}
+/* Compact rent heatmap: name and change only; full context stays in the tooltip. */
+.rv-direction-arrow{font-weight:700;color:#777}
+[data-direction=up] .rv-direction-arrow{color:#b84440}
+[data-direction=down] .rv-direction-arrow{color:#277957}
+#rentVisuals .rv-tiles{grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:6px;max-height:520px;padding:2px;align-content:start}
+#rentVisuals .rv-tiles button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:0;height:78px;padding:10px 8px;border:0;border-radius:11px;background:var(--tile-fill,#f0f2f1);color:#34434a;text-align:center;box-shadow:none}
+#rentVisuals .rv-tiles button strong{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:400;line-height:20px}
+#rentVisuals .rv-tiles button .rv-change{font-size:14px;line-height:20px;font-weight:500;font-variant-numeric:tabular-nums;color:inherit}
+#rentVisuals .rv-tiles button[data-direction=unknown]{background:#f1f2f2;color:#7b8286}
+#rentVisuals .rv-tiles button:hover{filter:brightness(.96)}
+#rentVisuals .rv-tiles button:focus-visible{outline:2px solid #737f87;outline-offset:1px}
+@media(max-width:600px){#rentVisuals .rv-tiles{grid-template-columns:repeat(auto-fill,minmax(105px,1fr))}}
+/* Match the desktop's neutral controls without changing browser zoom. */
+:root{--control-height:34px;--control-radius:9px;accent-color:#454545}
+body{font-size:14px;line-height:1.5}
+button,input,select,textarea{font:inherit}
+button,input:not([type=range]),select{min-height:var(--control-height);padding:6px 12px;border-radius:var(--control-radius)}
+button{transition:background .12s ease}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible,.rv-chart:focus-visible{outline:2px solid #737373;outline-offset:3px}
+select{appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-position:right 10px center;background-repeat:no-repeat;max-width:100%;cursor:pointer}
+select option{background:#fff;color:#242424}
+input[type=range]{appearance:none;-webkit-appearance:none;width:150px;height:20px;min-height:20px;padding:0;border:0;border-radius:0;background:transparent;cursor:pointer;vertical-align:middle}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:#dedede;border-radius:99px}
+input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:14px;height:14px;margin-top:-5px;background:#454545;border:2px solid white;border-radius:50%;box-shadow:0 0 0 1px #bdbdbd}
+input[type=range]::-moz-range-track{height:4px;background:#dedede;border-radius:99px}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;background:#454545;border:2px solid white;border-radius:50%}
+input[type=range]:disabled{opacity:.4;cursor:default}
+header{gap:16px;padding-inline:22px}header button{margin-left:0}header button:first-of-type{margin-left:auto}
+nav{padding-inline:22px;gap:4px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin}nav button{flex-shrink:0;white-space:nowrap}
+.filters{padding-inline:22px;flex-wrap:wrap}.filters input{min-width:180px}main{padding-inline:22px;min-width:0}
+.page,.housing-layout>*{min-width:0}.table-wrap{max-width:100%;scrollbar-width:thin;scrollbar-color:#bdbdbd transparent}
+th,td{padding:10px 12px;font-size:13px}
+.rv-panel,.rv-detail{border-color:var(--line);padding:18px;border-radius:12px}.rv-chart{height:270px;max-height:270px}
+.rv-tiles button{background:#f7f7f7;padding:12px;gap:6px}.rv-tiles button:hover,.rv-toolbar button[aria-pressed=true]{background:#eaeaea}
+.rv-stamp,.rv-readout{color:#666}.rv-toolbar{gap:8px}.rv-toolbar label{display:flex;gap:8px;align-items:center;font-size:13px}.rv-toolbar output{min-width:35px;font-variant-numeric:tabular-nums}
+.rv-single{padding:20px;background:#f7f7f7;border-radius:10px;display:grid;gap:4px}.rv-single strong{font-size:24px;font-weight:500}.rv-single span{color:#666;font-size:13px}
+.event-filters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.event-sources{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.event-source{padding:6px 10px;border:1px solid var(--line);border-radius:8px;font-size:12px;background:white}.event-source[data-status=failed]{border-color:#bc8c72}
+#eventTable table{table-layout:fixed}#eventTable th:first-child{width:38%}#eventTable th:last-child{width:18%}#eventTable th,#eventTable td{white-space:normal;overflow-wrap:anywhere;vertical-align:top}
+#eventTable a{display:block;text-decoration:underline;text-underline-offset:3px}#eventTable small{display:block;color:var(--muted);margin-top:4px}
+@media(max-width:750px){header,nav,.filters,main{padding-inline:14px}.rv-chart{height:220px}#eventTable table{min-width:700px}}
+#ledgerTable td{white-space:normal;min-width:110px;max-width:260px;overflow-wrap:anywhere}#ledgerTable small{display:block;color:var(--muted);margin-top:4px}#ledgerTable table{min-width:1400px}.event-filters input{min-width:200px}

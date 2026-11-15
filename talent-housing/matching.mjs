@@ -1,9 +1,12 @@
 import {recommend, date, validateUnit} from './core.mjs';
+import {validateResidentRating,residentRating} from './resident-ratings.mjs';
+import {decisionContext} from './deliberation.mjs';
 
 const factors=['education','medical','care','stability','environment'];
 const finite=(n,min,max)=>typeof n==='number'&&Number.isFinite(n)&&n>=min&&n<=max;
 export function validateSupply(u){
   validateUnit(u);
+  validateResidentRating(u.residentRating);
   if(u.supply!==undefined){
     if(!u.supply||!['government','university'].includes(u.supply.provider)||typeof u.supply.reference!=='string'||!u.supply.reference.trim()||u.supply.reference.length>500)throw Error('Invalid government or university source');
     date(u.supply.verifiedOn);
@@ -35,15 +38,22 @@ export function validateProfile(a){
   if((p.longTermShare??0)>0&&Object.values(p.longTermWeights??{}).reduce((a,b)=>a+b,0)===0)throw Error('Long-term preferences required');
   return a;
 }
-export function searchHomes(a,units,{query='',sort='balanced',asOf=new Date().toISOString().slice(0,10)}={}){
+export function searchHomes(a,units,{query='',sort='balanced',provider='all',minRating=0,minReviewCount=1,asOf=new Date().toISOString().slice(0,10)}={}){
   validateProfile(a);units.forEach(validateSupply);date(asOf);
-  if(typeof query!=='string'||query.length>200||!['balanced','shortTerm','longTerm'].includes(sort))throw Error('Invalid search');
+  if(typeof query!=='string'||query.length>200||!['balanced','shortTerm','longTerm','residentRating'].includes(sort)||!['all','government','university'].includes(provider)||!finite(minRating,0,5)||!Number.isInteger(minReviewCount)||minReviewCount<1||minReviewCount>1000000)throw Error('Invalid search');
   const tokens=query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
-  const pool=units.filter(u=>u.supply&&u.supply.verifiedOn<=asOf&&tokens.every(t=>`${u.id} ${u.project} ${u.type} ${u.supply.reference}`.toLocaleLowerCase().includes(t)));
+  const pool=units.filter(u=>{
+    const rating=residentRating(u,asOf);
+    return u.supply&&u.supply.verifiedOn<=asOf&&(provider==='all'||u.supply.provider===provider)&&
+      (!(minRating>0||minReviewCount>1)||(rating&&rating.score>=minRating&&rating.count>=minReviewCount))&&
+      tokens.every(t=>`${u.id} ${u.project} ${u.type} ${u.supply.reference}`.toLocaleLowerCase().includes(t));
+  });
   const base=recommend(a,pool),profile=a.profile??{},share=profile.longTermShare??0;
   const weights=profile.longTermWeights??{},weight=Object.values(weights).reduce((n,v)=>n+v,0);
   const results=base.results.map(row=>{
     const u=pool.find(u=>u.id===row.unitId),blocked=[...row.blocked],unknown=[...row.unknown],evidence=[],future=[];
+    if(a.eligibility==='pending')unknown.push('eligibility');
+    if(a.eligibility==='ineligible')blocked.push('eligibility');
     if(profile.needsFurnished){if(u.furnished==null)unknown.push('furnishing');else if(!u.furnished)blocked.push('furnishing_required');}
     if(profile.maxSetupCost!==undefined){if(u.setupCost==null)unknown.push('setup_cost');else if(u.setupCost>profile.maxSetupCost)blocked.push('setup_budget');}
     let sum=0,complete=weight>0;
@@ -57,10 +67,11 @@ export function searchHomes(a,units,{query='',sort='balanced',asOf=new Date().to
     if(share>0&&longTerm===null)unknown.push('long_term_evidence');
     const state=blocked.length?'excluded':unknown.length?'needs_verification':'matched';
     const score=state==='matched'?Math.round((row.score*(1-share)+(longTerm??0)*share)*100)/100:null;
-    return {...row,state,blocked,unknown,score,shortTerm:row.score,longTerm,evidence,future,setupCost:u.setupCost??null,furnished:u.furnished??null,supply:u.supply,location:u.location??null};
+    return {...row,state,blocked,unknown,score,shortTerm:row.score,longTerm,residentRating:residentRating(u,asOf),evidence,future,setupCost:u.setupCost??null,furnished:u.furnished??null,supply:u.supply,location:u.location??null};
   });
   const key=sort==='balanced'?'score':sort;
   const rank={matched:0,needs_verification:1,excluded:2};
-  results.sort((x,y)=>rank[x.state]-rank[y.state]||(y[key]??-1)-(x[key]??-1)||x.unitId.localeCompare(y.unitId));
-  return {...base,version:'talent-housing-search-v2',scope:'government_and_university',asOf,sort,results};
+  const value=row=>key==='residentRating'?row.residentRating?.score:row[key];
+  results.sort((x,y)=>rank[x.state]-rank[y.state]||(value(y)??-1)-(value(x)??-1)||(key==='residentRating'?(y.residentRating?.count??0)-(x.residentRating?.count??0):0)||x.unitId.localeCompare(y.unitId));
+  return {...base,version:'talent-housing-search-v3',scope:'government_and_university',asOf,sort,provider,minRating,minReviewCount,results,decisionContext:decisionContext(a,pool,results)};
 }

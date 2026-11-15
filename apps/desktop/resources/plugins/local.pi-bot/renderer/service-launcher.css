@@ -1,0 +1,25 @@
+.anke-service-heading{display:flex;align-items:center;gap:4px;margin:10px 4px 8px;color:var(--text-secondary,#666);font-size:12px}
+.anke-service-heading>span{margin-right:auto}
+.anke-service-hand{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:0;border-radius:8px;background:transparent;color:inherit;cursor:pointer;padding:0}
+.anke-service-hand:hover,.anke-service-hand[aria-pressed=true]{background:var(--surface-hover,#e9e9e9)}
+.anke-service-region{border-top:1px solid var(--border,#e5e5e5);padding-top:8px;margin-top:8px}
+.anke-service-region h3{font-size:12px;font-weight:500;margin:0 4px 7px;color:var(--text-secondary,#666)}
+.anke-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-bottom:8px}
+.anke-service-tile{min-width:0;border-radius:10px}
+.anke-service-entry{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;padding:7px 1px;border:0;border-radius:10px;background:transparent;color:inherit;font:inherit;font-size:11px;cursor:pointer}
+.anke-service-entry:hover{background:var(--surface-hover,#eee)}
+.anke-service-entry>span{max-width:100%;overflow-wrap:anywhere}
+.anke-service-tools{display:none;align-items:center;justify-content:center;gap:2px}
+.is-managing .anke-service-tools{display:flex}
+.anke-service-config{border:0;border-radius:6px;background:transparent;color:inherit;font:inherit;font-size:11px;cursor:pointer;padding:4px}
+.anke-service-custom-art{height:40px;width:40px;display:grid;place-items:center;font-size:30px;color:var(--text-secondary,#666)}
+.anke-service-picker{width:340px;max-width:calc(100vw - 40px);padding:22px;border:1px solid var(--border,#ddd);border-radius:16px;background:var(--bg,#fafafa);color:inherit;font:inherit}
+.anke-service-picker::backdrop{background:#0003}
+.anke-service-picker form{display:grid;gap:12px}.anke-service-picker h2{font-size:17px;margin:0 0 6px}.anke-service-picker label{font-size:13px}
+.anke-service-picker select{font:inherit;padding:9px;border:1px solid var(--border,#ddd);border-radius:8px;background:var(--bg,#fff);color:inherit;max-width:100%}
+.anke-service-picker-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+.anke-learning-library select.bt-select{height:34px;padding:0 8px;line-height:normal;max-width:180px}
+.pi-bot-app[data-sidebar-collapsed] .anke-service-grid{grid-template-columns:minmax(0,1fr);gap:4px}
+.pi-bot-app[data-sidebar-collapsed] .anke-service-launcher :is(.anke-service-heading,.anke-service-region h3,.anke-service-entry>span,.anke-service-tools){display:none}
+.pi-bot-app[data-sidebar-collapsed] .anke-service-region{padding-top:4px;margin-top:4px}
+.pi-bot-app[data-sidebar-collapsed] .anke-service-entry{min-height:48px;padding:4px 0;justify-content:center}

@@ -123,7 +123,7 @@ export function ServiceRow({
         onOpen();
       }}
     >
-      <ServiceMonogram name={title.name} />
+      <ServiceMonogram name={provider.name} endpoint={provider.baseUrl} />
       <div className="model-provider-row-copy">
         <div className="model-provider-row-title">
           <span className="model-provider-row-name">{title.name}</span>

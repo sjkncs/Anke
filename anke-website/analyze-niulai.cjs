@@ -1,0 +1,11 @@
+// Decode every frame for reproducible palette and transition evidence.
+const {spawnSync,spawn}=require('node:child_process');
+const fs=require('node:fs'),path=require('node:path');
+const input='C:/Users/Lenovo/Desktop/牛来动态演示.mp4';
+const out=path.join(__dirname,'previews');
+const probe=JSON.parse(spawnSync('ffprobe',['-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=nb_read_frames,width,height,r_frame_rate,duration','-of','json',input],{encoding:'utf8'}).stdout).streams[0];
+const proc=spawn('ffmpeg',['-hide_banner','-loglevel','error','-i',input,'-vf','scale=160:86','-f','rawvideo','-pix_fmt','rgb24','pipe:1']);
+const size=160*86*3,frames=[],histogram=new Map();let pending=Buffer.alloc(0),previous=null;
+proc.stdout.on('data',chunk=>{pending=Buffer.concat([pending,chunk]);while(pending.length>=size){const f=pending.subarray(0,size);let delta=0,light=0,dark=0,red=0,green=0;for(let i=0;i<size;i+=3){const r=f[i],g=f[i+1],b=f[i+2];if(previous)delta+=(Math.abs(r-previous[i])+Math.abs(g-previous[i+1])+Math.abs(b-previous[i+2]))/3;if(Math.min(r,g,b)>220)light++;if(Math.max(r,g,b)<60)dark++;if(r>g*1.35&&r>b*1.3&&r>100)red++;if(g>r*1.2&&g>b*1.05&&g>70)green++;const key=[r,g,b].map(x=>Math.round(x/8)*8).join(',');histogram.set(key,(histogram.get(key)||0)+1);}frames.push({frame:frames.length,time:frames.length/30,meanChange:delta/(size/3),light:light/(size/3),dark:dark/(size/3),red:red/(size/3),green:green/(size/3)});previous=Buffer.from(f);pending=pending.subarray(size);}});
+proc.stderr.on('data',d=>process.stderr.write(d));
+proc.on('close',code=>{if(code||pending.length||frames.length!==Number(probe.nb_read_frames))throw Error('Incomplete frame decoding');const result={input,probe,decodedFrames:frames.length,analysisResolution:[160,86],method:'All frames decoded; coarse RGB coverage and adjacent-frame change. Visual identification uses second-by-second contact sheets and full-resolution state frames. No OCR completeness claim.',dominantColors:[...histogram].sort((a,b)=>b[1]-a[1]).slice(0,32),frames};fs.writeFileSync(path.join(out,'niulai-frame-analysis.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({decodedFrames:frames.length,probe,largestChanges:frames.filter(x=>x.frame>0).sort((a,b)=>b.meanChange-a.meanChange).slice(0,12)}));});

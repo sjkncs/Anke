@@ -1,0 +1,9 @@
+{
+  "schemaVersion":1,"id":"anke.monitor","name":"Anke 监测","version":"0.5.0",
+  "description":"Anke market visualization and Shenzhen housing monitor.","author":"Anke",
+  "main":"main.cjs","activationEvents":["onStartup"],
+  "ui":{"panel":"renderer/index.html","title":"Anke 监测","width":1440,"height":900},
+  "contributes":{"commands":[{"id":"anke.monitor.open","title":"Anke 监测 · 财富与住房"}]},
+  "renderer":"renderer/entry.mjs","rendererActions":["plugin.call"],"rendererCallMethods":["monitor.open"],
+  "permissions":["ui.panel","renderer.extension"],"engines":{"piDesktop":">=0.21.0"}
+}
