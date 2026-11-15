@@ -1,4 +1,8 @@
-# ANKE · 安客
+<p align="center">
+  <img src="docs/images/anke-logo.png" alt="ANKE 安客标识" width="112" height="112">
+</p>
+
+<h1 align="center">ANKE · 安客</h1>
 
 简体中文 | [English](README.md)
 

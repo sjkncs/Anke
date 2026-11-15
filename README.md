@@ -1,4 +1,8 @@
-# ANKE
+<p align="center">
+  <img src="docs/images/anke-logo.png" alt="ANKE logo" width="112" height="112">
+</p>
+
+<h1 align="center">ANKE</h1>
 
 [简体中文](README.zh-CN.md) | English
 
